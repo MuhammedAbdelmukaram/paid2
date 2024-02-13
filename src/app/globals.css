@@ -40,6 +40,20 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+@font-face {
+  font-family: 'Sansation';
+  src: url('/font/Sansation/Sansation-Light.ttf') format('truetype');
+  font-weight: 300; /* Light */
+}
+
+@font-face {
+  font-family: 'Sansation';
+  src: url('/font/Sansation/Sansation-Regular.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+}
+
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

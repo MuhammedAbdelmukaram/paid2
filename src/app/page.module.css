@@ -1,11 +1,24 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
+  background-color: #141414;
 }
+
+.backgroundImage {
+  position: fixed;
+  top: 280px;
+  z-index: 0;
+  left: 410px;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Ensures the image stays behind other content */
+  background-image: url('/Light3.png'); /* Adjust path as needed */
+  background-size: cover; /* Cover the whole page */
+  background-position: center; /* Center the background image */
+}
+
 
 .description {
   display: inherit;
@@ -70,7 +83,7 @@
   font-size: 0.9rem;
   line-height: 1.5;
   max-width: 30ch;
-  text-wrap: balance;
+
 }
 
 .center {
@@ -228,3 +241,37 @@
     transform: rotate(0deg);
   }
 }
+
+
+@keyframes rotateImage {
+  0%, 25% { /* Start and hold the initial position for the pause duration */
+    transform: rotate(0deg);
+  }
+  30% { /* End of first rotation */
+    transform: rotate(120deg);
+  }
+  30.1%, 55% { /* Hold position for the pause */
+    transform: rotate(120deg);
+  }
+  60% { /* End of second rotation */
+    transform: rotate(240deg);
+  }
+  60.1%, 85% { /* Hold position for the pause */
+    transform: rotate(240deg);
+  }
+  90% { /* End of third rotation */
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotatingImage {
+  display: inline-block;
+  animation: rotateImage 3.5s linear infinite;
+}
+
+
+
+
