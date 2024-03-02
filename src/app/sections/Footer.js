@@ -20,11 +20,11 @@ const Footer = () => {
     };
 
     return (
-        <div style={{width: "100%",  padding: "20px 10%",}}>
+        <div style={{width: "100%", backgroundColor:"#0d120e",  padding: "20px 10%",  borderTop:"1px solid #fff",}}>
 
 
             <div style={{
-                marginTop: 100,
+                marginTop: 50,
                 width: "100%",
 
                 display: "flex",
@@ -63,7 +63,7 @@ const Footer = () => {
 
                     <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
 
-                    <Image src={"/PaidGreen.png"} height={300} width={300}/>
+                    <Image src={"/PaidGreenCr.png"} height={300} width={300}/>
 
                     </div>
 
@@ -99,6 +99,10 @@ const Footer = () => {
 
                 </div>
             </div>
+            <div style={{width:"100%", display:"flex", justifyContent:"flex-end", marginTop:60}}>
+                <p style={{fontSize:12}}>&#xA9; 2024 All Rights Reserved, Paid Inc.</p>
+            </div>
+
 
 
         </div>

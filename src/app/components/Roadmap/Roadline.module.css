@@ -18,18 +18,30 @@
 .roadLine {
     height: 200px;
     width: 3px;
-    background-color: #2BEA2A;
+    background-color: #fff;
 }
 
 /* Add these styles to Roadline.module.css */
 .connectingLine {
     width: 130px; /* Width of the connecting line */
-    background-color: #2BEA2A; /* Color of the connecting line */
+    background-color: #fff; /* Color of the connecting line */
     height: 1px; /* Adjust the height as needed */
     position: relative; /* Positioning relative to the parent */
 }
 
-.leftComponent, .rightComponent {
+.leftComponent {
+    position: relative; /* Needed to position the connecting line correctly */
+    width: 450px;
+    height: 54px;
+    background-color: #242424;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #fff;
+    color: white;
+    padding: 0 20px 0 20px;
+}
+
+.rightComponent {
     position: relative; /* Needed to position the connecting line correctly */
     width: 450px;
     height: 54px;
@@ -38,12 +50,11 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     border: 1px solid #fff;
     color: white;
-    padding: 0 20px;
+    padding: 0 20px 0 20px;
 }
-
 /* Add this to ensure the lines don't extend beyond the components */
 
 

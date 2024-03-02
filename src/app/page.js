@@ -48,14 +48,17 @@ export default function Home() {
             <Invest/>
             <Tokenomics/>
             <Roadmap/>
-            <div>
+            <div style={{
+                width:"100%",
+                height:"100%",
+                background: 'linear-gradient(to bottom, #141414, #000E00)'
+            }}>
                 <RoadLine/>
+                <Team/>
+                <Advisors/>
+                <HowToBuy/>
+                <Footer/>
             </div>
-            <EarnedMoney/>
-            <Team/>
-            <Advisors/>
-            <HowToBuy/>
-            <Footer/>
 
 
         </main>

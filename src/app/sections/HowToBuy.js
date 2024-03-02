@@ -4,7 +4,12 @@ import styles from "./HowToBuy.module.css";
 
 const HowToBuy = () => {
     return (
-        <div style={{display:"flex", gap:130, width:"100%", justifyContent:"center"}}>
+        <div style={{padding:"20px 10%", marginTop:100}}>
+            <p style={{fontSize: 38, alignSelf: "flex-start", marginBottom: 40}}>
+                How to Buy
+            </p>
+
+        <div style={{display:"flex", gap:130, width:"100%", justifyContent:"center", paddingBottom:160, marginTop:130}}>
             <div className={styles.container}>
                 <div className={styles.text}>Step 1</div>
                 <div className={styles.imageWrapper}>
@@ -70,6 +75,7 @@ const HowToBuy = () => {
             </div>
         </div>
 
+        </div>
     );
 };
 
