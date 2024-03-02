@@ -62,7 +62,7 @@ const Products = () => {
                                 onClick={() => setProduct(key)}
                                 className={`${styles.button} ${product === key ? styles.selectedButton : ''}`}
                             >
-                                <img src={imgSrc} alt={title} className={styles.buttonImage} />
+                                <Image src={imgSrc} alt={title} className={styles.buttonImage} width={50} height={50}/>
                                 <div className={styles.buttonTextContainer}>
                                     <div className={styles.buttonTitle}>{title}</div>
                                     <div className={styles.buttonDescription}>{description}</div>
@@ -74,7 +74,7 @@ const Products = () => {
 
                 {product && (
                     <div className={styles.productDetails}>
-                        <img src={products[product].showImage} alt={products[product].title} className={styles.mainProductImage} />
+                        <Image src={products[product].showImage} alt={products[product].title} className={styles.mainProductImage} width={500} height={500}/>
 
 
                     </div>
