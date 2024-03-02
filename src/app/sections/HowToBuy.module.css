@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Center items horizontally */
+    gap: 30px; /* Add space between items */
+    width: 270px;
+}
+
+.text {
+    font-size: 14px; /* Example styling, adjust as needed */
+    color: #ffffff; /* Example styling, adjust as needed */
+}
+
+.imageWrapper {
+    width: 100%; /* Adjust based on your layout needs */
+    max-width: 500px; /* Prevent the image from becoming too large */
+}

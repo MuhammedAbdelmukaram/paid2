@@ -10,6 +10,8 @@ import Invest from "@/app/sections/Invest";
 import Tokenomics from "@/app/sections/Tokenomics";
 import Roadmap from "@/app/sections/Roadmap";
 import RoadLine from "@/app/components/Roadmap/RoadLine";
+import Footer from "@/app/sections/Footer";
+import HowToBuy from "@/app/sections/HowToBuy";
 
 
 {/*<LoadingScreen/>*/
@@ -46,7 +48,8 @@ export default function Home() {
             <div>
                 <RoadLine/>
             </div>
-
+            <HowToBuy/>
+            <Footer/>
 
 
         </main>
