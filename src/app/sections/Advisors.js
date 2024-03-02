@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Advisors = () => {
     return (
-        <div style={{width:"100%", display:"flex", justifyContent:"center", gap:220}}>
+        <div style={{width:"100%", display:"flex", justifyContent:"space-betweeng", padding:"20px 10%"}}>
 
             <div style={{width:300}}>
                 <div style={{height:350, width:300, backgroundColor:"#fff"}}>

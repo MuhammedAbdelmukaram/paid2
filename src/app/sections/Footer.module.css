@@ -1,0 +1,25 @@
+.buttonStyleThree {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    background-color: #2BEA2A;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.buttonStyleWP{
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: fit-content;
+    text-decoration: none;
+    color: #fff;
+
+    border: 1px solid #ffffff;
+    border-radius: 114px;
+    cursor: pointer;
+}

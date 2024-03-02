@@ -14,6 +14,7 @@ import Footer from "@/app/sections/Footer";
 import HowToBuy from "@/app/sections/HowToBuy";
 import Advisors from "@/app/sections/Advisors";
 import EarnedMoney from "@/app/components/team/earnedMoney";
+import Team from "@/app/sections/Team";
 
 
 {/*<LoadingScreen/>*/
@@ -51,6 +52,7 @@ export default function Home() {
                 <RoadLine/>
             </div>
             <EarnedMoney/>
+            <Team/>
             <Advisors/>
             <HowToBuy/>
             <Footer/>
