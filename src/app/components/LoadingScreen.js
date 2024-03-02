@@ -53,6 +53,7 @@ const LoadingScreen = () => {
             justifyContent: 'center',
             alignItems: 'center',
             height: '100%',
+            marginTop:360,
         }}>
     <div style={{height:"50vh", display:"flex", alignItems:"center", flexDirection:"column"}}>
         <div className={styles.rotatingImage}>

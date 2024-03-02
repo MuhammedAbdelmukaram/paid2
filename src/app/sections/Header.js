@@ -29,10 +29,12 @@ const Header = () => {
                     display: 'flex',
                     gap: '1rem', // Adjust the gap between buttons as needed
                 }}>
-                    <Link href="/benefits"><p style={buttonStyle}>Benefits</p></Link>
+                    <Link href="/Products"><p style={buttonStyle}>Products</p></Link>
                     <Link href="/tokenomics"><p style={buttonStyle}>Tokenomics</p></Link>
-                    <Link href="/team"><p style={buttonStyle}>Team</p></Link>
+                    <Link href="/team"><p style={buttonStyle}>Roadmap</p></Link>
                     <Link href="/how-to-buy"><p style={buttonStyle}>How to Buy</p></Link>
+                    <Link href="/how-to-buy"><p style={buttonStyle}>Team</p></Link>
+                    <Link href="/how-to-buy"><p style={buttonStyle}>FAQ</p></Link>
                 </div>
             </div>
 
@@ -45,25 +47,34 @@ const Header = () => {
                 <div style={{
                     display: 'flex',
                     gap: '1rem', // Adjust the gap between buttons as needed
-                    marginRight:70,
+                    marginRight: 70,
                 }}>
-                    <Link href="/visit-dapp"><p style={buttonStyleTwo}>Visit dApp</p></Link>
-                    <Link href="/raffle"><p style={buttonStyleThree}>RAFFLE</p></Link>
+                    {/*<Link href="/visit-dapp"><p style={buttonStyleTwo}>Visit dApp</p></Link>*/}
+                    <Link href="/raffle"><p style={buttonStyleThree}>Whitepaper</p></Link>
                 </div>
 
                 <div style={buttonStyleWP}>
-
-
-                        <Image
-                            src="/WpWhite.png"
-                            alt="Logo"
-                            width={26}
-                            height={26}
-                            priority
-
-                        />
-
+                    <Image
+                        src="/TelegramIcon.png"
+                        alt="Logo"
+                        width={26}
+                        height={26}
+                        priority
+                        style={{marginRight:1}}
+                    />
                 </div>
+
+                <div style={buttonStyleWP}>
+                    <Image
+                        src="/twitterIcon.png"
+                        alt="Logo"
+                        width={26}
+                        height={26}
+                        priority
+
+                    />
+                </div>
+
             </nav>
         </header>
     );
@@ -82,7 +93,7 @@ const buttonStyle = {
 const buttonStyleTwo = {
     padding: '0.5rem 2rem', // Adjust padding as needed
     textDecoration: 'none',
-    fontSize:14,
+    fontSize: 14,
     color: '#fff', // Button text color
     backgroundColor: '#323232', // Button background color
     border: 'none',
@@ -95,7 +106,7 @@ const buttonStyleThree = {
     padding: '0.5rem 1rem', // Adjust padding as needed
     textDecoration: 'none',
     color: '#000', // Button text color
-    fontWeight:"bold",
+    fontWeight: "bold",
     backgroundColor: '#2BEA2A', // Button background color
     border: 'none',
     borderRadius: '4px', // Adjust border radius as needed
@@ -105,11 +116,11 @@ const buttonStyleThree = {
 
 const buttonStyleWP = {
 
-    padding:"0.5rem",
-    display:"flex",
-    justifyContent:"center",
-    alignItems:"center",
-    height:"fit-content",
+    padding: "0.5rem",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "fit-content",
 
     textDecoration: 'none',
     color: '#fff', // Button text color

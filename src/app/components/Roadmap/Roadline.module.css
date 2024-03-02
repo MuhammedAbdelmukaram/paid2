@@ -1,0 +1,71 @@
+/* Roadline.module.css */
+.roadmapContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    width: 100%;
+}
+
+.componentWrapper {
+    position: relative; /* This is needed to position the connecting lines correctly */
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.roadLine {
+    height: 200px;
+    width: 3px;
+    background-color: #2BEA2A;
+}
+
+/* Add these styles to Roadline.module.css */
+.connectingLine {
+    width: 130px; /* Width of the connecting line */
+    background-color: #2BEA2A; /* Color of the connecting line */
+    height: 1px; /* Adjust the height as needed */
+    position: relative; /* Positioning relative to the parent */
+}
+
+.leftComponent, .rightComponent {
+    position: relative; /* Needed to position the connecting line correctly */
+    width: 450px;
+    height: 54px;
+    background-color: #242424;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #fff;
+    color: white;
+    padding: 0 20px;
+}
+
+/* Add this to ensure the lines don't extend beyond the components */
+
+
+
+.emptyComponent {
+    width: 580px; /* To balance the space on the opposite side */
+    height: 54px; /* Keep consistent with the left and right components */
+}
+
+/* Add styles for the indicators */
+.triangleUp {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid #f62020; /* Adjust color if needed */
+}
+
+.triangleDown {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid #76E2AE; /* Adjust color if needed */
+}

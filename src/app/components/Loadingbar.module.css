@@ -1,0 +1,23 @@
+.loadingBarContainer {
+    width: 100%;
+    height: 20px;
+    background-color: #323232;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Semi-transparent white border */
+}
+
+.loadingBarFill {
+    height: 100%;
+    background-image: linear-gradient(to right, #1dc063, #01DD76);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadingBarText {
+    color: white;
+    font-weight: bold;
+}

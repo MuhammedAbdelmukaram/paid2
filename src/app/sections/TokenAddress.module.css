@@ -1,0 +1,18 @@
+.copiedPopup {
+    position: fixed; /* Changed from absolute to fixed */
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transform: translate(-50%, -100%); /* Adjust so the popup shows above the cursor */
+    z-index: 1000; /* Ensure it's above other content */
+    animation: fadeInOut 1.5s ease-out forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}

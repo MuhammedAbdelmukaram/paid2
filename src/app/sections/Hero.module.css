@@ -1,0 +1,28 @@
+.button1 {
+    cursor: pointer;
+    padding: 14px 40px;
+    background-color: #323232;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.button1:hover {
+    background-color: #4B4B4B; /* Darker shade on hover */
+}
+
+.button2 {
+    cursor: pointer;
+    padding: 14px 40px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.button2:hover {
+    background-color: #E5E5E5; /* Lighter shade on hover */
+}

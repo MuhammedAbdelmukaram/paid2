@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Header from "@/app/sections/Header";
-
+import styles from "./Hero.module.css";
 
 const Hero = () => {
     return (
@@ -18,13 +18,13 @@ const Hero = () => {
             <p style={{fontSize:20}}>We Continue To Give Back to Holders Through Scale!</p>
         </div>
 
-        <div style={{display:"flex",gap:40, marginTop:30}}>
-            <button style={{padding:"14px 40px 14px 40px", backgroundColor:"#323232", border:"none", borderRadius:4}}>
-                Buy Now
+        <div style={{display:"flex",gap:25, marginTop:30}}>
+            <button className={styles.button1}>
+                How to Buy?
             </button>
 
-            <button style={{padding:"14px 40px 14px 40px", backgroundColor:"#fff", border:"none", borderRadius:4, color:"#000"}}>
-                Buy Now
+            <button className={styles.button2}>
+                BUY ON FLUXBEAM
             </button>
         </div>
 

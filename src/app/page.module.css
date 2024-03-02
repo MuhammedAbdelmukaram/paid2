@@ -1,23 +1,14 @@
 .main {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
   background-color: #141414;
+  padding-bottom: 100px;
 }
 
-.backgroundImage {
-  position: fixed;
-  top: 280px;
-  z-index: 0;
-  left: 410px;
-  width: 100%;
-  height: 100%;
-  z-index: 0; /* Ensures the image stays behind other content */
-  background-image: url('/Light3.png'); /* Adjust path as needed */
-  background-size: cover; /* Cover the whole page */
-  background-position: center; /* Center the background image */
-}
+
 
 
 .description {
