@@ -5,7 +5,7 @@ const EarnedMoney = () => {
     <div style={{border:"1px solid #fff", padding:20}}>
 
         <div>
-            <p> Our Impressive Track Record & Current Brand are a Testament to our Success, Generating $500K per month and on Track to Double that by Year's end.</p>
+            <p> Our Impressive Track Record & Current Brand are a Testament to our Success, Generating $500K per month and on Track to Double that by Years end.</p>
         </div>
 
         <div style={{padding:"20px 60px", border:"1px solid #fff", borderRadius:4, display:"flex", justifyContent:"center",alignItems:"center", width:"fit-content"}}>
