@@ -4,7 +4,7 @@ import styles from "./HowToBuy.module.css";
 
 const HowToBuy = () => {
     return (
-        <div style={{padding:"20px 10%", marginTop:100}}>
+        <div style={{padding:"20px 10%", marginTop:100}} id="how-to-buy">
             <p style={{fontSize: 38, alignSelf: "flex-start", marginBottom: 40}}>
                 How to Buy
             </p>

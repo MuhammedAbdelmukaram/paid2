@@ -36,6 +36,7 @@
 
 .productDetails{
     display: flex;
+
     flex-direction: row;
 }
 
@@ -51,7 +52,7 @@
 .rightSide{
     padding: 50px;
     border-radius: 12px;
-
+    width: 280px;
     background-color: #141414;
     border: 1px solid #2E2E2E;
 }

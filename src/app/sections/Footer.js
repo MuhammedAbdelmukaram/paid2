@@ -20,7 +20,7 @@ const Footer = () => {
     };
 
     return (
-        <div style={{width: "100%", backgroundColor:"#0d120e",  padding: "20px 10%",  borderTop:"1px solid #fff",}}>
+        <div style={{width: "100%", backgroundColor:"#0d120e",  padding: "20px 10%",  borderTop:"1px solid #fff",}} id="faq">
 
 
             <div style={{

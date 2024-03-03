@@ -82,7 +82,7 @@ const Tokenomics = () => {
     };
 
     return (
-        <div style={{width:"100%", padding:"20px 10%", marginTop:130, display:"flex", flexDirection:"column", alignItems:"center"}}>
+        <div style={{width:"100%", padding:"20px 10%", marginTop:130, display:"flex", flexDirection:"column", alignItems:"center"}} id="tokenomics">
             <p style={{fontSize:38,  alignSelf:"flex-start",marginBottom:40}}>
                 TOKENOMICS
             </p>

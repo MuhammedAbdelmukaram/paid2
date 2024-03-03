@@ -10,7 +10,7 @@ const Roadmap = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "flex-start"
-        }}>
+        }} id="roadmap">
             <p style={{fontSize: 38, alignSelf: "flex-start", marginBottom: 40}}>
                 ROADMAP
             </p>

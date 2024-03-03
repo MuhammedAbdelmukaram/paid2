@@ -36,7 +36,7 @@ const Products = () => {
 
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} id="products">
 
             <div className={styles.headingSection}>
                 <Image

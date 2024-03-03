@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import Link from 'next/link'; // Assuming you're using Next.js's Link component for navigation
-
+import styles from './Header.module.css'
 const Header = () => {
     return (
         <header style={{
@@ -9,6 +9,7 @@ const Header = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             width: "100%",
+            zIndex:"2000",
             padding: '0.8rem 4rem', // Adjust padding as needed
             backgroundColor: '#141415', // Adjust the background color as needed
             color: '#fff', // Adjust the text color as needed
@@ -29,12 +30,12 @@ const Header = () => {
                     display: 'flex',
                     gap: '1rem', // Adjust the gap between buttons as needed
                 }}>
-                    <Link href="/Products"><p style={buttonStyle}>Products</p></Link>
-                    <Link href="/tokenomics"><p style={buttonStyle}>Tokenomics</p></Link>
-                    <Link href="/team"><p style={buttonStyle}>Roadmap</p></Link>
-                    <Link href="/how-to-buy"><p style={buttonStyle}>How to Buy</p></Link>
-                    <Link href="/how-to-buy"><p style={buttonStyle}>Team</p></Link>
-                    <Link href="/how-to-buy"><p style={buttonStyle}>FAQ</p></Link>
+                    <Link href="#products"><p className={styles.buttonStyle}>Products</p></Link>
+                    <Link href="#tokenomics"><p className={styles.buttonStyle}>Tokenomics</p></Link>
+                    <Link href="#roadmap"><p className={styles.buttonStyle}>Roadmap</p></Link>
+                    <Link href="#team"><p className={styles.buttonStyle}>Team</p></Link>
+                    <Link href="#how-to-buy"><p className={styles.buttonStyle}>How to Buy</p></Link>
+                    <Link href="#faq"><p className={styles.buttonStyle}>FAQ</p></Link>
                 </div>
             </div>
 
@@ -46,14 +47,16 @@ const Header = () => {
             }}>
                 <div style={{
                     display: 'flex',
+                    alignItems:"center",
                     gap: '1rem', // Adjust the gap between buttons as needed
                     marginRight: 70,
                 }}>
                     {/*<Link href="/visit-dapp"><p style={buttonStyleTwo}>Visit dApp</p></Link>*/}
-                    <Link href="/raffle"><p style={buttonStyleThree}>Whitepaper</p></Link>
+                    <a href="https://20s-organization-2.gitbook.io/lets-talk-usdpaid-inc./roadmap" target="_blank" rel="noopener noreferrer" className={styles.buttonStyleThree}>Whitepaper</a>
+
                 </div>
 
-                <div style={buttonStyleWP}>
+                <div className={styles.buttonStyleWP}>
                     <Image
                         src="/TelegramIcon.png"
                         alt="Logo"
@@ -64,7 +67,7 @@ const Header = () => {
                     />
                 </div>
 
-                <div style={buttonStyleWP}>
+                <div className={styles.buttonStyleWP}>
                     <Image
                         src="/twitterIcon.png"
                         alt="Logo"
@@ -80,54 +83,5 @@ const Header = () => {
     );
 };
 
-const buttonStyle = {
-    padding: '0.5rem 1rem', // Adjust padding as needed
-    textDecoration: 'none',
-    color: '#fff', // Button text color
-    backgroundColor: 'transparent', // Button background color
-    border: 'none',
-    borderRadius: '4px', // Adjust border radius as needed
-    cursor: 'pointer',
-};
-
-const buttonStyleTwo = {
-    padding: '0.5rem 2rem', // Adjust padding as needed
-    textDecoration: 'none',
-    fontSize: 14,
-    color: '#fff', // Button text color
-    backgroundColor: '#323232', // Button background color
-    border: 'none',
-    borderRadius: '18px', // Adjust border radius as needed
-    cursor: 'pointer',
-};
-
-
-const buttonStyleThree = {
-    padding: '0.5rem 1rem', // Adjust padding as needed
-    textDecoration: 'none',
-    color: '#000', // Button text color
-    fontWeight: "bold",
-    backgroundColor: '#2BEA2A', // Button background color
-    border: 'none',
-    borderRadius: '4px', // Adjust border radius as needed
-    cursor: 'pointer',
-};
-
-
-const buttonStyleWP = {
-
-    padding: "0.5rem",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "fit-content",
-
-    textDecoration: 'none',
-    color: '#fff', // Button text color
-    backgroundColor: '#444', // Button background color
-    border: 'none',
-    borderRadius: '114px', // Adjust border radius as needed
-    cursor: 'pointer',
-};
 
 export default Header;

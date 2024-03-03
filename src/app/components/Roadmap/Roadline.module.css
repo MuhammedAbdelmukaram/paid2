@@ -13,10 +13,42 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+    transition: margin-top 0.3s ease-out;
+}
+.back1 {
+    position: absolute;
+    top: 30%; /* Adjust based on actual positioning */
+    right: 6%; /* Adjust based on actual positioning */
+    z-index: -1; /* Ensure it stays in the background */
+    transform: scaleX(-1); /* Flip image horizontally */
 }
 
+
+.back2 {
+    position: absolute;
+    top: 69%; /* Adjust based on actual positioning */
+    right: 5%; /* Adjust based on actual positioning */
+    z-index: -1; /* Ensure it stays in the background */
+    transform: rotate(-22deg);
+}
+
+.back3 {
+    position: absolute;
+    bottom: 51%; /* Adjust based on actual positioning */
+    left: 10%; /* Adjust based on actual positioning */
+    z-index: -1; /* Ensure it stays in the background */
+}
+
+.back4 {
+    position: absolute;
+    bottom: 38%; /* Adjust based on actual positioning */
+    left: 5%; /* Adjust based on actual positioning */
+    z-index: -1; /* Ensure it stays in the background */
+}
+
+
 .roadLine {
-    height: 200px;
+    height: 282px;
     width: 3px;
     background-color: #fff;
 }
@@ -46,9 +78,27 @@
     flex-shrink: 0; /* Prevent it from shrinking */
     flex-grow: 0;
 }
+.backgroundContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Ensures the background is behind all other content */
+    display: flex;
+    justify-content: space-around; /* Distributes the images evenly */
+    align-items: center; /* Center the images vertically */
+}
+
+.backgroundImage {
+
+    object-fit: cover; /* Ensures the images cover their area without stretching */
+}
 
 .expandedComponent {
     background-color: #1dc063;
+    transition: height 0.3s ease-out, background-color 0.3s ease;
+    overflow: hidden;
 }
 
 .rightComponent {
@@ -65,17 +115,18 @@
     color: white;
     padding: 0 20px 0 20px;
 }
+
 /* Add this to ensure the lines don't extend beyond the components */
 .additionalContent {
     position: absolute;
     top: 100%;
-left: 0;
+    left: 0;
     width: 100%;
-background-color: #f60000;
-transition: all 0.3s ease;
-overflow: hidden;
-max-height: 0;
-z-index: 10;
+    background-color: #f60000;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    max-height: 0;
+    z-index: 10;
 }
 
 
@@ -86,9 +137,8 @@ z-index: 10;
 
 /* Adjust the .leftComponent and .rightComponent if necessary to ensure they do not move */
 .leftComponent, .rightComponent {
-    transition: none; /* Remove width transition if applied */
-}
 
+}
 
 
 .emptyComponent {
