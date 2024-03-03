@@ -18,7 +18,7 @@ const HowToBuy = () => {
                         alt="Descriptive Alt Text"
                         width={500} // Set your image's width
                         height={300} // Set your image's height
-                        layout='responsive' // This makes the image scale nicely to the parent's width
+
                     />
                 </div>
                 <div className={styles.text}>Lorem Ipsum sit amet dolor et alas doasr fie alt coin is very cool thing
@@ -34,8 +34,7 @@ const HowToBuy = () => {
                         alt="Descriptive Alt Text"
                         width={500} // Set your image's width
                         height={300} // Set your image's height
-                        layout='responsive' // This makes the image scale nicely to the parent's width
-                    />
+                          />
                 </div>
                 <div className={styles.text}>Lorem Ipsum sit amet dolor et alas doasr fie alt coin is very cool thing
                     because this is dummy text
@@ -50,8 +49,7 @@ const HowToBuy = () => {
                         alt="Descriptive Alt Text"
                         width={500} // Set your image's width
                         height={300} // Set your image's height
-                        layout='responsive' // This makes the image scale nicely to the parent's width
-                    />
+                       />
                 </div>
                 <div className={styles.text}>Lorem Ipsum sit amet dolor et alas doasr fie alt coin is very cool thing
                     because this is dummy text
@@ -66,7 +64,6 @@ const HowToBuy = () => {
                         alt="Descriptive Alt Text"
                         width={500} // Set your image's width
                         height={300} // Set your image's height
-                        layout='responsive' // This makes the image scale nicely to the parent's width
                     />
                 </div>
                 <div className={styles.text}>Lorem Ipsum sit amet dolor et alas doasr fie alt coin is very cool thing

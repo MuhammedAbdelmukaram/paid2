@@ -7,14 +7,24 @@ const RoadLine = () => {
 
     const [expandedItems, setExpandedItems] = useState(new Set());
 
-    const toggleItem = (id) => {
+    const [marginTop, setMarginTop] = useState(0); // Add state for dynamic margin
+
+
+
+    const toggleItem = (id, initialHeight = 54, expandedHeight = 76) => { // Assuming 200px is the expansion
         const newExpandedItems = new Set(expandedItems);
+        let newMarginTop = marginTop;
+
         if (newExpandedItems.has(id)) {
             newExpandedItems.delete(id);
+            newMarginTop = 0; // Reset margin when collapsed
         } else {
             newExpandedItems.add(id);
+            newMarginTop = expandedHeight - initialHeight; // Set new margin
         }
+
         setExpandedItems(newExpandedItems);
+        setMarginTop(newMarginTop); // Update the margin state
     };
 
     const items = [
@@ -96,24 +106,32 @@ const RoadLine = () => {
                 <div key={item.id} className={styles.componentWrapper}>
                     {index % 2 === 0 ? (
                         <>
-                            <div className={`${styles.leftComponent} ${item.highlighted ? styles.highlighted : ''}`}
-                                 style={{borderColor: item.highlighted ? '#2BEA2A' : '#fff'}}>
-                                <div>
-                                    <p style={{width: "75%"}}>{item.content}</p>
-                                    <div style={{
-                                        display: "flex",
-                                        justifyContent: "flex-end",
-                                        alignItems: "center",
-                                        gap: 24
-                                    }}>
-                                        <div style={getWeightIndicatorStyle(item.weight)}
-                                             className={styles.indicator}></div>
-                                        <div className={getLocationIndicatorStyle(item.location)}></div>
+                            <div style={{display:"flex", flexDirection:"column", marginTop: expandedItems.has(item.id) ? marginTop : 8}}>
+                                <div
+                                    className={`${styles.leftComponent} ${item.highlighted ? styles.highlighted : ''} ${expandedItems.has(item.id) ? styles.expandedComponent : ''}`}
+                                    onClick={() => toggleItem(item.id)}
+                                    style={{borderColor: item.highlighted ? '#2BEA2A' : '#fff'}}
+                                >
+                                    <div style={{display: "flex", alignItems: "center", justifyContent:"space-between", width:"100%"}}>
+                                        <p style={{width: expandedItems.has(item.id) ? "100%" : "100%"}}>{item.content}</p>
+                                        <div style={{
+                                            display: "flex",
+                                            justifyContent: "flex-end",
+                                            alignItems: "center",
+                                            gap: 24
+                                        }}>
+                                            <div style={getWeightIndicatorStyle(item.weight)}
+                                                 className={styles.indicator}></div>
+                                            <div className={getLocationIndicatorStyle(item.location)}></div>
+                                        </div>
                                     </div>
+
                                 </div>
-                                <div>
-                                    <p>Hey</p>
-                                </div>
+                                {expandedItems.has(item.id) && (
+                                    <div style={{width: "100%",  backgroundColor:"#f60000"}}>
+                                        <p>Hey</p>
+                                    </div>
+                                )}
                             </div>
                             <div className={styles.connectingLine}
                                  style={{backgroundColor: item.highlighted ? '#2BEA2A' : '#fff'}}></div>
@@ -121,7 +139,7 @@ const RoadLine = () => {
                                  style={{backgroundColor: item.highlighted ? '#2BEA2A' : '#fff'}}></div>
                             <div className={styles.emptyComponent}></div>
                         </>
-                    ) : (
+                    )  : (
                         <>
                             <div className={styles.emptyComponent}></div>
                             <div className={styles.roadLine}
