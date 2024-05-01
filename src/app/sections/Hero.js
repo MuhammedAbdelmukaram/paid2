@@ -1,80 +1,79 @@
+"use client"
 import Image from "next/image";
 import Header from "@/app/sections/Header";
 import styles from "./Hero.module.css";
+import {useState} from "react";
 
 const Hero = () => {
+
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    const toggleFullscreen = () => {
+        setIsFullscreen(!isFullscreen);
+    };
+
+
     return (
-<div style={{display:"flex", justifyContent:"center", alignItems:"center", gap:70, marginTop:30, }}>
+        <div className={styles.heroContainer}>
+            <div className={styles.textContainer}>
+                <div>
+                    <p className={styles.mainTitle}>GET</p>
+                    <p className={styles.highlightedTitle}>$PAID</p>
+                </div>
 
-    <div>
-        <div style={{display:"flex", flexDirection:"column"}}>
+                <div className={styles.subTitleContainer}>
+                    <p className={styles.subTitle}>We Continue To Give Back to Holders Through Scale!</p>
+                </div>
 
-            <p style={{fontSize:148, lineHeight:"0.9"}}>GET</p>
-            <p style={{fontSize:148, color:"#2BEA2A", fontWeight:"bold" , lineHeight:"0.9"}}>$PAID</p>
+                <div className={styles.buttonContainer}>
+                    <button className={styles.button1}>
+                        How to Buy?
+                    </button>
+                    <button className={styles.button2}>
+                        BUY ON FLUXBEAM
+                    </button>
+                </div>
 
-        </div>
+                <div className={styles.divider}></div>
 
-        <div style={{width:"95%", marginTop:30}}>
-            <p style={{fontSize:20}}>We Continue To Give Back to Holders Through Scale!</p>
-        </div>
-
-        <div style={{display:"flex",gap:25, marginTop:30}}>
-            <button className={styles.button1}>
-                How to Buy?
-            </button>
-
-            <button className={styles.button2}>
-                BUY ON FLUXBEAM
-            </button>
-        </div>
-
-        <div style={{width:"80%", height:2, backgroundColor:"#fff", marginTop:20}}>
-
-        </div>
-
-        <div style={{display:"flex", gap:40 }}>
-
-            <Image
-                src="/Jupiter.svg"
-                alt="Logo"
-                width={150}
-                height={100}
-                priority
-            />
-            <div style={{marginLeft:"-8px"}}>
-                <Image
-                    src="/SolFloare.png"
-                    alt="Logo"
-                    width={150}
-                    height={100}
-                    priority
-                />
+                <div className={styles.logoContainer}>
+                    <Image src="/Jupiter.svg" alt="Logo" width={150} height={100} priority />
+                    <div className={styles.offsetLogo}>
+                        <Image src="/SolFloare.png" alt="Logo" width={150} height={100} priority />
+                    </div>
+                    <Image src="/SolFoundation.svg" alt="Logo" width={150} height={100} priority />
+                </div>
             </div>
-            <Image
-                src="/SolFoundation.svg"
-                alt="Logo"
-                width={150}
-                height={100}
-                priority
-            />
 
+            <div className={styles.videoContainer} onClick={toggleFullscreen}>
+                <video
+                    className={isFullscreen ? styles.fullscreenVideo : styles.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                >
+                    <source src="/HeroCard.mp4" type="video/mp4"/>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+
+            {isFullscreen && (
+                <div className={styles.fullscreenVideoContainer} onClick={toggleFullscreen}>
+                    <video
+                        className={styles.fullscreenVideo}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                    >
+                        <source src="/HeroCard.mp4" type="video/mp4"/>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            )}
         </div>
-    </div>
-
-    <div style={{}}>
-        <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{width: '610px', height: 'auto'}} // Adjust as needed
-        >
-            <source src="/GameOn.mp4" type="video/mp4"/>
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-</div>
     );
 };
 

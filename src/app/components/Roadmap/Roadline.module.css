@@ -19,7 +19,7 @@
     position: absolute;
     top: 30%; /* Adjust based on actual positioning */
     right: 6%; /* Adjust based on actual positioning */
-    z-index: -1; /* Ensure it stays in the background */
+    z-index: 0; /* Ensure it stays in the background */
     transform: scaleX(-1); /* Flip image horizontally */
 }
 
@@ -28,7 +28,7 @@
     position: absolute;
     top: 69%; /* Adjust based on actual positioning */
     right: 5%; /* Adjust based on actual positioning */
-    z-index: -1; /* Ensure it stays in the background */
+    z-index: 0; /* Ensure it stays in the background */
     transform: rotate(-22deg);
 }
 
@@ -36,14 +36,14 @@
     position: absolute;
     bottom: 51%; /* Adjust based on actual positioning */
     left: 10%; /* Adjust based on actual positioning */
-    z-index: -1; /* Ensure it stays in the background */
+    z-index: 0; /* Ensure it stays in the background */
 }
 
 .back4 {
     position: absolute;
     bottom: 38%; /* Adjust based on actual positioning */
     left: 5%; /* Adjust based on actual positioning */
-    z-index: -1; /* Ensure it stays in the background */
+    z-index: 0; /* Ensure it stays in the background */
 }
 
 
@@ -79,7 +79,6 @@
     flex-grow: 0;
 }
 .backgroundContainer {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;

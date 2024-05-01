@@ -1,5 +1,5 @@
 import React from 'react';
-import EarnedMoney from "@/app/components/team/earnedMoney";
+import EarnedMoney from "@/app/components/team/EarnedMoney";
 
 const Team = () => {
     return (
