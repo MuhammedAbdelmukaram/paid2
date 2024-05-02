@@ -4,7 +4,7 @@ import AdvisorCard from "@/app/components/advisors/advisorCard";
 
 const Advisors = () => {
     return (
-        <div style={{width:"100%", display:"flex", justifyContent:"space-between", padding:"20px 10%"}}>
+        <div style={{width:"100%", display:"flex", justifyContent:"space-between", padding:"20px 10%", marginBottom:50}}>
             <AdvisorCard
                 src="/Person1.png"
                 alt="Advisor Portrait"

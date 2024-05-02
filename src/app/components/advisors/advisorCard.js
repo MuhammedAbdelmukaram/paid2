@@ -17,7 +17,8 @@ const AdvisorCard = ({ src, alt, name, role, description }) => {
                 <p>{name}</p>
                 <p>{role}</p>
             </div>
-            <p style={{marginTop:60}}>{description}</p>
+            {/* <p style={{marginTop: 60}}>{description}</p>*/}
+
         </div>
     );
 };

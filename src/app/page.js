@@ -19,6 +19,7 @@ import MemberCards from "@/app/sections/MemberCards";
 import Reroll from "@/app/sections/Reroll";
 import SeasonTwo from "@/app/sections/SeasonTwo";
 import RoadmapNew from "@/app/sections/RoadmapNew";
+import FAQ from "@/app/sections/FAQ";
 
 
 {/*<LoadingScreen/>*/
@@ -61,6 +62,8 @@ export default function Home() {
 
                 <Team/>
                 <Advisors/>
+
+                <FAQ/>
 
                 <Footer/>
             </div>
