@@ -6,7 +6,7 @@ const HowToBuy = () => {
     return (
         <div style={{padding:"20px 10%", marginTop:100}} id="how-to-buy">
             <p style={{fontSize: 38, alignSelf: "flex-start", marginBottom: 40}}>
-                How to Buy
+                What is SPL404?
             </p>
 
         <div style={{display:"flex", gap:130, width:"100%", justifyContent:"center", paddingBottom:160, marginTop:130}}>

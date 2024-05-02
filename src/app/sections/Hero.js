@@ -27,21 +27,21 @@ const Hero = () => {
 
                 <div className={styles.buttonContainer}>
                     <button className={styles.button1}>
-                        How to Buy?
+                        What is SPL404?
                     </button>
                     <button className={styles.button2}>
-                        BUY ON FLUXBEAM
+                        MEMBER CARDS
                     </button>
                 </div>
 
                 <div className={styles.divider}></div>
 
                 <div className={styles.logoContainer}>
-                    <Image src="/Jupiter.svg" alt="Logo" width={150} height={100} priority />
+                    <Image src="/superTeamLogo.png" alt="Logo" width={150} height={40} priority />
                     <div className={styles.offsetLogo}>
-                        <Image src="/SolFloare.png" alt="Logo" width={150} height={100} priority />
+                        <Image src="/SolFloare.png" alt="Logo" width={150} height={42} priority />
                     </div>
-                    <Image src="/SolFoundation.svg" alt="Logo" width={150} height={100} priority />
+                    <Image src="/mutantLogo.png" alt="Logo" width={80} height={40} priority />
                 </div>
             </div>
 

@@ -47,6 +47,23 @@
 }
 
 /* Button style for social icons (buttonStyleWP) */
+.buttonStyleX {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    text-decoration: none;
+    color: #fff;
+    background-color: #444;
+    border: none;
+    border-radius: 114px;
+    transition: background-color 0.3s; /* Smooth transition for hover effects */
+    filter: brightness(50%);
+}
+
+
+
 .buttonStyleWP {
     padding: 0.5rem;
     display: flex;
@@ -61,6 +78,13 @@
     cursor: pointer;
     transition: background-color 0.3s; /* Smooth transition for hover effects */
 }
+
+.buttonStyleWP a {
+margin: 0;
+    padding: 0;
+    height: 26px;
+}
+
 .buttonStyleWP:hover {
     background-color: #555; /* Slightly lighter on hover */
 }

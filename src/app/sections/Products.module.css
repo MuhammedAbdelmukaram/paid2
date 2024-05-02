@@ -9,18 +9,27 @@
     margin-top: 90px;
 }
 
-.headingSection{
+.rerollContainer{
+    margin-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+.headingSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
 
 .heading{
-    font-size: 34px;
+    font-size: 44px;
+    color: #2BEA2A;
 }
 .subHeading{
-
+    color:#ffffff;
 }
 
 .productContainer{
@@ -114,3 +123,17 @@
 }
 
 
+
+.videoContainer {
+    width: 100%;
+    border: 2px solid #fff;
+    height: auto;
+    max-width: 800px; /* You can adjust this value based on your design needs */
+    margin: 0 auto; /* Centering the video */
+}
+
+.videoElement {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional, for rounded corners */
+}

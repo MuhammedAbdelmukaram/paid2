@@ -32,11 +32,10 @@ const Header = () => {
                     gap: '1rem', // Adjust the gap between buttons as needed
                 }}>
                     <Link href="#products"><p className={styles.buttonStyle}>Products</p></Link>
-                    <Link href="#tokenomics"><p className={styles.buttonStyle}>Member Cards</p></Link>
-                    <Link href="#roadmap"><p className={styles.buttonStyle}>Re-Roll</p></Link>
-                    <Link href="#team"><p className={styles.buttonStyle}>Roadmap</p></Link>
-                    <Link href="#how-to-buy"><p className={styles.buttonStyle}>3SQUARES</p></Link>
-                    <Link href="#faq"><p className={styles.buttonStyle}>TEAM</p></Link>
+                    <Link href="#membercards"><p className={styles.buttonStyle}>Member Cards</p></Link>
+                    <Link href="#reroll"><p className={styles.buttonStyle}>Re-Roll</p></Link>
+                    <Link href="#roadmap"><p className={styles.buttonStyle}>Roadmap</p></Link>
+                    <Link href="#team"><p className={styles.buttonStyle}>TEAM</p></Link>
                     <Link href="#faq"><p className={styles.buttonStyle}>FAQ</p></Link>
                 </div>
             </div>
@@ -58,9 +57,9 @@ const Header = () => {
 
                 </div>
 
-                <div className={styles.buttonStyleWP}>
+                <div className={styles.buttonStyleX}>
                     <Image
-                        src="/TelegramIcon.png"
+                        src="/discord.png"
                         alt="Logo"
                         width={26}
                         height={26}
@@ -69,15 +68,18 @@ const Header = () => {
                     />
                 </div>
 
-                <div className={styles.buttonStyleWP}>
-                    <Image
-                        src="/twitterIcon.png"
-                        alt="Logo"
-                        width={26}
-                        height={26}
-                        priority
 
-                    />
+                <div className={styles.buttonStyleWP}>
+                    {/* Twitter Icon with external link */}
+                    <a href="https://twitter.com/PaidIncHQ" target="_blank" rel="noopener noreferrer">
+                        <Image
+                            src="/twitterIcon.png"
+                            alt="Twitter Logo"
+                            width={26}
+                            height={26}
+                            priority
+                        />
+                    </a>
                 </div>
 
             </nav>

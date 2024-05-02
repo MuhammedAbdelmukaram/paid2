@@ -47,54 +47,12 @@ const Products = () => {
                     priority
                 />
                 <p className={styles.heading}>REVENUE GENERATING PRODUCTS</p>
-                <p className={styles.subHeading}>Leveraging the power of utility $PAID token to enable fractional ownership in businesses and startups</p>
+                <p className={styles.subHeading}>We Created The 1st Sustainable NFT Project.</p>
 
             </div>
 
 
-            <div className={styles.productContainer}>
 
-                <div style={{}}>
-                    <div className={styles.productButtons}>
-                        {Object.entries(products).map(([key, { title, imgSrc, description }]) => (
-                            <button
-                                key={key}
-                                onClick={() => setProduct(key)}
-                                className={`${styles.button} ${product === key ? styles.selectedButton : ''}`}
-                            >
-                                <Image src={imgSrc} alt={title} className={styles.buttonImage} width={50} height={50}/>
-                                <div className={styles.buttonTextContainer}>
-                                    <div className={styles.buttonTitle}>{title}</div>
-                                    <div className={styles.buttonDescription}>{description}</div>
-                                </div>
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
-                {product && (
-                    <div className={styles.productDetails}>
-                        <Image src={products[product].showImage} alt={products[product].title} className={styles.mainProductImage} width={500} height={500}/>
-
-
-                    </div>
-
-                )}
-
-                {product && (
-                    <div className={styles.productDetails}>
-                        <div className={styles.rightSide}>
-                            <h2>{products[product].title}</h2>
-                            <p>{products[product].description}</p>
-                        </div>
-
-                    </div>
-
-                )}
-
-
-
-            </div>
         </div>
     );
 };
