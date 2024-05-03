@@ -52,5 +52,30 @@
 }
 
 @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  .faqContainer {
+    margin-left: 0;
+    margin-top: 0;
+  }
 
+  .faqTitle {
+    font-size: 32px;
+  }
+
+  .questionsContainer {
+    padding: 10px;
+  }
+
+  .questionHeader {
+    padding: 12px 8px;
+  }
+
+  .questionText {
+    font-size: 14px;
+  }
+
+  .answerText {
+    font-size: 12px;
+  }
+}
 }
