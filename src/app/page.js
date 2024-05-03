@@ -45,9 +45,16 @@ export default function Home() {
             ></div>
             <Benefits />
 
-            <div style={{ width: "100%", height: "100%", position: 'relative', zIndex:1 }}>
+            <div style={{ width: "100%", height: "100%", position: 'relative' }}>
                 {/* Background image with adjusted positioning */}
-                <div style={{ position: 'absolute', top: "6364px", left: "424px", width: '100%', height: '57vh', zIndex: 1 }}>
+                {/*<div style={{
+                    position: 'absolute',
+                    top: "6364px",
+                    left: "424px",
+                    width: '100%',
+                    height: '57vh',
+                    zIndex: 1
+                }}>
                     <Image
                         src="/Astronaut.png" // Ensure the path is correct
                         alt="Astronaut"
@@ -55,15 +62,15 @@ export default function Home() {
                         objectFit="contain"
                         priority
                     />
-                </div>
+                </div>*/}
                 <div style={{zIndex:4}}>
-                <Carousel />
-                <MemberCards />
-                <Reroll />
-                <RoadmapNew />
+                    <Carousel />
+                    <MemberCards />
+                    <Reroll />
+                    <RoadmapNew />
 
                     <SeasonTwo />
-                    <Team />
+                    {/*<Team/>*/}
                 </div>
                 <Advisors />
                 <FAQ />
