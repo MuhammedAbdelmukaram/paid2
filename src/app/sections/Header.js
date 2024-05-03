@@ -90,32 +90,32 @@ const Header = () => {
         </div>
         <ul className={styles.links}>
           <li className={styles.li}>
-            <Link className={styles.buttonStyle} href="#home">
+            <Link className={styles.buttonStyle} href="#products">
               Products
             </Link>
           </li>
           <li className={styles.li}>
-            <Link className={styles.buttonStyle} href="#about">
+            <Link className={styles.buttonStyle} href="#membercards">
               Member Cards
             </Link>
           </li>
           <li className={styles.li}>
-            <Link className={styles.buttonStyle} href="#work">
+            <Link className={styles.buttonStyle} href="#reroll">
               Re-Roll
             </Link>
           </li>
           <li className={styles.li}>
-            <Link className={styles.buttonStyle} href="#projects">
+            <Link className={styles.buttonStyle} href="#roadmap">
               Roadmap
             </Link>
           </li>
           <li className={styles.li}>
-            <Link className={styles.buttonStyle} href="#contact">
+            <Link className={styles.buttonStyle} href="#team">
               TEAM
             </Link>
           </li>
           <li className={styles.li}>
-            <Link className={styles.buttonStyle} href="#contact">
+            <Link className={styles.buttonStyle} href="#faq">
               FAQ
             </Link>
           </li>

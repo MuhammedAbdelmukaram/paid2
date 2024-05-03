@@ -62,13 +62,13 @@ const Carousel = () => {
                     transform: `translateX(-${activeIndex * (100 / 3)}%)` // Correctly calculate the shift
                 }}>
                     <div style={slideStyles()}>
-                        <Product mainImagePath={"/nileLogo.png"} secondaryImagePath={"/NileSS.png"} description={"Everything on Web 3 is Bigger & Better right? So will the Amazon of Web 3 Be! The Go-To Marketplace for Physical Products Purchasable with Solana Exclusively. "}/>
+                        <Product mainImagePath={"/nileLogo.png"} secondaryImagePath={"/nileBanner.png"} description={"Everything on Web 3 is Bigger & Better right? So will the Amazon of Web 3 Be! The Go-To Marketplace for Physical Products Purchasable with Solana Exclusively. "}/>
                     </div>
                     <div style={slideStyles()}>
-                        <p>Normal Event Content Here</p>
+                        <Product mainImagePath={"/DefuelLogo.png"} secondaryImagePath={"/DefuelBanner.png"} description={"Made for degens by degens. The ultimate snacking stationfor solana enthusiasts with an appetite for gains"}/>
                     </div>
                     <div style={slideStyles()}>
-                        <p>Minor Event Content Here</p>
+                        <Product mainImagePath={"/DestorezLogo.png"} secondaryImagePath={"/DestorezBanner.png"} description={"Monetize your Audience with Solana & Native token payments, Detailed customization, and Hassle-free fulfillment, Focus on Creating while we Handle the Rest. "}/>
                     </div>
                 </div>
             </div>
