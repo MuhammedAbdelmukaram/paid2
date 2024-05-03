@@ -65,8 +65,10 @@ const Product = ({
       {/* Row 2 */}
       <div
         style={{
-          width: '100%', // Take full width of the parent div
-          textAlign: 'center', // Centering text or contents
+
+          width: "100%", // Take full width of the parent div
+          textAlign: "center", // Centering text or contents
+            border:"6px solid #fff"
         }}
       >
         <Image

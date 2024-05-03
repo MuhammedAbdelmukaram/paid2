@@ -70,7 +70,7 @@ const Faq = () => {
   };
 
   return (
-    <div className={styles.faqContainer}>
+    <div className={styles.faqContainer} id={"faq"}>
       <p className={styles.faqTitle}>
         Frequently asked <span>Questions</span>
       </p>

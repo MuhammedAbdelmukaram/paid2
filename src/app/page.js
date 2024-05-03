@@ -26,45 +26,56 @@ import FAQ from "@/app/sections/FAQ";
 }
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div style={{ zIndex: 1 }}></div>
-      <div style={{ width: "100vw", display: "flex", flexDirection: "column" }}>
-        <AnnouncementBar />
-        <Header />
-        <Hero />
-      </div>
+    return (
+        <main className={styles.main}>
+            <div style={{ zIndex: 1 }}></div>
+            <div style={{ width: "100vw", display: "flex", flexDirection: "column" }}>
+                <AnnouncementBar />
+                <Header />
+                <Hero />
+            </div>
 
-      <div
-        style={{
-          width: "100%",
-          height: "20px",
-          marginTop: 90,
-          backgroundColor: "#fff",
-        }}
-      ></div>
-      <Benefits />
+            <div
+                style={{
+                    width: "100%",
+                    height: "20px",
+                    marginTop: 90,
+                    backgroundColor: "#fff",
+                }}
+            ></div>
+            <Benefits />
 
-      {/* <Invest/> */}
-      {/* <Tokenomics/> */}
-      {/* <Roadmap/> */}
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        <Carousel />
-        {/*<RoadLine/>*/}
-        <MemberCards />
-        <Reroll />
-        <RoadmapNew />
-        <SeasonTwo />
-        {/* <Team /> */}
-        <Advisors />
-        <FAQ />
-        <Footer />
-      </div>
-    </main>
-  );
+            <div style={{ width: "100%", height: "100%", position: 'relative' }}>
+                {/* Background image with adjusted positioning */}
+                {/*<div style={{
+                    position: 'absolute',
+                    top: "6364px",
+                    left: "424px",
+                    width: '100%',
+                    height: '57vh',
+                    zIndex: 1
+                }}>
+                    <Image
+                        src="/Astronaut.png" // Ensure the path is correct
+                        alt="Astronaut"
+                        layout="fill"
+                        objectFit="contain"
+                        priority
+                    />
+                </div>*/}
+                <div style={{zIndex:4}}>
+                    <Carousel />
+                    <MemberCards />
+                    <Reroll />
+                    <RoadmapNew />
+
+                    <SeasonTwo />
+                    {/*<Team/>*/}
+                </div>
+                <Advisors />
+                <FAQ />
+                <Footer />
+            </div>
+        </main>
+    );
 }
