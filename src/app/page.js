@@ -59,8 +59,22 @@ export default function Home() {
         <MemberCards />
         <Reroll />
         <RoadmapNew />
-        <SeasonTwo />
-        {/* <Team /> */}
+          <div style={{ position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: -1 }}>
+              <Image
+                  src="/path/to/astronaut-image.jpg" // Update with the actual path to your image
+                  alt="Astronaut"
+                  layout="fill" // This will cover the area of the div, change as needed
+                  objectFit="cover" // Ensures the image covers the div completely
+                  priority // Loads image as soon as possible
+              />
+          </div>
+          <div>
+              <SeasonTwo />
+              <Team />
+          </div>
+
+
+
         <Advisors />
         <FAQ />
         <Footer />
