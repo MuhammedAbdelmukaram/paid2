@@ -1,16 +1,18 @@
-import React from "react";
-import Image from "next/image";
-import styles from "./Footer.module.css";
+import React from 'react';
+import Image from 'next/image';
+import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
     <div style={{ marginTop: 50 }}>
       <div className={styles.footerContainer}>
         <Image
-          src="/PaidGreenCr.png"
-          alt="Paid Inc Logo"
+          src='/PaidGreenCr.png'
+          alt='Paid Inc Logo'
           width={135}
           height={135}
+
+          // layout={responsive}
         />
 
         <div className={styles.linksContainer}>
@@ -34,8 +36,8 @@ const Footer = () => {
             <div className={styles.socialMedia}>
               <div className={styles.buttonStyleX}>
                 <Image
-                  src="/discord.png"
-                  alt="Logo"
+                  src='/discord.png'
+                  alt='Logo'
                   width={26}
                   height={26}
                   priority
@@ -44,13 +46,13 @@ const Footer = () => {
               </div>
               <div className={styles.buttonStyleWP}>
                 <a
-                  href="https://twitter.com/PaidIncHQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href='https://twitter.com/PaidIncHQ'
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   <Image
-                    src="/twitterIcon.png"
-                    alt="Twitter Logo"
+                    src='/twitterIcon.png'
+                    alt='Twitter Logo'
                     width={26}
                     height={26}
                     priority
@@ -63,12 +65,11 @@ const Footer = () => {
       </div>
 
       <div
-        style={{ width: "100%", display: "flex", justifyContent: "flex-end" }}
-      >
-        <p className={styles.copyRight}>
-          &#xA9; 2024 All Rights Reserved, Paid Inc.
-        </p>
-      </div>
+        style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}
+      ></div>
+      <p className={styles.copyRight}>
+        &#xA9; 2024 All Rights Reserved, Paid Inc.
+      </p>
     </div>
   );
 };

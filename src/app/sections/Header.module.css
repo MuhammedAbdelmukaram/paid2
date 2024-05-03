@@ -140,6 +140,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .nav{
+    margin-top:20px;
+  }
   .nav .buttonStyleThree {
     display: block;
   }
@@ -187,4 +190,7 @@
   .nav :checked ~ .iconBurger .line:nth-child(2) {
     opacity: 0;
   }
+  .navToggle {
+  display:none;
+}
 }

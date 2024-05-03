@@ -117,3 +117,56 @@
     max-height: 100%; /* Full height but maintaining aspect ratio */
     object-fit: contain; /* Ensures the video is not stretched */
 }
+
+
+/* For screens smaller than 768px (typical mobile screens) */
+@media screen and (max-width: 767px) {
+    .heroContainer {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        margin-left: 0; /* Reset left margin */
+    }
+.mainTitle {
+    font-size: 100px;
+    line-height: 0.9;
+}
+
+.highlightedTitle {
+    font-size: 100px;
+    color: #2BEA2A;
+    font-weight: bold;
+    line-height: 0.9;
+}
+.subTitle {
+    font-size: 16px;
+    margin-left:15px;
+}
+
+    .videoContainer {
+        order: 2; /* Move video container below text container */
+        margin-top: 30px; /* Add margin to separate from text */
+    }
+
+    .textContainer {
+        margin-top: 0; /* Remove top margin */
+        text-align: center; /* Center text horizontally */
+    }
+
+    .buttonContainer {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items:center;
+        gap: 15px; /* Add gap between buttons */
+    width:100%;
+  
+    }
+
+    .divider {
+        width: 90%; /* Adjust divider width */
+    }
+    .logoContainer {
+    display: flex;
+    gap: 10px;
+    width:100%;
+    height:auto;
+}
+}
