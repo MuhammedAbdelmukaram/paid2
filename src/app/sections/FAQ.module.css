@@ -52,7 +52,6 @@
 }
 
 @media screen and (max-width: 768px) {
-@media screen and (max-width: 768px) {
   .faqContainer {
     margin-left: 0;
     margin-top: 0;
@@ -77,5 +76,4 @@
   .answerText {
     font-size: 12px;
   }
-}
 }
