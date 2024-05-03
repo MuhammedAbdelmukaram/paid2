@@ -1,139 +1,134 @@
 /* Products.module.css */
 
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 90px;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 90px;
 }
 
-.rerollContainer{
-    margin-top: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.rerollContainer {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-.headingSection{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 30px;
-}
-
-.heading{
-    font-size: 44px;
-    color: #2BEA2A;
-}
-.subHeading{
-    color:#ffffff;
+.headingSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 30px;
 }
 
-.productContainer{
-    width:100%;
-    display: flex;
-    flex-direction: row;
-    gap: 124px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 80px;
+.heading {
+  font-size: 44px;
+  color: #2bea2a;
+  text-align: center;
+}
+.subHeading {
+  color: #ffffff;
+  text-align: center;
 }
 
-
-.productDetails{
-    display: flex;
-
-    flex-direction: row;
+.productContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 124px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
 }
 
+.productDetails {
+  display: flex;
+
+  flex-direction: row;
+}
 
 .productButtons {
-    display: flex; /* This makes .productButtons a flex container */
-    flex-direction: column;
-    width: max-content;
-    gap: 40px; /* This adds space between each button */
-    justify-content: center; /* Center the buttons container's items (optional based on your design) */
+  display: flex; /* This makes .productButtons a flex container */
+  flex-direction: column;
+  width: max-content;
+  gap: 40px; /* This adds space between each button */
+  justify-content: center; /* Center the buttons container's items (optional based on your design) */
 }
 
-.rightSide{
-    padding: 50px;
-    border-radius: 12px;
-    width: 280px;
-    background-color: #141414;
-    border: 1px solid #2E2E2E;
+.rightSide {
+  padding: 50px;
+  border-radius: 12px;
+  width: 280px;
+  background-color: #141414;
+  border: 1px solid #2e2e2e;
 }
-
-
-
 
 .button {
-    display: flex;
-    width: 280px;
-    align-items: center; /* Align items vertically */
-    gap: 10px; /* Space between image and text */
-    padding: 20px 32px;
-    border: none;
-    border: 1px solid #a8a8a8;
-    background-color: #111111; /* Example background */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer;
-    transition: background-color 0.2s; /* Smooth transition for hover effect */
+  display: flex;
+  width: 280px;
+  align-items: center; /* Align items vertically */
+  gap: 10px; /* Space between image and text */
+  padding: 20px 32px;
+  border: none;
+  border: 1px solid #a8a8a8;
+  background-color: #111111; /* Example background */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.2s; /* Smooth transition for hover effect */
 }
 
 .button:hover {
-    background-color: #313131; /* Slightly darker on hover */
+  background-color: #313131; /* Slightly darker on hover */
 }
 
 .buttonImage {
-    width: 50px; /* Adjust based on your needs */
-    height: 50px; /* Adjust based on your needs */
-    object-fit: cover; /* Adjust to keep image aspect ratio */
-    border-radius: 50%; /* Makes the image round */
+  width: 50px; /* Adjust based on your needs */
+  height: 50px; /* Adjust based on your needs */
+  object-fit: cover; /* Adjust to keep image aspect ratio */
+  border-radius: 50%; /* Makes the image round */
 }
 
 .buttonTextContainer {
-    display: flex;
-    flex-direction: column; /* Align texts vertically */
-    width: 100%;
+  display: flex;
+  flex-direction: column; /* Align texts vertically */
+  width: 100%;
 }
 
 .buttonTitle {
-    font-size: 20px; /* Adjust based on your needs */
-    font-weight: bold;
+  font-size: 20px; /* Adjust based on your needs */
+  font-weight: bold;
 }
 
 .buttonDescription {
-    font-size: 0.8em; /* Adjust based on your needs */
+  font-size: 0.8em; /* Adjust based on your needs */
 }
 
 .mainProductImage {
-    width: 500px; /* Or set a specific size */
-    height: auto; /* Maintain aspect ratio */
-    margin-top: 20px; /* Space from the top */
+  width: 500px; /* Or set a specific size */
+  height: auto; /* Maintain aspect ratio */
+  margin-top: 20px; /* Space from the top */
 }
 
 /* Add this new class in Products.module.css */
 .selectedButton {
-    background-color: #1c1c1c; /* Slightly darker than the other buttons for a subtle distinction */
-    border: 1px solid #2BEA2A; /* Optional: adds a subtle border to highlight the selected button */
-    color: #fff; /* Change text color if needed for better contrast */
+  background-color: #1c1c1c; /* Slightly darker than the other buttons for a subtle distinction */
+  border: 1px solid #2bea2a; /* Optional: adds a subtle border to highlight the selected button */
+  color: #fff; /* Change text color if needed for better contrast */
 }
 
-
-
 .videoContainer {
-    width: 100%;
-    border: 2px solid #fff;
-    height: auto;
-    max-width: 800px; /* You can adjust this value based on your design needs */
-    margin: 0 auto; /* Centering the video */
+  width: 100%;
+  border: 2px solid #fff;
+  height: auto;
+  max-width: 800px; /* You can adjust this value based on your design needs */
+  margin: 0 auto; /* Centering the video */
 }
 
 .videoElement {
-    width: 100%;
-    height: auto;
-    border-radius: 10px; /* Optional, for rounded corners */
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional, for rounded corners */
 }

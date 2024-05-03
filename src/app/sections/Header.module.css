@@ -1,90 +1,190 @@
-/* Regular button style (buttonStyle) */
-.buttonStyle {
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: #fff;
-    background-color: transparent;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+.nav {
+  position: relative;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 5.208vw;
+  padding: 0 5%;
+  background-color: #010103;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.buttonStyle:hover {
-    background-color: #ffffff; /* Change as per your design preference */
-    color: #141415; /* Change text color on hover */
+.nav .logo {
+  float: left;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  color: #fff;
+}
+.nav .links {
+  float: right;
+  padding: 0;
+  margin: 0;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav .links li {
+  list-style: none;
+}
+.nav .links .buttonStyle {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.833vw;
+  font-weight: bold;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  border-radius: 0.208vw;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.nav .links .buttonStyle:hover {
+  background-color: #ffffff; /* Change as per your design preference */
+  color: #141415;
 }
 
-/* Button style two (buttonStyleTwo) - although not used, here's how you can define it */
-.buttonStyleTwo {
-    padding: 0.5rem 2rem;
-    text-decoration: none;
-    font-size: 14px;
-    color: #fff;
-    background-color: #323232;
-    border: none;
-    border-radius: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition for hover effects */
+.navToggle {
+  position: absolute;
+  top: -5.208vw;
 }
-.buttonStyleTwo:hover {
-    background-color: #505050; /* Darker shade on hover */
+.nav .iconBurger {
+  display: none;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.nav .iconBurger .line {
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+  margin: 5px;
+  border-radius: 3px;
+  transition: all 0.5s ease-in-out;
 }
 
 /* Button style three (buttonStyleThree) */
 .buttonStyleThree {
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    background-color: #2BEA2A;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: opacity 0.3s; /* Smooth transition for hover effects */
+  font-size: 0.833vw;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  background-color: #2bea2a;
+  border: none;
+  border-radius: 0.208vw;
+  cursor: pointer;
+  transition: opacity 0.3s; /* Smooth transition for hover effects */
 }
 .buttonStyleThree:hover {
-    opacity: 0.8; /* Slight transparency on hover */
+  opacity: 0.8; /* Slight transparency on hover */
 }
 
-/* Button style for social icons (buttonStyleWP) */
 .buttonStyleX {
-    padding: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    text-decoration: none;
-    color: #fff;
-    background-color: #444;
-    border: none;
-    border-radius: 114px;
-    transition: background-color 0.3s; /* Smooth transition for hover effects */
-    filter: brightness(50%);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  text-decoration: none;
+  color: #fff;
+  background-color: #444;
+  border: none;
+  border-radius: 5.938vw;
+  transition: background-color 0.3s; /* Smooth transition for hover effects */
+  filter: brightness(50%);
 }
-
-
 
 .buttonStyleWP {
-    padding: 0.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-    text-decoration: none;
-    color: #fff;
-    background-color: #444;
-    border: none;
-    border-radius: 114px;
-    cursor: pointer;
-    transition: background-color 0.3s; /* Smooth transition for hover effects */
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  text-decoration: none;
+  color: #fff;
+  background-color: #444;
+  border: none;
+  border-radius: 5.938vw;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover effects */
 }
 
 .buttonStyleWP a {
-margin: 0;
-    padding: 0;
-    height: 26px;
+  margin: 0;
+  padding: 0;
+  height: 26px;
 }
 
 .buttonStyleWP:hover {
-    background-color: #555; /* Slightly lighter on hover */
+  background-color: #555; /* Slightly lighter on hover */
+}
+
+@media screen and (max-width: 1080px) {
+  .nav .logo {
+    width: 15%;
+  }
+  .nav .links {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav .buttonStyleThree {
+    display: block;
+  }
+  .nav .logo {
+    float: none;
+    width: auto;
+    justify-content: center;
+  }
+
+  .nav .links {
+    float: none;
+    position: fixed;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    top: 100px;
+    bottom: 100%;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: black;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+  .buttonStyleThree {
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  .nav .links .buttonStyle {
+    font-size: 20px;
+  }
+  .nav :checked ~ .links {
+    bottom: 0;
+  }
+  .nav .iconBurger {
+    display: block;
+  }
+  .nav :checked ~ .iconBurger .line:nth-child(1) {
+    transform: translateY(10px) rotate(225deg);
+  }
+  .nav :checked ~ .iconBurger .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-225deg);
+  }
+  .nav :checked ~ .iconBurger .line:nth-child(2) {
+    opacity: 0;
+  }
 }

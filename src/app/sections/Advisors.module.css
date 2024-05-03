@@ -1,0 +1,13 @@
+.advisorsContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .advisorsContainer {
+    justify-content: center;
+  }
+}

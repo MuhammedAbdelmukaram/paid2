@@ -1,0 +1,43 @@
+.seasonTwoContainer {
+  background-color: black;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+.heading {
+  color: #2bea2a;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.subheading {
+  color: #2bea2a;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.paragraph {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.italicParagraph {
+  font-size: 20px;
+  font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+  .heading {
+    font-size: 36px;
+  }
+
+  .subheading {
+    font-size: 24px;
+  }
+
+  .paragraph,
+  .italicParagraph {
+    font-size: 16px;
+  }
+}

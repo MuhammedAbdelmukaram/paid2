@@ -2,8 +2,6 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
-
-
 const myFont = localFont({
   src: "../../public/font/Sansation_Regular.ttf", // Path relative to the public directory
   display: "swap",

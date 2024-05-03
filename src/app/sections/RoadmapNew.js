@@ -1,35 +1,24 @@
-import React from 'react';
+import React from "react";
 import Image from "next/image";
+import styles from "./RoadmapNew.module.css";
 
 const RoadmapNew = () => {
-    return (
-        <div style={{
-            width: "100%",
-            padding: "20px 10%",
-            marginTop: 160,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center" // Aligns everything centrally
-        }} id={"roadmap"} >
-            <p style={{fontSize: 38, marginBottom: 0}}>
-                ROADMAP
-            </p>
-
-            <p style={{color: "#2BEA2A"}}>
-                The Only Roadmap That Doesn’t End!
-            </p>
-
-            <div style={{width:"100%", display:"flex", justifyContent:"center", alignItems:"center", marginTop:20}}>
-                <Image
-                    src="/RoadmapPlaceholder.png"
-                    alt="Roadmap Image"
-                    width={800}
-                    height={800}
-                    priority
-                />
-            </div>
-        </div>
-    );
+  return (
+    <div className={styles.roadmapContainer} id={"roadmap"}>
+      <p className={styles.title}>ROADMAP</p>
+      <p className={styles.subtitle}>The Only Roadmap That Doesn’t End!</p>
+      <div className={styles.imageContainer}>
+        <Image
+          src="/RoadmapPlaceholder.png"
+          alt="Roadmap Image"
+          layout="responsive"
+          width={800}
+          height={800}
+          priority
+        />
+      </div>
+    </div>
+  );
 };
 
 export default RoadmapNew;

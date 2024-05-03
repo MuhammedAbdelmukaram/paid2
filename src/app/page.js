@@ -21,54 +21,50 @@ import SeasonTwo from "@/app/sections/SeasonTwo";
 import RoadmapNew from "@/app/sections/RoadmapNew";
 import FAQ from "@/app/sections/FAQ";
 
-
-{/*<LoadingScreen/>*/
+{
+  /*<LoadingScreen/>*/
 }
 
 export default function Home() {
-    return (
-        <main className={styles.main}>
-            <div style={{zIndex: 1}}>
+  return (
+    <main className={styles.main}>
+      <div style={{ zIndex: 1 }}></div>
+      <div style={{ width: "100vw", display: "flex", flexDirection: "column" }}>
+        <AnnouncementBar />
+        <Header />
+        <Hero />
+      </div>
 
-            </div>
-            <div style={{width: "100vw", display: "flex", flexDirection: "column"}}>
-                <AnnouncementBar/>
-                <Header/>
-                <Hero/>
-            </div>
+      <div
+        style={{
+          width: "100%",
+          height: "20px",
+          marginTop: 90,
+          backgroundColor: "#fff",
+        }}
+      ></div>
+      <Benefits />
 
-            <div style={{width: "100%", height: "20px", marginTop: 90, backgroundColor: "#fff"}}>
-
-            </div>
-            <Benefits/>
-
-            {/*<Invest/>
-                <Tokenomics/>
-                <Roadmap/>*/}
-            <div style={{
-                width: "100%",
-                height: "100%",
-            }}>
-
-                <Carousel/>
-                {/*<RoadLine/>*/}
-
-                <MemberCards/>
-                <Reroll/>
-
-                <RoadmapNew/>
-
-                <SeasonTwo/>
-
-                <Team/>
-                <Advisors/>
-
-                <FAQ/>
-
-                <Footer/>
-            </div>
-
-
-        </main>
-    );
+      {/* <Invest/> */}
+      {/* <Tokenomics/> */}
+      {/* <Roadmap/> */}
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <Carousel />
+        {/*<RoadLine/>*/}
+        <MemberCards />
+        <Reroll />
+        <RoadmapNew />
+        <SeasonTwo />
+        {/* <Team /> */}
+        <Advisors />
+        <FAQ />
+        <Footer />
+      </div>
+    </main>
+  );
 }
