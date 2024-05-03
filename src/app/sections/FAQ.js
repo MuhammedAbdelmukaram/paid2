@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import styles from "./Faq.module.css";
+import styles from './FAQ.module.css';
 
 const Faq = () => {
   // Initialize state to manage FAQs
