@@ -42,10 +42,10 @@ const Product = ({
             width={400}
             height={400}
             style={{
-              // width: '100%', // Adjusted for space around line
+              width: '100%', // Adjusted for space around line
               // textAlign: 'left', // Text aligned to the left
-              marginTop: '-120px', 
-              marginBottom: '-90px', 
+              // marginTop: '-80px', 
+              // marginBottom: '-90px', 
             }}
             className={styles.mainImagePath}
             layout='responsive' // Makes the image responsive
