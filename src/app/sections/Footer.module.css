@@ -16,7 +16,8 @@
 
 .linksContainer {
   display: flex;
-  justify-content:center;
+  justify-content:space-between;
+  gap: 40px;
   width: 100%;
   max-width: 600px;
   margin: auto 20px;
@@ -52,8 +53,22 @@
   font-size: 12px;
 }
 
-.buttonStyleWP,
 .buttonStyleX {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  text-decoration: none;
+  color: #fff;
+  background-color: #444;
+  border: none;
+  border-radius: 5.938vw;
+  transition: background-color 0.3s; /* Smooth transition for hover effects */
+  filter: brightness(50%);
+}
+
+.buttonStyleWP{
   padding: 0.5rem;
   display: flex;
   justify-content: center;
@@ -74,9 +89,13 @@
   height: 26px;
 }
 
-.buttonStyleWP:hover,
-.buttonStyleX:hover {
+.buttonStyleWP:hover{
   background-color: #555; /* Slightly lighter on hover */
+}
+
+.footerLink:hover {
+  color: #03fb05; /* Change to your preferred hover color */
+  text-decoration: underline; /* Adds an underline on hover */
 }
 
 @media only screen and (max-width: 768px) {
@@ -88,6 +107,7 @@
   .linksContainer {
     flex-direction: column;
     align-items: center;
+    gap:0px;
   }
 
   .footerHeading {

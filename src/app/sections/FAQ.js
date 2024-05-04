@@ -72,9 +72,15 @@ const Faq = () => {
   return (
     <div className={styles.faqContainer} id={"faq"}>
       <p className={styles.faqTitle}>
-        Frequently asked <span>Questions</span>
+        Frequently asked <span style={{
+        background: 'linear-gradient(45deg, #2BEA2A, #BDFF00)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        display: 'inline'
+      }}>Questions</span>
       </p>
 
+      <p style={{width:"390px", textAlign:"center", marginTop:20, marginBottom:20}}>Find questions and answers related to the project, our plans and goals for the future and more!</p>
       <div className={styles.questionsContainer}>
         {questions.map((question) => (
           <div key={question.id} className={styles.question}>

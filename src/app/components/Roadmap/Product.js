@@ -67,9 +67,9 @@ const Product = ({
                 style={{
                     width: "100%", // Take full width of the parent div
                     textAlign: "center", // Centering text or contents
-                    borderTop: "6px solid #fff", // Top border
-                    borderLeft: "6px solid #fff", // Left border
-                    borderRight: "6px solid #fff", // Right border
+                    borderTop: "0px solid #fff", // Top border
+                    borderLeft: "0px solid #fff", // Left border
+                    borderRight: "0px solid #fff", // Right border
                     borderBottom: "none" // No bottom border
                 }}
             >

@@ -25,6 +25,7 @@ const Reroll = () => {
                     Your browser does not support the video tag.
                 </video>
             </div>
+            <p>Got a card? Reroll it and try to get the better one! (better copy needed)</p>
         </div>
     );
 };
