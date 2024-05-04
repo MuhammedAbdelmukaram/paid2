@@ -2,7 +2,7 @@ import React from 'react';
 
 const EarnedMoney = () => {
     return (
-    <div style={{border:"1px solid #8D8D8D", padding:30, width:"1000px", marginTop:120}}>
+    <div style={{ padding:30, width:"1000px", marginTop:120}}>
 
         <h1 style={{marginBottom:20}}>OUR TEAM IS OUR STRENGTH</h1>
         <div style={{marginBottom:20}}>
@@ -22,10 +22,9 @@ const EarnedMoney = () => {
             <p style={{color:"#2BEA2A", marginLeft:10, fontSize:20}}>
                 XX%
             </p>
+
         </div>
-        <p style={{color:"#2BEA2A", float:"right"}}>
-            Comming soon...
-        </p>
+
 
 
     </div>

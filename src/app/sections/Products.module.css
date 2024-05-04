@@ -132,3 +132,27 @@
   height: auto;
   border-radius: 10px; /* Optional, for rounded corners */
 }
+
+.stepButton {
+  border-radius: 3px;
+  color: #000000;
+  padding: 10px 20px;
+  background-color: #ddd;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.stepButton:disabled {
+  cursor: default;
+  background-color: #ccc;
+}
+
+.activeButton {
+  border: none;
+  border-radius: 3px;
+  color: #000000;
+  padding: 10px 20px;
+  background-color: #2be82b; /* Active state color */
+}
