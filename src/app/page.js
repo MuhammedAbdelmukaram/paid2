@@ -178,12 +178,13 @@ export default function Home() {
                     <Carousel />
                     <MemberCards />
                     <Reroll />
-                    <RoadmapNew />
-
-                    <SeasonTwo />
-                    {/*<Team/>*/}
                 </div>
-                <Advisors />
+                <div className={styles.gradientBackground}>
+                    <RoadmapNew />
+                    <SeasonTwo />
+                    <Team />
+                    <Advisors />
+                </div>
                 <FAQ />
                 <Footer />
             </div>

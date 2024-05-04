@@ -124,7 +124,7 @@
   border: 2px solid #fff;
   height: auto;
   max-width: 1000px; /* You can adjust this value based on your design needs */
-  margin: 30px auto; /* Centering the video */
+  margin: 30px auto 0px auto; /* Centering the video */
 }
 
 .videoElement {

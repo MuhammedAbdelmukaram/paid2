@@ -1,7 +1,13 @@
+.wrapper{
+  display: flex;
+  margin-top: 180px;
+  width: 100%;
+  justify-content: center;
+  gap: 180px;
+}
 .seasonTwoContainer {
-  background-color: black;
   color: white;
-  padding: 40px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -21,11 +27,36 @@
   font-size: 20px;
   margin: 10px 0;
 }
-
+.texts{
+  margin-left: 120px;
+}
 .italicParagraph {
   font-size: 20px;
   font-style: italic;
 }
+
+.xpBarContainer {
+  position: relative;
+  height: 12px; /* Adjust the height as needed */
+  background-color: #ddd; /* Light gray background for the XP bar */
+  border-radius: 10px; /* Optional: rounded corners */
+  margin: 20px 0; /* Spacing for visual clarity */
+}
+
+.xpBar {
+  height: 100%;
+  background-color: #2be82b; /* Green color for progress */
+  border-radius: 10px; /* Match the container's border-radius */
+}
+
+.xpText {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  line-height: 20px; /* Aligns text vertically; should match the height of .xpBarContainer */
+  font-weight: bold;
+}
+
 
 @media screen and (max-width: 768px) {
   .heading {
@@ -41,3 +72,4 @@
     font-size: 16px;
   }
 }
+

@@ -27,6 +27,10 @@
   background-color: #dcdcdc; /* Changes the background color on hover */
 }
 
+.gradientBackground {
+  background: linear-gradient(to bottom, #010103, #021502); /* Example colors */
+}
+
 
 
 .description {

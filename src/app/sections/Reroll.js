@@ -16,7 +16,12 @@ const Reroll = () => {
                 <p className={styles.heading}>RE ROLL</p>
                 <p className={styles.subHeading}>Enabled by SPL 404 & Mutantmon</p>
             </div>
+            <div style={{width:"100%", height:4, backgroundColor:"#2be82b", marginTop:10}}>
+
+            </div>
+
             <div className={styles.videoContainer}>
+
                 <video className={styles.videoElement}  autoPlay
                        loop
                        muted
@@ -25,7 +30,13 @@ const Reroll = () => {
                     Your browser does not support the video tag.
                 </video>
             </div>
-            <p>Got a card? Reroll it and try to get the better one! (better copy needed)</p>
+            <p style={{fontSize:12, color:"#2be62c"}}>$PAID Token Liquidity Pool will be Setup after FCFS Public Presale Event</p>
+            <div style={{textAlign:"center", width:"25%", marginTop:26, display:"flex", flexDirection:"column", gap:14, fontSize:20, }}>
+                <p>Got the Entry Level Card?</p>
+                <p>Swap it (NFT) for $PAID Tokens, then Re-Roll Back to NFT to get a Brand New Randomized Rarity Card</p>
+                <p>Yes, from Gold to Diamond, or Diamond back to Entry Level Member Card!</p>
+            </div>
+
         </div>
     );
 };

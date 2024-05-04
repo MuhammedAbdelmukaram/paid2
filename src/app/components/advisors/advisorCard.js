@@ -3,16 +3,16 @@ import Image from "next/image";
 
 const AdvisorCard = ({ src, alt, name, role, description }) => {
   return (
-    <div style={{ width: 300 }}>
+    <div style={{ width: 250 }}>
       <div
         style={{
-          height: 350,
-          width: 300,
+          height: 300,
+          width: 250,
           backgroundColor: "#fff",
           borderRadius: 12,
         }}
       >
-        {src && <Image src={src} alt={alt} width={300} height={350} priority />}
+        {src && <Image src={src} alt={alt} width={250} height={300} priority />}
       </div>
       <div
         style={{
