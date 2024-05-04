@@ -28,7 +28,7 @@
   margin: 10px 0;
 }
 .texts{
-  margin-left: 120px;
+
 }
 .italicParagraph {
   font-size: 20px;
@@ -37,10 +37,10 @@
 
 .xpBarContainer {
   position: relative;
-  height: 12px; /* Adjust the height as needed */
+  height: 6px; /* Adjust the height as needed */
   background-color: #ddd; /* Light gray background for the XP bar */
   border-radius: 10px; /* Optional: rounded corners */
-  margin: 20px 0; /* Spacing for visual clarity */
+  margin: 40px 0 0 0; /* Spacing for visual clarity */
 }
 
 .xpBar {
@@ -51,10 +51,11 @@
 
 .xpText {
   position: absolute;
+  margin-top: 4px;
   width: 100%;
   text-align: center;
   line-height: 20px; /* Aligns text vertically; should match the height of .xpBarContainer */
-  font-weight: bold;
+  font-weight: normal;
 }
 
 

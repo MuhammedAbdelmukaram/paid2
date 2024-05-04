@@ -1,11 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./SeasonTwo.module.css";
 import Image from "next/image";
 
 const SeasonTwo = () => {
-    const currentXP = 2344;
-    const totalXP = 5000;
-    const xpPercentage = (currentXP / totalXP) * 100;
+    const [xpState, setXpState] = useState({
+        level: 1,
+        currentXP: 0,
+        totalXP: 5000,
+        startXP: 0  // This will track the XP at the start of the current level
+    });
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setXpState(prevState => {
+                let { level, currentXP, totalXP, startXP } = prevState;
+                currentXP += 100;
+
+                if (currentXP >= totalXP) {
+                    if (level < 5) {
+                        const newTotalXP = totalXP * 2;
+                        level += 1;
+                        // Set startXP to the currentXP at the moment of leveling up
+                        startXP = totalXP;
+                        totalXP = newTotalXP;
+                    } else {
+                        currentXP = totalXP; // Cap the currentXP to totalXP if max level reached
+                    }
+                }
+
+                return { level, currentXP, totalXP, startXP };
+            });
+        }, 100);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    // Calculate the percentage based on excess XP from the startXP
+    const xpPercentage = ((xpState.currentXP - xpState.startXP) / (xpState.totalXP - xpState.startXP)) * 100;
 
     return (
         <div className={styles.wrapper}>
@@ -13,12 +44,10 @@ const SeasonTwo = () => {
                 <h1 className={styles.heading}>SEASON TWO</h1>
                 <h2 className={styles.subheading}>3SQUARES</h2>
                 <div className={styles.texts}>
-
-
                     <p className={styles.paragraph}>
-                        XP will Play a Crucial Role in Development of sPAID
+                        <span style={{color:"#2be62c"}}>XP</span> will Play a Crucial Role in Development of sPAID
                         <br/>
-                        Advice: Make sure to stake your Member Cards.
+                        Advice:  <span style={{color:"#2be62c"}}>Make sure to stake your Member Cards.</span>
                     </p>
                     <p className={styles.italicParagraph}>
                         We deem Loyalty as the Highest form of Flattery
@@ -29,8 +58,9 @@ const SeasonTwo = () => {
 
                 <div className={styles.xpBarContainer}>
                     <div className={styles.xpBar} style={{ width: `${xpPercentage}%` }}></div>
-                    <div className={styles.xpText}>{`${currentXP}/${totalXP}`}</div>
+                    <div className={styles.xpText}>{`Level ${xpState.level}: ${xpState.currentXP}/${xpState.totalXP}`}</div>
                 </div>
+                <p style={{marginTop: 40, fontStyle: "italic"}}>More info TBA!</p>
             </div>
 
             <Image
@@ -39,7 +69,6 @@ const SeasonTwo = () => {
                 width={400}
                 height={400}
             />
-
         </div>
     );
 };
