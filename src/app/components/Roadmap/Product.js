@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './product.module.css'
 const Product = ({
+                     ctaText,
   mainImagePath,
   mainImageAlt,
   description,
@@ -11,18 +12,15 @@ const Product = ({
   return (
     <div
       style={{
-        border: '1px solid white',
-        padding: '20px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         width: '100%', // Adjusted for a wider div
         height: 'max-content',
-        backgroundColor: '#001300', // A darker background for modern aesthetic
         color: 'white', // Text color set to white
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // Soft shadow for depth
         borderRadius: '10px', // Rounded corners
-        margin: '20px', // Some margin for spacing around the component
+
       }}
     >
       {/* Row 1 */}
@@ -32,25 +30,24 @@ const Product = ({
           flexDirection: 'column', // Stack items vertically
           width: '100%', // Take full width of the parent div
           alignItems: 'center', // Center items horizontally
-          marginBottom: '20px',
         }}
       >
-        <div style={{ marginBottom: '20px' }}>
-          <Image
-            src={mainImagePath}
-            alt={mainImageAlt}
-            width={400}
-            height={400}
-            style={{
-              width: '100%', // Adjusted for space around line
-              // textAlign: 'left', // Text aligned to the left
-              // marginTop: '-80px', 
-              // marginBottom: '-90px', 
-            }}
-            className={styles.mainImagePath}
-            layout='responsive' // Makes the image responsive
-          />
-        </div>
+          {/*<div style={{marginBottom: '20px'}}>
+              <Image
+                  src={mainImagePath}
+                  alt={mainImageAlt}
+                  width={100}
+                  height={100}
+                  style={{
+
+                      // textAlign: 'left', // Text aligned to the left
+                      // marginTop: '-80px',
+                      // marginBottom: '-90px',
+                  }}
+                  className={styles.mainImagePath}
+                  layout='responsive' // Makes the image responsive
+              />
+          </div>*/}
         <div
           style={{
             width: '100%', // Adjusted for space around line
@@ -58,7 +55,7 @@ const Product = ({
             // marginTop: '-70px',
           }}
         >
-          <p className={styles.desc}>{description}</p>
+            {/*<p className={styles.desc}>{description}</p>*/}
         </div>
       </div>
 
@@ -68,7 +65,7 @@ const Product = ({
 
           width: "100%", // Take full width of the parent div
           textAlign: "center", // Centering text or contents
-            border:"6px solid #fff"
+            border:"6px solid #2bea2a"
         }}
       >
         <Image
@@ -79,6 +76,10 @@ const Product = ({
           layout='responsive'
         />
       </div>
+
+        <div className={styles.cta}>
+            <p style={{color:"#000", fontWeight:"bold"}}>{ctaText}</p>
+        </div>
     </div>
   );
 };

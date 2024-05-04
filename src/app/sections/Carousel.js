@@ -46,34 +46,35 @@ const Carousel = () => {
     return (
         <div style={{
             width: "100%",
-            padding: "20px 20%",
-            marginTop: 10,
+            padding: "10px 19%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center", // Aligns everything centrally
             position: "relative" // Set relative positioning for absolute child elements
         }} >
 
-            <div style={{marginTop: 20, width: '100%', overflow: 'hidden'}}>
+            <div style={{marginTop: 0, width: '100%', overflow: 'hidden'}}>
+                {renderDots()}
                 <div style={{
                     display: 'flex',
                     width: '300%', // Combined width of all three slides
+                    marginTop:14,
                     transition: 'transform 0.5s ease-in-out',
                     transform: `translateX(-${activeIndex * (100 / 3)}%)` // Correctly calculate the shift
                 }}>
                     <div style={slideStyles()}>
-                        <Product mainImagePath={"/nileLogo.png"} secondaryImagePath={"/nileBanner.png"} description={"Everything on Web 3 is Bigger & Better right? So will the Amazon of Web 3 Be! The Go-To Marketplace for Physical Products Purchasable with Solana Exclusively. "}/>
+                        <Product ctaText={"Make your Store"} mainImagePath={"/nileLogo.png"} secondaryImagePath={"/nileBanner.png"} description={"Everything on Web 3 is Bigger & Better right? So will the Amazon of Web 3 Be! The Go-To Marketplace for Physical Products Purchasable with Solana Exclusively. "}/>
                     </div>
                     <div style={slideStyles()}>
-                        <Product mainImagePath={"/DefuelLogo.png"} secondaryImagePath={"/DefuelBanner.png"} description={"Made for degens by degens. The ultimate snacking stationfor solana enthusiasts with an appetite for gains"}/>
+                        <Product ctaText={"Make your Store"}  mainImagePath={"/DefuelLogo.png"} secondaryImagePath={"/DefuelBanner.png"} description={"Made for degens by degens. The ultimate snacking stationfor solana enthusiasts with an appetite for gains"}/>
                     </div>
                     <div style={slideStyles()}>
-                        <Product mainImagePath={"/DestorezLogo.png"} secondaryImagePath={"/DestorezBanner.png"} description={"Monetize your Audience with Solana & Native token payments, Detailed customization, and Hassle-free fulfillment, Focus on Creating while we Handle the Rest. "}/>
+                        <Product ctaText={"Make your Store"}   mainImagePath={"/DestorezLogo.png"} secondaryImagePath={"/DestorezBanner.png"} description={"Monetize your Audience with Solana & Native token payments, Detailed customization, and Hassle-free fulfillment, Focus on Creating while we Handle the Rest. "}/>
                     </div>
                 </div>
             </div>
 
-            {renderDots()}
+
 
             <Image
                 src="/arrowLeft.png"

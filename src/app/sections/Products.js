@@ -47,7 +47,7 @@ const Products = () => {
                     priority
                 />
                 <p className={styles.heading}>REVENUE GENERATING PRODUCTS</p>
-                <p className={styles.subHeading}>We Created The 1st Sustainable NFT Project.</p>
+                <p className={styles.subHeading}>Peep through the window   &#x1F440; </p>
 
             </div>
 
