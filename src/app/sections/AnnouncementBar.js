@@ -10,11 +10,11 @@ const AnnouncementBar = () => {
         justifyContent: "center",
         width: "100%",
         padding: 8,
-        backgroundColor: "#323232",
+        backgroundColor: "#111111",
         color: "#fff",
       }}
     >
-      <p style={{ fontSize: 13 }}>Get $PAID</p>
+      <p style={{ fontSize: 13 }}>Stay in the loop, follow for more  |  X - @PaidIncHQ</p>
     </div>
   );
 };

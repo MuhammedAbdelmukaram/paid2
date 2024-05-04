@@ -8,6 +8,24 @@
 
 }
 
+/* styles.css */
+.hoverableDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  margin-top: 90px;
+  background-color: #fff;
+  background-image: url('/BlackLogo.png');
+  background-size: contain;
+  background-repeat: repeat;
+  cursor: pointer; /* Makes the cursor a pointer when hovering over the div */
+}
+
+.hoverableDiv:hover {
+  background-color: #dcdcdc; /* Changes the background color on hover */
+}
 
 
 

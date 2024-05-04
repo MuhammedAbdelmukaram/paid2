@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const MemberCards = () => {
     return (
-        <div style={{width:"100%", marginTop:100}} id={"membercards"}>
+        <div style={{width:"100%", marginTop:170}} id={"membercards"}>
             <div className={styles.headingSection}>
                 <Image
                     src="/whitelogo.png"
