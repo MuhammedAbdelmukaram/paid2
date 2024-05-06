@@ -12,7 +12,7 @@ const AdvisorCard = ({ src, alt, name, role, description }) => {
           borderRadius: 12,
         }}
       >
-        {src && <Image src={src} alt={alt} width={250} height={300} priority />}
+        {src && <Image src={src} alt={alt} width={254} height={300} priority />}
       </div>
       <div
         style={{
@@ -25,7 +25,7 @@ const AdvisorCard = ({ src, alt, name, role, description }) => {
         }}
       >
         <p>{name}</p>
-        <p>{role}</p>
+        <p style={{color:"#2be82b"}}>{role}</p>
       </div>
       {/* <p style={{marginTop: 60}}>{description}</p>*/}
     </div>

@@ -75,7 +75,7 @@ const Reroll = () => {
                 </div>
             </div>
 
-            <div style={{marginTop:36, textAlign:"center"}}>
+            <div style={{marginTop:36, marginRight:8, marginLeft:8, textAlign:"center"}}>
                   <p style={{fontSize:14}}>Yes, <span style={{color:"#2be82b"}}>from Entry to Emerald</span>, or Emerald back to Entry Level Member Card!</p>
             </div>
         </div>

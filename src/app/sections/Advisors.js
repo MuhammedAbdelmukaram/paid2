@@ -13,29 +13,29 @@ const Advisors = () => {
                 <AdvisorCard
                     src="/Person1.png"
                     alt="Advisor Portrait"
-                    name="Lorem Ipsum"
-                    role="CFO"
+                    name="Busy"
+                    role="CEO"
                     description="Lorem Ipsum sit amet dolor et alas doasr fie alt coin is very cool thing because this is dummy text"
                 />
                 <AdvisorCard
                     src="/Person2.jpg"
                     alt="Advisor Portrait"
-                    name="Dolor Sit"
-                    role="CTO"
+                    name="Andra"
+                    role="COO"
                     description="Dolor sit amet consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
                 />
                 <AdvisorCard
                     src="/Person3.png"
                     alt="Advisor Portrait"
-                    name="Amet Consectetur"
-                    role="CEO"
+                    name="Deity"
+                    role="CTO"
                     description="Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <AdvisorCard
                     src="/Person4.png"
-                    alt="Advisor Portrait"
+                    alt="Fiske"
                     name="Amet Consectetur"
-                    role="CEO"
+                    role="CCO"
                     description="Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
             </div>
