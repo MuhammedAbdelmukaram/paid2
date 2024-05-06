@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const AdvisorCard = ({ src, alt, name, role, description }) => {
   return (
-    <div style={{ width: 250, backgroundColor:"#000" }}>
+    <div style={{ width: "fit-content", backgroundColor:"#110f0f", borderRadius:12 }}>
       <div
         style={{
           height: 300,
@@ -18,8 +18,10 @@ const AdvisorCard = ({ src, alt, name, role, description }) => {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          marginTop: 10,
-            marginBottom:30
+          marginTop: 4,
+            marginBottom:0,
+            padding:12,
+            color:"white"
         }}
       >
         <p>{name}</p>

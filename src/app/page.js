@@ -191,7 +191,7 @@ export default function Home() {
             <Reroll />
           </div>
           <div className={styles.gradientBackground}>
-            <RoadmapNew />
+            {/*<RoadmapNew/>*/}
             <SeasonTwo />
             <Team />
             <Advisors />

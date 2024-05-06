@@ -8,7 +8,7 @@ const Team = () => {
         display: "flex",
         flexDirection: "column",
         alignSelf: "flex-start",
-        padding: "20px 10%",
+        padding: "20px 15%",
         marginTop: 160,
       }}
       id="team"
