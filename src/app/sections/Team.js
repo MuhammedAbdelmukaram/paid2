@@ -18,7 +18,7 @@ const Team = () => {
         Mooning in everything we do
       </p>
 
-      <EarnedMoney />
+
     </div>
   );
 };

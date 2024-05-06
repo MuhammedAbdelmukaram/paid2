@@ -11,10 +11,12 @@ const AnnouncementBar = () => {
         width: "100%",
         padding: 8,
         backgroundColor: "#111111",
-        color: "#fff",
+          color: "#fff",
       }}
     >
-      <p style={{ fontSize: 13 }}>Stay in the loop, follow for more  |  X - @PaidIncHQ</p>
+      <p style={{ fontSize: 13 }}>Stay in the loop, follow for more  |  X - <a href="https://twitter.com/PaidIncHQ"
+                                                                               target="_blank"
+                                                                               rel="noopener noreferrer" style={{color:"#2be82b"}} >@PaidIncHQ</a></p>
     </div>
   );
 };

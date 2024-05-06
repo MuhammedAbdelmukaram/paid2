@@ -1,6 +1,7 @@
 import React from "react";
 import AdvisorCard from "@/app/components/advisors/advisorCard";
 import styles from "./Advisors.module.css";
+import EarnedMoney from "@/app/components/team/EarnedMoney";
 
 const Advisors = () => {
   return (
@@ -33,6 +34,8 @@ const Advisors = () => {
         role="CEO"
         description="Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
+
+        <EarnedMoney />
     </div>
   );
 };

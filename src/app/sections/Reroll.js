@@ -6,9 +6,9 @@ const Reroll = () => {
     const [currentStep, setCurrentStep] = useState(0); // Tracks the current active step
 
     const steps = [
-        { title: "Step 1: Mint Your Card", buttonText: "Mint" },
-        { title: "Step 2: Convert it into $PAID Token", buttonText: "Convert" },
-        { title: "Step 3: Try your luck again", buttonText: "Re-Mint" }
+        { step:"Step 1:", title: "Mint Your Card", buttonText: "Mint" },
+        { step:"Step 2:", title: "Convert it into $PAID Token", buttonText: "Convert" },
+        { step:"Step 3:", title: "Try your luck again", buttonText: "Re-Mint" }
     ];
 
     // Function to handle button click and increment the step
@@ -30,6 +30,12 @@ const Reroll = () => {
                 <p className={styles.subHeading}>Enabled by SPL 404 & Mutantmon</p>
             </div>
 
+            <div style={{textAlign:"center", width:"40%", marginTop:26, display:"flex", flexDirection:"column", gap:14, fontSize:16}}>
+                <p style={{fontSize:26}}>Got the Entry Level Card?</p>
+                <p>Swap it (NFT) for $PAID Tokens, then Re-Roll Back to NFT to get a Brand New Randomized Rarity Card</p>
+                <p>Yes, from Gold to Diamond, or Diamond back to Entry Level Member Card!</p>
+
+            </div>
 
             <div className={styles.videoContainer}>
                 <video className={styles.videoElement} autoPlay loop muted playsInline>
@@ -42,26 +48,21 @@ const Reroll = () => {
                 $PAID Token Liquidity Pool will be Setup after FCFS Public Presale Event
             </p>
 
-            <div style={{textAlign:"center", width:"25%", marginTop:26, display:"flex", flexDirection:"column", gap:14, fontSize:16}}>
-                <p>Got the Entry Level Card?</p>
-                <p>Swap it (NFT) for $PAID Tokens, then Re-Roll Back to NFT to get a Brand New Randomized Rarity Card</p>
-                <p>Yes, from Gold to Diamond, or Diamond back to Entry Level Member Card!</p>
-            </div>
 
             {/* Step Buttons and Progress Bar at the bottom */}
             <div style={{marginTop: 20, width: "50vw"}}>
                 <div style={{display: 'flex', justifyContent: 'space-around', margin: '20px 0'}}>
                     {steps.map((stepData, index) => (
                         <div key={index} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                            <p>{stepData.title}</p>
+                            <p style={{marginBottom:12}}><span style={{fontWeight:"bold", color:"#2be62c", marginRight:6}}>{stepData.step}</span>{stepData.title}</p>
                             <Image src={`/step${index + 1}.png`} alt={`Step ${index + 1} Icon`} width={70} height={70} />
-                            <button
+                            <div
                                 onClick={() => handleButtonClick(index)}
                                 disabled={currentStep < index}
                                 className={currentStep > index ? styles.activeButton : styles.stepButton}
                             >
                                 {stepData.buttonText}
-                            </button>
+                            </div>
                         </div>
                     ))}
                 </div>
