@@ -36,7 +36,7 @@ const Footer = () => {
                 <a href="#reroll" className={styles.footerLink}>Re Roll</a> {/* Link to the Re Roll section */}
               </p>
               <p className={styles.footerLink}>
-                <a href="#roadmap" className={styles.footerLink}>Roadmap</a> {/* Link to the Roadmap section */}
+                <a href="#seasontwo" className={styles.footerLink}>Season Two</a> {/* Link to the Roadmap section */}
               </p>
             </div>
 

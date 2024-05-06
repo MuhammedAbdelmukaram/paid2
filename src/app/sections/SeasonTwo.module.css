@@ -9,6 +9,7 @@
 .seasonTwoContainer {
   color: white;
   padding: 10px;
+  z-index: 2;
   text-align: center;
 }
 

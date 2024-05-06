@@ -11,7 +11,7 @@ const Advisors = () => {
 
 
                 <AdvisorCard
-                    src="/Person1.png"
+                    src="/Person4.png"
                     alt="Advisor Portrait"
                     name="Busy"
                     role="CEO"
@@ -32,7 +32,7 @@ const Advisors = () => {
                     description="Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
                 <AdvisorCard
-                    src="/Person4.png"
+                    src="/Person1.jpg"
                     alt="Fiske"
                     name="Amet Consectetur"
                     role="CCO"

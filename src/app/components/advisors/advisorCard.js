@@ -12,7 +12,7 @@ const AdvisorCard = ({ src, alt, name, role, description }) => {
           borderRadius: 12,
         }}
       >
-        {src && <Image src={src} alt={alt} width={254} height={300} priority />}
+        {src && <Image src={src} alt={alt} width={254} height={300} style={{objectFit:"cover"}} priority />}
       </div>
       <div
         style={{

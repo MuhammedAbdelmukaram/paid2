@@ -76,6 +76,8 @@ export default function Home() {
     <>
       {!isLoadedImg && <LoadingScreen />}
       <main className={styles.main} style={{ opacity: !isLoadedImg ? 0 : 1 }}>
+
+
         <div style={{ zIndex: 1 }}></div>
         <div
           style={{ width: "100vw", display: "flex", flexDirection: "column" }}

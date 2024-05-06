@@ -15,8 +15,8 @@ const MetricsDashboard = () => {
         productsSold: 17000,
         productsBuilt: 40,
         customerSatisfaction: 100,
-        revenueGenerated: 100, // Assuming this should be 100% of a certain value for full completion
-        roi: 40.0
+        revenueGenerated: "?", // Assuming this should be 100% of a certain value for full completion
+        roi: 14
     };
 
     const incrementValues = {
@@ -24,7 +24,7 @@ const MetricsDashboard = () => {
         productsBuilt: 23,
         customerSatisfaction: 94,
         revenueGenerated: 100,
-        roi: 34.6
+        roi: 11
     };
 
     const isVisibleRef = useRef(false);

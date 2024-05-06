@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import styles from '@/app/sections/Products.module.css';
-
+import stylesZ from "../page.module.css";
 const Reroll = () => {
     const [currentStep, setCurrentStep] = useState(0); // Tracks the current active step
 
@@ -18,6 +18,9 @@ const Reroll = () => {
 
     return (
         <div className={styles.rerollContainer} id="reroll">
+            <div className={stylesZ.backgroundContainer}>
+                <Image src="/Back1.png" alt="Background 1" width={700} height={700} className={`${stylesZ.backgroundImage} ${stylesZ.back1}`} />
+            </div>
             <div className={styles.headingSection}>
                 <Image
                     src="/whitelogo.png"

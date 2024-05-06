@@ -88,6 +88,7 @@ const SeasonTwo = () => {
                 alt="Previous"
                 width={400}
                 height={400}
+                style={{zIndex:2}}
             />
         </div>
     );
