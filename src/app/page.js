@@ -69,7 +69,7 @@ export default function Home() {
 
   const handleImageLoad = (event) => {
     console.log(event.target.complete);
-    setIsLoadedImg(true);
+    setIsLoadedImg(false);
   };
 
   return (

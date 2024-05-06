@@ -64,9 +64,9 @@ const LoadingScreen = () => {
         alignItems: "center",
         // height: "100%",
         // marginTop: 360,
+          width:"100%",
         position: "fixed",
         zIndex: 1060,
-        left: "44%",
         top: "35%",
       }}
     >
@@ -87,7 +87,7 @@ const LoadingScreen = () => {
             priority
           />
         </div>
-        <ProgressBar completionTime={2000} onComplete={handleLoadingComplete} />
+        <ProgressBar completionTime={1000} onComplete={handleLoadingComplete} />
       </div>
     </div>
   );
