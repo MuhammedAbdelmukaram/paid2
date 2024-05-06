@@ -24,7 +24,7 @@ const Carousel = () => {
         {
             ctaText: "Taste the Charts",
             mainImagePath: "/DefuelLogo.png",
-            secondaryImagePath: "/DF1.png",
+            secondaryImagePath: "/DFX.png",
             description: "Made for degens by degens. The ultimate snacking station for solana enthusiasts with an appetite for gains",
             modalContent: <TasteTheChartsModalContent onClose={() => setIsModalOpen(false)} />
         }

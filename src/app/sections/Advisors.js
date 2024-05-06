@@ -20,7 +20,7 @@ const Advisors = () => {
                 <AdvisorCard
                     src="/Person2.jpg"
                     alt="Advisor Portrait"
-                    name="Andra"
+                    name="Fiske"
                     role="COO"
                     description="Dolor sit amet consectetuer adipiscing elit. Aenean commodo ligula eget dolor."
                 />
@@ -34,7 +34,7 @@ const Advisors = () => {
                 <AdvisorCard
                     src="/Person1.jpg"
                     alt="Fiske"
-                    name="Amet Consectetur"
+                    name="Andra"
                     role="CCO"
                     description="Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
