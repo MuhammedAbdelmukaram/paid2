@@ -67,7 +67,7 @@ const LoadingScreen = () => {
         position: "fixed",
         zIndex: 1060,
         left: "44%",
-        top: "50%",
+        top: "35%",
       }}
     >
       <div

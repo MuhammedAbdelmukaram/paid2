@@ -16,7 +16,7 @@ const MemberCards = () => {
                     priority
                 />
                 <p className={styles.heading}>PAID INC. MEMBER CARDS</p>
-                <p className={styles.subHeading}>This is Your Way In!</p>
+                <p className={styles.subHeading}>This is Your Way In! <span className={styles.pressText}>Press and see more :)</span></p>
 
             </div>
             <LeftSideCard

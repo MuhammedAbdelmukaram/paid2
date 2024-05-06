@@ -144,7 +144,7 @@
 
     .videoContainer {
         order: 2; /* Move video container below text container */
-        margin-top: 30px; /* Add margin to separate from text */
+        margin-top: 0px; /* Add margin to separate from text */
     }
 
     .textContainer {

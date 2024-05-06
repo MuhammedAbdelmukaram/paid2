@@ -30,7 +30,7 @@ const Reroll = () => {
                 <p className={styles.subHeading}>Enabled by SPL 404 & Mutantmon</p>
             </div>
 
-            <div style={{textAlign:"center", width:"40%", marginTop:26, display:"flex", flexDirection:"column", gap:14, fontSize:16}}>
+            <div className={styles.rerollTexts}>
                 <p style={{fontSize:26}}>Got the Entry Level Card?</p>
                 <p>Swap it (NFT) for $PAID Tokens, then Re-Roll Back to NFT to get a Brand New Randomized Rarity Card</p>
                 <p>Yes, from Gold to Diamond, or Diamond back to Entry Level Member Card!</p>
@@ -50,11 +50,11 @@ const Reroll = () => {
 
 
             {/* Step Buttons and Progress Bar at the bottom */}
-            <div style={{marginTop: 20, width: "50vw"}}>
+            <div className={styles.rerollWrapper}>
                 <div style={{display: 'flex', justifyContent: 'space-around', margin: '20px 0'}}>
                     {steps.map((stepData, index) => (
                         <div key={index} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                            <p style={{marginBottom:12}}><span style={{fontWeight:"bold", color:"#2be62c", marginRight:6}}>{stepData.step}</span>{stepData.title}</p>
+                            <p className={styles.textP}><span style={{fontWeight:"bold", color:"#2be62c", marginRight:6}}>{stepData.step}</span>{stepData.title}</p>
                             <Image src={`/step${index + 1}.png`} alt={`Step ${index + 1} Icon`} width={70} height={70} />
                             <div
                                 onClick={() => handleButtonClick(index)}

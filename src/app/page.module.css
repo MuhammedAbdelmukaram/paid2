@@ -285,6 +285,14 @@
   animation: rotateImage 3.5s linear infinite;
 }
 
+@media screen and (max-width: 768px) {
+  .hoverableDiv {
 
+    margin-top: 0px;
+
+  }
+
+
+}
 
 

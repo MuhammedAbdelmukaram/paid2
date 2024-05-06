@@ -60,10 +60,10 @@ const Carousel = () => {
                     transform: `translateX(-${activeIndex * (100 / 3)}%)`
                 }}>
                     <div style={slideStyles()}>
-                        <Product progress={progress} ctaText={"Make your Store"} mainImagePath={"/nileLogo.png"} secondaryImagePath={"/nileBanner.png"} description={"Everything on Web 3 is Bigger & Better right? So will the Amazon of Web 3 Be! The Go-To Marketplace for Physical Products Purchasable with Solana Exclusively. "}/>
+                        <Product progress={progress} ctaText={"Amazon of Web3"} mainImagePath={"/nileLogo.png"} secondaryImagePath={"/nileBanner.png"} description={"Everything on Web 3 is Bigger & Better right? So will the Amazon of Web 3 Be! The Go-To Marketplace for Physical Products Purchasable with Solana Exclusively. "}/>
                     </div>
                     <div style={slideStyles()}>
-                        <Product progress={progress} ctaText={"Make your Store"} mainImagePath={"/DefuelLogo.png"} secondaryImagePath={"/DefuelBanner.png"} description={"Made for degens by degens. The ultimate snacking station for solana enthusiasts with an appetite for gains"}/>
+                        <Product progress={progress} ctaText={"Taste the Charts"} mainImagePath={"/DefuelLogo.png"} secondaryImagePath={"/DefuelBanner.png"} description={"Made for degens by degens. The ultimate snacking station for solana enthusiasts with an appetite for gains"}/>
                     </div>
                     <div style={slideStyles()}>
                         <Product progress={progress} ctaText={"Make your Store"} mainImagePath={"/DestorezLogo.png"} secondaryImagePath={"/DestorezBanner.png"} description={"Monetize your Audience with Solana & Native token payments, Detailed customization, and Hassle-free fulfillment, Focus on Creating while we Handle the Rest. "}/>
@@ -75,16 +75,16 @@ const Carousel = () => {
             <Image
                 src="/arrowLeft.png"
                 alt="Previous"
-                width={48}
-                height={48}
+                width={38}
+                height={38}
                 onClick={prevSlide}
                 style={{ cursor: 'pointer', position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)' }}
             />
             <Image
                 src="/arrowRight.png"
                 alt="Next"
-                width={48}
-                height={48}
+                width={38}
+                height={38}
                 onClick={nextSlide}
                 style={{ cursor: 'pointer', position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)' }}
             />
