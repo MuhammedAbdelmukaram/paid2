@@ -1,0 +1,15 @@
+/* TasteTheChartsModalContent.module.css */
+.button {
+    background-color: #2be82b;
+    padding: 10px 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #26d025; /* Slightly darker green on hover */
+}

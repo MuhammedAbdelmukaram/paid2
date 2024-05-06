@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./SeasonTwo.module.css";
 import Image from "next/image";
 
@@ -7,10 +7,31 @@ const SeasonTwo = () => {
         level: 1,
         currentXP: 0,
         totalXP: 5000,
-        startXP: 0  // This will track the XP at the start of the current level
+        startXP: 0
     });
 
+    const observerRef = useRef(null);
+    const [isActive, setIsActive] = useState(false);
+
     useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+            const [entry] = entries;
+            if (entry.isIntersecting) {
+                setIsActive(true);
+                observer.unobserve(entry.target);
+            }
+        }, { threshold: 0.1 });
+
+        if (observerRef.current) {
+            observer.observe(observerRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        if (!isActive) return;
+
         const interval = setInterval(() => {
             setXpState(prevState => {
                 let { level, currentXP, totalXP, startXP } = prevState;
@@ -20,11 +41,10 @@ const SeasonTwo = () => {
                     if (level < 5) {
                         const newTotalXP = totalXP * 2;
                         level += 1;
-                        // Set startXP to the currentXP at the moment of leveling up
                         startXP = totalXP;
                         totalXP = newTotalXP;
                     } else {
-                        currentXP = totalXP; // Cap the currentXP to totalXP if max level reached
+                        currentXP = totalXP;
                     }
                 }
 
@@ -33,13 +53,13 @@ const SeasonTwo = () => {
         }, 100);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [isActive]);
 
     // Calculate the percentage based on excess XP from the startXP
     const xpPercentage = ((xpState.currentXP - xpState.startXP) / (xpState.totalXP - xpState.startXP)) * 100;
 
     return (
-        <div className={styles.wrapper}>
+        <div ref={observerRef} className={styles.wrapper} id={"seasontwo"}>
             <div className={styles.seasonTwoContainer}>
                 <h1 className={styles.heading}>SEASON TWO</h1>
                 <h2 className={styles.subheading}>3SQUARES</h2>

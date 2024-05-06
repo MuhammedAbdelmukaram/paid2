@@ -6,9 +6,9 @@ const Reroll = () => {
     const [currentStep, setCurrentStep] = useState(0); // Tracks the current active step
 
     const steps = [
-        { step:"Step 1:", title: "Mint Your Card", buttonText: "Mint" },
-        { step:"Step 2:", title: "Convert it into $PAID Token", buttonText: "Convert" },
-        { step:"Step 3:", title: "Try your luck again", buttonText: "Re-Mint" }
+        { step: "Step 1:", title: "Mint Your Card", buttonText: "Mint" },
+        { step: "Step 2:", title: "Convert it into $PAID Token", buttonText: "Convert" },
+        { step: "Step 3:", title: "Try your luck again", buttonText: "Re-Mint" }
     ];
 
     // Function to handle button click and increment the step
@@ -31,10 +31,7 @@ const Reroll = () => {
             </div>
 
             <div className={styles.rerollTexts}>
-                <p style={{fontSize:26}}>Got the Entry Level Card?</p>
-                <p>Swap it (NFT) for $PAID Tokens, then Re-Roll Back to NFT to get a Brand New Randomized Rarity Card</p>
-                <p>Yes, from Gold to Diamond, or Diamond back to Entry Level Member Card!</p>
-
+                <p style={{fontSize:26}}>Got Entry Level Card?</p>
             </div>
 
             <div className={styles.videoContainer}>
@@ -48,6 +45,7 @@ const Reroll = () => {
                 $PAID Token Liquidity Pool will be Setup after FCFS Public Presale Event
             </p>
 
+            <p style={{marginTop:50, marginLeft:8, marginRight:8, textAlign:"center"}}>Swap it (NFT) for $PAID Tokens, then Re-Roll Back to NFT to get a Brand New Randomized Rarity Card</p>
 
             {/* Step Buttons and Progress Bar at the bottom */}
             <div className={styles.rerollWrapper}>
@@ -55,7 +53,12 @@ const Reroll = () => {
                     {steps.map((stepData, index) => (
                         <div key={index} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                             <p className={styles.textP}><span style={{fontWeight:"bold", color:"#2be62c", marginRight:6}}>{stepData.step}</span>{stepData.title}</p>
-                            <Image src={`/step${index + 1}.png`} alt={`Step ${index + 1} Icon`} width={70} height={70} />
+                            <Image
+                                src={`/step${index + 1}${currentStep > index ? 'g' : ''}.png`}
+                                alt={`Step ${index + 1} Icon`}
+                                width={70}
+                                height={70}
+                            />
                             <div
                                 onClick={() => handleButtonClick(index)}
                                 disabled={currentStep < index}
@@ -67,11 +70,14 @@ const Reroll = () => {
                     ))}
                 </div>
 
-                <div style={{width: '100%', height: 4, backgroundColor: '#ddd'}}>
-                    <div style={{width: `${(currentStep / 3) * 100}%`, height: '100%', backgroundColor: '#2be82b', transition: 'width 0.5s ease-in-out'}} />
+                <div style={{width: '100%', height: 4, backgroundColor: '#ddd', borderRadius:24}}>
+                    <div style={{width: `${(currentStep / steps.length) * 100}%`, height: '100%', backgroundColor: '#2be82b', transition: 'width 0.5s ease-in-out'}} />
                 </div>
             </div>
 
+            <div style={{marginTop:36, textAlign:"center"}}>
+                  <p style={{fontSize:14}}>Yes, <span style={{color:"#2be82b"}}>from Entry to Emerald</span>, or Emerald back to Entry Level Member Card!</p>
+            </div>
         </div>
     );
 };

@@ -9,7 +9,7 @@ const Team = () => {
         flexDirection: "column",
         alignSelf: "flex-start",
         padding: "20px 15%",
-        marginTop: 160,
+        marginTop: 220,
       }}
       id="team"
     >

@@ -18,7 +18,7 @@ const Advisors = () => {
                     description="Lorem Ipsum sit amet dolor et alas doasr fie alt coin is very cool thing because this is dummy text"
                 />
                 <AdvisorCard
-                    src="/Person2.png"
+                    src="/Person2.jpg"
                     alt="Advisor Portrait"
                     name="Dolor Sit"
                     role="CTO"

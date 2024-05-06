@@ -111,9 +111,14 @@ const Header = ({ handleImageLoad }) => {
               Re-Roll
             </Link>
           </li>
-          <li className={styles.li}>
+          {/*<li className={styles.li}>
             <Link className={styles.buttonStyle} href="#roadmap">
               Roadmap
+            </Link>
+          </li>*/}
+          <li className={styles.li}>
+            <Link className={styles.buttonStyle} href="#seasontwo">
+              Season Two
             </Link>
           </li>
           <li className={styles.li}>

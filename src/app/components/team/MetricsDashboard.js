@@ -95,7 +95,7 @@ const MetricsDashboard = () => {
         <div ref={sectionRef} style={{
             width: "100%",
             padding: "0px 11% 20px 11%",
-            borderBottom: "1px solid #fff",
+            borderBottom: "1px solid #585858",
             boxShadow: '0 4px 8px rgba(0,0,0,0.1)'
         }}>
             <div style={{
@@ -105,7 +105,7 @@ const MetricsDashboard = () => {
                 width:"fit-content",
                 borderRadius:"0 0 10px 10px"
             }}>
-                <p>Our Stats:</p>
+                <p style={{fontWeight:"bold"}}>Our Stats This Year:</p>
             </div>
             <div style={{
                 display: "flex",
