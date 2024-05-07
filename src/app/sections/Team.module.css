@@ -1,0 +1,15 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 20px 15%;
+    margin-top: 220px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .wrapper {
+        margin-top: 60px;
+        text-align: center;
+    }
+}

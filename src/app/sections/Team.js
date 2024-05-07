@@ -1,19 +1,14 @@
 import React from "react";
 import EarnedMoney from "@/app/components/team/EarnedMoney";
-
+import styles from "./Team.module.css"
 const Team = () => {
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignSelf: "flex-start",
-        padding: "20px 15%",
-        marginTop: 220,
-      }}
+        className={styles.wrapper}
+
       id="team"
     >
-      <p style={{ fontSize: 44 }}>MEET THE TEAM</p>
+      <p style={{ fontSize: 44, color:"#fff" }}>MEET THE TEAM</p>
       <p style={{ fontSize: 16, color: "#2BEA2A" }}>
         Mooning in everything we do
       </p>

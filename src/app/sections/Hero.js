@@ -47,7 +47,7 @@ const Hero = ({ handleImageLoad }) => {
           </button>
         </div>
 
-        <div className={styles.divider}></div>
+
 
         <div className={styles.logoContainer}>
           <Image

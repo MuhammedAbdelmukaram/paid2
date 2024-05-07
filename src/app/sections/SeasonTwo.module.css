@@ -81,5 +81,6 @@
     flex-direction: column; /* Stack items vertically on smaller screens */
     align-items: center; /* Center items horizontally on smaller screens */
     gap: 0;
+    margin-bottom: 0;
   }
 }

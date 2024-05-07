@@ -105,7 +105,7 @@ const MetricsDashboard = () => {
                 width:"fit-content",
                 borderRadius:"0 0 10px 10px"
             }}>
-                <p style={{fontWeight:"bold"}}>Our Stats This Year:</p>
+                <p style={{fontWeight:"bold", color:"#fff"}}>Our Stats This Year:</p>
             </div>
             <div style={{
                 display: "flex",
@@ -125,7 +125,7 @@ const MetricsDashboard = () => {
                             styles={progressStyle}
                             strokeWidth={8}
                         />
-                        <div style={{textAlign: "center", marginTop: "10px"}}>
+                        <div style={{textAlign: "center", marginTop: "10px", color:"#fff"}}>
                             {item.label} <br/>
                             <small style={{fontSize: '12px', color: '#6c757d'}}>Goal: {item.target}</small>
                         </div>
