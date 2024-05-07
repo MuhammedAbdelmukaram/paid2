@@ -9,8 +9,12 @@ const Hero = ({ handleImageLoad }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const toggleFullscreen = () => {
-    setIsFullscreen(!isFullscreen);
+    // Check if the viewport width is greater than 768 pixels
+    if (window.innerWidth > 768) {
+      setIsFullscreen(!isFullscreen);
+    }
   };
+
 
   const handleSPLClick = () => {
     const section = document.getElementById("reroll");
@@ -82,11 +86,11 @@ const Hero = ({ handleImageLoad }) => {
       <Suspense fallback={<LoadingScreen />}>
         <div className={styles.videoContainer} onClick={toggleFullscreen}>
           <video
-            className={isFullscreen ? styles.fullscreenVideo : styles.video}
-            autoPlay
-            loop
-            muted
-            playsInline
+              className={isFullscreen ? styles.fullscreenVideo : styles.video}
+              autoPlay
+              loop
+              muted
+              playsInline
           >
             <source src="/HeroCard.mp4" type="video/mp4" />
             Your browser does not support the video tag.
