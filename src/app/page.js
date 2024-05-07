@@ -37,6 +37,19 @@ export default function Home() {
     { src: "/StaySchemin.mp3", title: "Stay Schemin", artist: "Rick Ross" },
   ];
 
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = "https://tools.luckyorange.com/core/lo.js?site-id=97cedfd3";
+    script.async = true;
+    script.defer = true;
+
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const togglePlay = () => {
     if (audioRef.current.paused) {
       audioRef.current.play();
