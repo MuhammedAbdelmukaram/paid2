@@ -123,7 +123,7 @@ const Header = ({ handleImageLoad }) => {
           </li>
           <li className={styles.li}>
             <Link className={styles.buttonStyle} href="#team">
-              TEAM
+              Team
             </Link>
           </li>
           <li className={styles.li}>

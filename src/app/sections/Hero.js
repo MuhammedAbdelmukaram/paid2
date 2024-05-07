@@ -35,7 +35,7 @@ const Hero = ({ handleImageLoad }) => {
         </div>
         <div className={styles.subTitleContainer}>
           <p className={styles.subTitle}>
-            We Continue To Give Back to Holders Through Scale!
+            PAID Inc. Continues To Reward Loyalty Through Infinite Scale of Revenue Generating Products.
           </p>
         </div>
         <div className={styles.buttonContainer}>

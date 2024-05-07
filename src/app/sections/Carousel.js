@@ -22,14 +22,6 @@ const Carousel = () => {
             modalContent: <NileModalContent onClose={() => setIsModalOpen(false)} />
         },
         {
-            ctaText: "Taste the Charts",
-            mainImagePath: "/DefuelLogo.png",
-            secondaryImagePath: "/DFX.png",
-            description: "Made for degens by degens. The ultimate snacking station for solana enthusiasts with an appetite for gains",
-            modalContent: <TasteTheChartsModalContent onClose={() => setIsModalOpen(false)} />
-        }
-        ,
-        {
             ctaText: "Make your Store",
             mainImagePath: "/DestorezLogo.png",
             secondaryImagePath: "/DestorezBanner.png",
@@ -39,12 +31,12 @@ const Carousel = () => {
     ];
 
     const nextSlide = () => {
-        setActiveIndex(current => (current === 2 ? 0 : current + 1));
+        setActiveIndex(current => (current === 1 ? 0 : current + 1));
         resetProgressBar();
     };
 
     const prevSlide = () => {
-        setActiveIndex(current => (current === 0 ? 2 : current - 1));
+        setActiveIndex(current => (current === 0 ? 1 : current - 1));
         resetProgressBar();
     };
 
@@ -84,9 +76,9 @@ const Carousel = () => {
             <div style={{ marginTop: 0, width: '100%', overflow: 'hidden' }}>
                 <div style={{
                     display: 'flex',
-                    width: '300%',
+                    width: '200%',
                     transition: 'transform 0.5s ease-in-out',
-                    transform: `translateX(-${activeIndex * (100 / 3)}%)`
+                    transform: `translateX(-${activeIndex * (100 / 2)}%)`
                 }}>
                     {products.map((product, index) => (
                         <div key={index} style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', transition: 'transform 0.5s ease-in-out' }}>

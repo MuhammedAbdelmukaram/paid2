@@ -123,7 +123,7 @@ const MetricsDashboard = () => {
                             value={(item.value / item.target) * 100}
                             text={item.label === "Revenue Generated" ? "?" : `${item.value.toFixed(0)}`}
                             styles={progressStyle}
-                            strokeWidth={2}
+                            strokeWidth={8}
                         />
                         <div style={{textAlign: "center", marginTop: "10px"}}>
                             {item.label} <br/>

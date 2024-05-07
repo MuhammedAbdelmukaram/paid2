@@ -52,7 +52,7 @@ const Reroll = () => {
 
             {/* Step Buttons and Progress Bar at the bottom */}
             <div className={styles.rerollWrapper}>
-                <div style={{display: 'flex', justifyContent: 'space-around', margin: '20px 0'}}>
+                <div style={{display: 'flex', justifyContent: 'space-around', margin: '20px 0', position:"sticky", zIndex:3}}>
                     {steps.map((stepData, index) => (
                         <div key={index} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                             <p className={styles.textP}><span style={{fontWeight:"bold", color:"#2be62c", marginRight:6}}>{stepData.step}</span>{stepData.title}</p>

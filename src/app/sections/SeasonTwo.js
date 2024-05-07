@@ -65,7 +65,7 @@ const SeasonTwo = () => {
                 <h2 className={styles.subheading}>3SQUARES</h2>
                 <div className={styles.texts}>
                     <p className={styles.paragraph}>
-                        <span style={{color:"#2be62c"}}>XP</span> will Play a Crucial Role in Development of sPAID
+                        <span style={{color:"#2be62c"}}>XP</span> will Play a Crucial Role in Development of $PAID
                         <br/>
                         Advice:  <span style={{color:"#2be62c"}}>Make sure to stake your Member Cards.</span>
                     </p>
