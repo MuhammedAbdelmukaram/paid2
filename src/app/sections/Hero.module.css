@@ -48,6 +48,7 @@
 
 .mainTitle {
     font-size: 148px;
+    color: white;
     line-height: 0.9;
 }
 
@@ -65,7 +66,7 @@
 
 .subTitle {
     font-size: 20px;
-    width: 80%;
+    width: 100%;
 }
 
 .buttonContainer {
@@ -86,6 +87,7 @@
     width: fit-content;
     margin-top: 20px;
     display: flex;
+
     gap: 40px;
 }
 
@@ -151,7 +153,11 @@
     font-size: 16px;
     margin-left:15px;
 }
-
+    .subTitleContainer {
+        align-self: center;
+        width: 100vw;
+        margin-top: 30px;
+    }
     .videoContainer {
         order: 2; /* Move video container below text container */
         margin-top: 0px; /* Add margin to separate from text */
@@ -175,8 +181,10 @@
     }
     .logoContainer {
         border-top: 0px solid #fff;
-        margin-top: 10px;
+        align-self: center;
+        margin: 10px 30px;
         padding:0px 10px;
+        justify-content: center;
     display: flex;
     gap: 10px;
     width:100%;

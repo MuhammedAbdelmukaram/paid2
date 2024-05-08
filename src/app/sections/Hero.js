@@ -59,6 +59,7 @@ const Hero = ({ handleImageLoad }) => {
             src="/superTeamLogo.png"
             alt="Logo"
             width={150}
+            style={{objectFit:"contain"}}
             height={40}
             priority
           />
@@ -69,6 +70,7 @@ const Hero = ({ handleImageLoad }) => {
               alt="Logo"
               width={150}
               height={42}
+              style={{objectFit:"contain"}}
               priority
             />
           </div>
@@ -78,6 +80,7 @@ const Hero = ({ handleImageLoad }) => {
             alt="Logo"
             width={80}
             height={40}
+            style={{objectFit:"contain"}}
             priority
           />
         </div>

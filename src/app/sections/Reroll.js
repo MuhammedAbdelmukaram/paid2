@@ -37,14 +37,18 @@ const Reroll = () => {
                 <p style={{fontSize:26}}>Got Entry Level Card?</p>
             </div>
 
+            <div style={{margin:"0px 12px"}}>
+
+
             <div className={styles.videoContainer}>
                 <video className={styles.videoElement} autoPlay loop muted playsInline>
                     <source src="/fizzle.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
+            </div>
 
-            <p style={{fontSize: 12, color:"#2be62c"}}>
+            <p style={{fontSize: 12, color:"#2be62c", textAlign:"center"}}>
                 $PAID Token Liquidity Pool will be Setup after FCFS Public Presale Event
             </p>
 

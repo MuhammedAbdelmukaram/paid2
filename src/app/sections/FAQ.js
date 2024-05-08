@@ -80,7 +80,7 @@ const Faq = () => {
       }}>Questions</span>
       </p>
 
-      <p style={{width:"390px", textAlign:"center", marginTop:20, marginBottom:20}}>Find questions and answers related to the project, our plans and goals for the future and more!</p>
+      <p style={{width:"100vw", maxWidth:400, textAlign:"center", marginTop:20, marginBottom:20}}>Find questions and answers related to the project, our plans and goals for the future and more!</p>
       <div className={styles.questionsContainer}>
         {questions.map((question) => (
           <div key={question.id} className={styles.question}>
