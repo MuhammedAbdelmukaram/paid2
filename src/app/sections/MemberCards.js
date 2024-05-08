@@ -53,8 +53,8 @@ const MemberCards = () => {
                 totalAvailable="?"
                 balance="?"
                 description="Discount Codes Only become Active when the Member Card is Staked (staking released post-mint). Unlocking the Discount Code, for the Holder, his Friends, and Family to freely use."
-                descriptionTwo="Each time said Discount Code is used, That Member Card gets Rewarded with a % Cutback of the Sale it Generated."
-                resaleInfo="Higher Tier/Rarity Member Cards Grant Access to Higher % Cutbacks."
+                descriptionTwo="Each time said Discount Code is used, That Member Card gets Rewarded with a % Kickback of the Sale it Generated."
+                resaleInfo="Higher Tier/Rarity Member Cards Grant Access to Higher % Kickback."
                 videoSrc="/platCard.mp4"
                 borderColor="#D9D9D9" // Example: Passing a Tomato color border
             />

@@ -15,7 +15,7 @@ const Faq = () => {
     {
       id: 2,
       isOpen: false,
-      text: "How Big Are The Cutback Rewards?",
+      text: "How Big Are The Kickback Rewards?",
       answer: "Exact % TBA. Make sure to follow us on X to find out 1st.",
     },
     {
@@ -35,7 +35,7 @@ const Faq = () => {
       id: 5,
       isOpen: false,
       text: "When are Discount Rewards Paid Out?",
-      answer: "As soon as we process the order, you get your Cutback.",
+      answer: "As soon as we process the order, you get your Kickback.",
     },
     {
       id: 6,
