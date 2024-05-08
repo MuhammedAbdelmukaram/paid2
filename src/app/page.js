@@ -108,7 +108,7 @@ export default function Home() {
               position: "fixed",
               bottom: "10px",
               right: "10px",
-              width: "350px",
+              width: "330px",
               height: "60px",
               backgroundColor: "rgba(42, 42, 42, 0.8)",
               borderRadius: "12px",
