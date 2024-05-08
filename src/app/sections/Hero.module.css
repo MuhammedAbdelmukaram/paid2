@@ -6,6 +6,7 @@
     border-radius: 4px;
     font-weight: bold;
     transition: background-color 0.3s ease; /* Smooth transition */
+    color: #fff;
 }
 
 .button1:hover {
