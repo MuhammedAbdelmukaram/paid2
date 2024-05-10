@@ -12,6 +12,11 @@ const Carousel = () => {
     const [progress, setProgress] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Swipe detection state
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
 
     const products = [
         {
@@ -45,6 +50,17 @@ const Carousel = () => {
     };
 
     useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Check the initial size
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
         const interval = setInterval(() => {
             setProgress(oldProgress => {
                 if (oldProgress < 100) {
@@ -63,16 +79,39 @@ const Carousel = () => {
         setIsModalOpen(true);
     };
 
+    // Touch event handlers for swipe detection
+    const handleTouchStart = (e) => {
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStart - touchEnd > 50) {
+            nextSlide();
+        }
+
+        if (touchStart - touchEnd < -50) {
+            prevSlide();
+        }
+    };
 
     return (
-        <div style={{
-            width: "100%",
-            padding: "10px 19%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            position: "relative"
-        }}>
+        <div
+            style={{
+                width: "100%",
+                padding: isMobile ? "10px 3%" : "10px 19%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                position: "relative"
+            }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
             <div style={{ marginTop: 0, width: '100%', overflow: 'hidden' }}>
                 <div style={{
                     display: 'flex',
@@ -95,22 +134,26 @@ const Carousel = () => {
                 </div>
             </div>
 
-            <Image
-                src="/arrowLeft.png"
-                alt="Previous"
-                width={38}
-                height={38}
-                onClick={prevSlide}
-                style={{ cursor: 'pointer', position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)' }}
-            />
-            <Image
-                src="/arrowRight.png"
-                alt="Next"
-                width={38}
-                height={38}
-                onClick={nextSlide}
-                style={{ cursor: 'pointer', position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)' }}
-            />
+            {!isMobile && (
+                <>
+                    <Image
+                        src="/arrowLeft.png"
+                        alt="Previous"
+                        width={38}
+                        height={38}
+                        onClick={prevSlide}
+                        style={{ cursor: 'pointer', position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)' }}
+                    />
+                    <Image
+                        src="/arrowRight.png"
+                        alt="Next"
+                        width={38}
+                        height={38}
+                        onClick={nextSlide}
+                        style={{ cursor: 'pointer', position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)' }}
+                    />
+                </>
+            )}
 
             {isModalOpen && (
                 <Modal
