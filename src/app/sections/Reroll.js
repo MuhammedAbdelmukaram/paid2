@@ -48,7 +48,7 @@ const Reroll = () => {
             </div>
             </div>
 
-            <p style={{fontSize: 12, color:"#e5e5e5", textAlign:"center", fontStyle:"italic"}}>
+            <p style={{fontSize: 12, color:"#e5e5e5", textAlign:"center", fontStyle:"italic", padding:"0px 10px"}}>
                 $PAID Token Liquidity Pool will be Setup after FCFS Public Presale Event
             </p>
 

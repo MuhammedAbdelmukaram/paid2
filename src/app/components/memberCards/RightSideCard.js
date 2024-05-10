@@ -1,6 +1,6 @@
 "use client";
-import {useDetectDevice} from "@/app/hooks/useDetectDevice";
-import React, {useMemo, useState} from "react";
+import { useDetectDevice } from "@/app/hooks/useDetectDevice";
+import React, { useMemo, useState, useRef, useEffect } from "react";
 
 const RightSideCard = ({
                            title,
@@ -12,41 +12,32 @@ const RightSideCard = ({
                            videoSrc,
                            borderColor = "#2BEA2A",
                        }) => {
-    const {isMobile} = useDetectDevice();
+    const { isMobile } = useDetectDevice();
     const [showVideo, setShowVideo] = useState(false);
+    const [showParagraph, setShowParagraph] = useState(true);
+    const videoRef = useRef(null);
+    const paragraphRef = useRef(null);
 
     const handleContent = () => {
         setShowVideo(!showVideo);
     };
 
-    const videoContent = useMemo(
-        () => (
-            <div
-                style={{
-                    flex: 1,
-                    maxWidth: "1000px", // Adjusts the width of the video container
-                    zIndex: 1, // Ensures video is below the text
-                }}
-                className="fade-in"
-            >
-                <video
-                    width="100%"
-                    height="auto"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    style={{
-                        borderRadius: "10px", // Makes the video corners rounded
-                    }}
-                >
-                    <source src={videoSrc} type="video/mp4"/>
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        ),
-        [showVideo]
-    );
+    const handleVideoClick = () => {
+        setShowParagraph(!showParagraph);
+    };
+
+    useEffect(() => {
+        const videoElement = videoRef.current;
+        if (videoElement) {
+            videoElement.addEventListener("click", handleVideoClick);
+        }
+
+        return () => {
+            if (videoElement) {
+                videoElement.removeEventListener("click", handleVideoClick);
+            }
+        };
+    }, []);
 
     const content = useMemo(
         () => (
@@ -54,7 +45,7 @@ const RightSideCard = ({
                 style={{
                     position: "relative",
                     right: isMobile ? 0 : "220px",
-                    padding: "30px 50px",
+                    padding: isMobile ? "15px 25px" : "30px 36px",
                     borderRadius: "6px",
                     backgroundColor: "#0E0E0F",
                     border: `3px solid ${borderColor}`,
@@ -62,7 +53,7 @@ const RightSideCard = ({
                     flexDirection: "column",
                     justifyContent: "space-around",
                     width: isMobile ? "100%" : "440px",
-                    zIndex: 2, // Ensure text is above the video
+                    zIndex: 2,
                 }}
                 className="fade-in"
             >
@@ -82,7 +73,7 @@ const RightSideCard = ({
                             backgroundColor: `${borderColor}`,
                         }}
                     ></div>
-                    <h1 style={{fontSize: "24px", fontWeight: "bold"}}>{title}</h1>
+                    <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>{title}</h1>
                 </div>
                 <p
                     style={{
@@ -120,10 +111,54 @@ const RightSideCard = ({
                 >
                     {descriptionTwo}
                 </p>
-                <p style={{fontSize: "16px", fontWeight: "bold"}}>{resaleInfo}</p>
+                <p style={{ fontSize: "16px", fontWeight: "bold" }}>{resaleInfo}</p>
             </div>
         ),
         [isMobile, showVideo]
+    );
+
+    const videoContent = useMemo(
+        () => (
+            <div
+                style={{
+                    flex: 1,
+                    maxWidth: "1000px",
+                    zIndex: 1,
+                }}
+                className="fade-in"
+            >
+                <video
+                    width="100%"
+                    height="auto"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                        borderRadius: "10px",
+                    }}
+                    ref={videoRef}
+                >
+                    <source src={videoSrc} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+
+                {isMobile && showParagraph && (
+                    <p
+                        style={{
+                            marginTop: "10px",
+                            fontSize: "14px",
+                            textAlign: "center",
+                            color: "white",
+                        }}
+                        ref={paragraphRef}
+                    >
+                        Tap card to see more
+                    </p>
+                )}
+            </div>
+        ),
+        [showVideo, showParagraph]
     );
 
     return (
@@ -147,9 +182,7 @@ const RightSideCard = ({
                 </>
             ) : (
                 <>
-                    {/* Left Side - Video */}
                     {videoContent}
-                    {/* Right Side - Text Content */}
                     {content}
                 </>
             )}
