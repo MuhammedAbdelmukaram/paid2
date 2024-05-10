@@ -34,7 +34,7 @@ const Advisors = () => {
                 <AdvisorCard
                     src="/Person1.jpg"
                     alt="Fiske"
-                    name="Andra"
+                    name="Dra"
                     role="CCO"
                     description="Amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 />
