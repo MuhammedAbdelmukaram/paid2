@@ -132,11 +132,7 @@ const MetricsDashboard = () => {
                     </div>
                 ))}
             </div>
-            <div style={{width:"100%", display:"flex", justifyContent:"center"}}>
-                <p style={{fontSize:13}}>
-                    Our Impressive Track Record of Scaling Web 2 Brands to 7 Figures is a Testament to our Success, We here to dominate Web 3 Commerce.
-                </p>
-            </div>
+
         </div>
     );
 };

@@ -40,7 +40,13 @@ const Advisors = () => {
                 />
             </div>
 
-            <MetricsDashboard/>
+            <div style={{width:"100%", display:"flex", justifyContent:"center", alignItems:"center", textAlign:"center", padding:"12px 24px 24px 24px"}}>
+                <p style={{fontSize:13}}>
+                    Our Impressive Track Record of Scaling Web 2 Brands to 7 Figures is a Testament to our Success, We here to dominate Web 3 Commerce.
+                </p>
+            </div>
+
+            {/*<MetricsDashboard/>*/}
 
         </div>
     );

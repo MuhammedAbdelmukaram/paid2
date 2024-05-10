@@ -124,7 +124,7 @@
 
 .videoContainer {
     width: 100%;
-    border: 2px solid #fff;
+    border: 2px solid #2bea2a;
     height: auto;
     max-width: 1000px; /* You can adjust this value based on your design needs */
     margin: 30px auto 0px auto; /* Centering the video */
