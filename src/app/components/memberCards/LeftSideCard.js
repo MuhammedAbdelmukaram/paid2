@@ -151,7 +151,7 @@ const LeftSideCard = ({
                             marginTop: "10px",
                             fontSize: "14px",
                             textAlign: "center",
-                            color: "white",
+                            color: "#2bea2a",
                         }}
                         ref={paragraphRef}
                     >
