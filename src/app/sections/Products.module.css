@@ -121,6 +121,31 @@
     border: 1px solid #2bea2a; /* Optional: adds a subtle border to highlight the selected button */
     color: #fff; /* Change text color if needed for better contrast */
 }
+/* Assuming you have a CSS module named Reroll.module.css */
+
+/* Assuming you have a CSS module named Reroll.module.css */
+
+.rerollContainer {
+    cursor: none; /* Hide the default cursor */
+}
+
+.customCursor {
+    position: fixed;
+    top: 13px;
+    left: 0;
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+
+}
+
+.videoElement {
+    cursor: default; /* Show the default cursor over the video */
+}
+
 
 .videoContainer {
     width: 100%;
