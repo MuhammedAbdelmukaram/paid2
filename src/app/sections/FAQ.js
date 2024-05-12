@@ -21,7 +21,7 @@ const Faq = () => {
     {
       id: 3,
       isOpen: false,
-      text: "How many sPAID Tokens do I get with my Member Card?",
+      text: "How many $PAID Tokens do I get with my Member Card?",
       answer: "TBA. Make sure to follow us on X to find out 1st.",
     },
     {
@@ -40,9 +40,9 @@ const Faq = () => {
     {
       id: 6,
       isOpen: false,
-      text: "Where can I Trade sPAID Token?",
+      text: "Where can I Trade $PAID Token?",
       answer:
-        "sPAID is not yet available for trading (all others are SCAMS). Initial Liquidity Pool will be setup post Presale.",
+        "$PAID is not yet available for trading (all others are SCAMS). Initial Liquidity Pool will be setup post Presale.",
     },
     {
       id: 7,
