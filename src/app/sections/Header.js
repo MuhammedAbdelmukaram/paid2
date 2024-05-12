@@ -92,7 +92,7 @@ const Header = ({ handleImageLoad }) => {
           />
           <div style={{ marginLeft: 8 }}>
             <p style={{ fontSize: 18 }}>Paid Inc.</p>
-            <p style={{ fontSize: 10, color: "#2be82b" }}>SPL404</p>
+            <p style={{ fontSize: 10, color: "#2be82b" }}>ON-CHAIN CABAL</p>
           </div>
         </div>
         <ul className={styles.links}>

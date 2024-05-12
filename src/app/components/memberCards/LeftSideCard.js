@@ -93,7 +93,7 @@ const LeftSideCard = ({
                         fontWeight: "medium",
                     }}
                 >
-                    $PAID Tokens Balance: {balance}
+                    $PAID Tokens Required: {balance}
                 </p>
                 <p
                     style={{

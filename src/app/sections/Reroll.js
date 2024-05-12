@@ -75,7 +75,7 @@ const Reroll = () => {
             </div>
 
             <div className={styles.rerollTexts}>
-                <p style={{ fontSize: 26 }}>Got Entry Level Card?</p>
+                <p style={{ fontSize: 26 }}>Swap To Get $PAID</p>
             </div>
 
             <div style={{ margin: "0px 12px" }}>
@@ -91,7 +91,7 @@ const Reroll = () => {
                 $PAID Token Liquidity Pool will be Setup after FCFS Public Presale Event
             </p>
 
-            <p style={{ marginTop: 50, marginLeft: 8, marginRight: 8, textAlign: "center" }}>Swap it (NFT) for $PAID Tokens, then Re-Roll Back to NFT to get a Brand New Randomized Rarity Card</p>
+            <p style={{ marginTop: 50, marginLeft: 8, marginRight: 8, textAlign: "center" }}>Swap Back & Forth for a Chance to Get Higher Tier Cards.</p>
 
             {/* Step Buttons and Progress Bar at the bottom */}
             <div className={styles.rerollWrapper}>

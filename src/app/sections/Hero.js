@@ -39,7 +39,7 @@ const Hero = ({handleImageLoad}) => {
                 </div>
                 <div className={styles.subTitleContainer}>
                     <p className={styles.subTitle}>
-                        PAID Inc. Continues To Reward Loyalty Through Infinite Scale of Revenue Generating Products.
+                        PAID Inc. Continues To Reward Holders Through Infinite Scale of $SOL Generating Products.
                     </p>
                 </div>
                 <div className={styles.buttonContainer}>

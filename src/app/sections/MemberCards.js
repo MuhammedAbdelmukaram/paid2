@@ -16,15 +16,16 @@ const MemberCards = () => {
                     priority
                 />
                 <p className={styles.heading}>PAID INC. MEMBER CARDS</p>
-                <p className={styles.subHeading}>This is Your Way In! <span className={styles.pressText}>Tap Card For Surprise :)</span></p>
+                <p className={styles.subHeading}>Members Only Cabal <span className={styles.pressText}>Tap Card For Surprise :)</span></p>
 
             </div>
             <LeftSideCard
                 title="Entry Member Card"
                 totalAvailable="?"
                 balance="?"
-                description="Paid Inc. Member Cards will be available for Purchase via FCFS Public Presale. "
-                resaleInfo="Afterwards, they will be Listed on Tensor, Sol Sniper and Magic Eden for Secondary Trading. "
+                description="Exclusive & Limited Collection of Paid Inc. Cards available through SPL404 Swap.
+Swapping into one grants Exclusive access to the PAID Cabal. Making you a $PAID Whale.  "
+                resaleInfo="Higher Tier = Bigger $PAID Token Swap Amount Required"
                 videoSrc="/blackCard.mp4"
                 borderColor={"#2BEA2A"}
             />
@@ -32,8 +33,9 @@ const MemberCards = () => {
                 title="Green Member Card"
                 totalAvailable="?"
                 balance="xxx"
-                description="Each Member Card Grants you Access to a Predetermined Number of $PAID Tokens."
-                resaleInfo="Higher Tier/Rarity = Bigger $PAID Token Allocation Member Card contains."
+                description="Each Member Card Grants you Access to exclusive opportunities to get PAID.
+Enables trading large quantities of $PAID without dumping on holders."
+                resaleInfo="Will be listed on Magic Eden, Tensor & Sol Sniper for Secondary Trading."
                 videoSrc="/greenCard.mp4"
                 borderColor={"#15A12B"}
             />
@@ -63,9 +65,9 @@ const MemberCards = () => {
                 title="Emerald Member Card"
                 totalAvailable="?"
                 balance="xxx"
-                description="Every 14 days that pass, Staked Member Cards gain 1000 XP as a reward for loyalty (staking)."
-                descriptionTwo="Each time said Member Card Discount Code reaches 25 successful uses (applied discount and bought). You get rewarded with 25,000 XP."
-                resaleInfo="Higher Tier/Rarity Member Cards Grant Access to Higher % Discount Codes.."
+                description="As Days pass Staked Member Cards gain XP as a reward for loyalty (staking)."
+                descriptionTwo="As Discount Code Buys(applied discount and bought) Come in, Member Card get Kickbacks and XP Rewards"
+                resaleInfo="Higher Tier Member Cards Grant Access to Higher % Discount Codes.."
                 videoSrc="/emeraldCard.mp4"
                 borderColor={"#25693D"}
             />
