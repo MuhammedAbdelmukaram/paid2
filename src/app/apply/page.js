@@ -1,23 +1,38 @@
 "use client";
-import React, {useState, useRef, useEffect} from 'react';
-import Image from 'next/image';
-import styles from './apply.module.css';
-import useMousePosition from '../hooks/useMousePosition'; // Adjust the import path accordingly
+import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import styles from "./apply.module.css";
+import useMousePosition from "../hooks/useMousePosition"; // Adjust the import path accordingly
+import { signIn, useSession } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const Page = () => {
-    const {x, y} = useMousePosition(); // Get mouse position
+    const { x, y } = useMousePosition(); // Get mouse position
+    const router = useRouter(); // Set the query state
+    const searchParams = useSearchParams(); // Search for the query state
+    const { data: session, status } = useSession(); // Get the Auth State
+    const step = searchParams.get("step"); // Get step query state
+    const redirected = searchParams.get("redirected");
     const cursorRef = useRef(null); // Ref for the custom cursor
     const [showSteps, setShowSteps] = useState(false); // Controls the visibility of the steps
-    const [currentStep, setCurrentStep] = useState(1); // Tracks the current active step
+    const [currentStep, setCurrentStep] = useState(Number(step) ?? 1); // Tracks the current active step
     const [finishedSteps, setFinishedSteps] = useState([]); // Tracks the finished steps
     const [formData, setFormData] = useState({
-        input1: '',
-        input2: '',
-        input3: '',
-        input4: '',
-        textArea: '',
+        input1: "",
+        input2: "",
+        input3: "",
+        input4: "",
+        textArea: "",
     });
     const [generatedImageSrc, setGeneratedImageSrc] = useState(null); // Stores the generated image src
+
+    // Set or Update the Query Parameters
+    const createQueryString = (name, value) => {
+        const params = new URLSearchParams();
+        params.set(name, value);
+
+        return params.toString();
+    };
 
     // Effect to update the cursor position directly
     useEffect(() => {
@@ -28,22 +43,28 @@ const Page = () => {
 
     // Handle input change
     const handleChange = (e) => {
-        const {name, value} = e.target;
-        if (name === 'textArea' && value.length > 300) return; // Limit textarea to 300 characters
-        setFormData({...formData, [name]: value});
+        const { name, value } = e.target;
+        if (name === "textArea" && value.length > 300) return; // Limit textarea to 300 characters
+        setFormData({ ...formData, [name]: value });
     };
 
     // Handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
+        router.push("/apply" + "?" + createQueryString("step", "2"));
         setFinishedSteps([...finishedSteps, 1]);
         setCurrentStep(2);
     };
 
     // Handle navigation to step 3
-    const handleNextStep = () => {
-        setFinishedSteps([...finishedSteps, 2]);
-        setCurrentStep(3);
+    const handleNextStep = async () => {
+        if (status === "authenticated") {
+            router.push("/apply" + "?" + createQueryString("step", "3"));
+            setFinishedSteps([...finishedSteps, 2]);
+            setCurrentStep(3);
+        } else {
+            await signIn("twitter", { callbackUrl: "/apply?step=2&redirected=true" });
+        }
     };
 
     // Handle reset
@@ -51,11 +72,11 @@ const Page = () => {
         setCurrentStep(1);
         setFinishedSteps([]);
         setFormData({
-            input1: '',
-            input2: '',
-            input3: '',
-            input4: '',
-            textArea: '',
+            input1: "",
+            input2: "",
+            input3: "",
+            input4: "",
+            textArea: "",
         });
         setGeneratedImageSrc(null); // Hide the generated image on reset
     };
@@ -63,53 +84,80 @@ const Page = () => {
     // Handle show steps
     const handleShowSteps = () => {
         setShowSteps(true);
+        setCurrentStep(1);
+        router.push("/apply" + "?" + createQueryString("step", "1"));
     };
 
     // Handle generate image
     const handleGenerate = async () => {
         try {
-            const response = await fetch('/api/generate', {
-                method: 'POST',
+            const response = await fetch("/api/generate", {
+                method: "POST",
             });
             const blob = await response.blob();
             const url = URL.createObjectURL(blob);
             setGeneratedImageSrc(url);
         } catch (error) {
-            console.error('Error generating image:', error);
+            console.error("Error generating image:", error);
         }
     };
 
     return (
         <div className={styles.main}>
-            {!showSteps ? (
+            {!step && !showSteps ? (
                 <div className={styles.intro}>
                     <div className={styles.rotatingImage}>
-                        <Image src="/PaidGreenCr.png" alt="Intro Image" width={150} height={150}/>
+                        <Image src="/PaidGreenCr.png" alt="Intro Image" width={150} height={150} />
                     </div>
                     <div className={styles.introTexts}>
-                        <p style={{fontSize: 24, fontWeight: "bold", marginTop: 20}}>Apply to get <span
-                            style={{color: "#01fb05"}}>$PAID</span></p>
-                        <p className={styles.curateText}>We are curating an Anti Cabal Cabal List <br/>that is
-                            Guaranteed a $PAIDay at launch</p>
-                        <button className={styles.enterButton} onClick={handleShowSteps}>Apply in 30 seconds</button>
+                        <p style={{ fontSize: 24, fontWeight: "bold", marginTop: 20 }}>
+                            Apply to get <span style={{ color: "#01fb05" }}>$PAID</span>
+                        </p>
+                        <p className={styles.curateText}>
+                            We are curating an Anti Cabal Cabal List <br />
+                            that is Guaranteed a $PAIDay at launch
+                        </p>
+                        <button className={styles.enterButton} onClick={handleShowSteps}>
+                            Apply in 30 seconds
+                        </button>
                     </div>
                     <div className={styles.imageContainer}>
                         <div className={styles.responsiveImage}>
-                            <Image src="/applyBanner.png" alt="Responsive Image" layout="responsive" width={700}
-                                   height={475}/>
+                            <Image
+                                src="/applyBanner.png"
+                                alt="Responsive Image"
+                                layout="responsive"
+                                width={700}
+                                height={475}
+                            />
                         </div>
                     </div>
                 </div>
             ) : (
                 <>
-                    <Image src="/PaidGreenCr.png" alt="Intro Image" width={150} height={150} style={{marginTop: 30}}/>
+                    <Image
+                        src="/PaidGreenCr.png"
+                        alt="Intro Image"
+                        width={150}
+                        height={150}
+                        style={{ marginTop: 30 }}
+                    />
                     <div className={styles.stepIndicator}>
                         <div
-                            className={`${styles.step} ${currentStep === 1 || finishedSteps.includes(1) ? styles.activeStep : styles.inactiveStep}`}></div>
+                            className={`${styles.step} ${
+                                currentStep === 1 || finishedSteps.includes(1) ? styles.activeStep : styles.inactiveStep
+                            }`}
+                        ></div>
                         <div
-                            className={`${styles.step} ${currentStep === 2 || finishedSteps.includes(2) ? styles.activeStep : styles.inactiveStep}`}></div>
+                            className={`${styles.step} ${
+                                currentStep === 2 || finishedSteps.includes(2) ? styles.activeStep : styles.inactiveStep
+                            }`}
+                        ></div>
                         <div
-                            className={`${styles.step} ${currentStep === 3 || finishedSteps.includes(3) ? styles.activeStep : styles.inactiveStep}`}></div>
+                            className={`${styles.step} ${
+                                currentStep === 3 || finishedSteps.includes(3) ? styles.activeStep : styles.inactiveStep
+                            }`}
+                        ></div>
                     </div>
                     {currentStep === 1 && (
                         <form className={styles.form} onSubmit={handleSubmit}>
@@ -155,12 +203,19 @@ const Page = () => {
                                 />
                                 <div className={styles.charCount}>{formData.textArea.length}/300</div>
                             </div>
-                            <button type="submit" className={styles.button2}>Dear button, PLEASE GET ME PAID</button>
+                            <button type="submit" className={styles.button2}>
+                                Dear button, PLEASE GET ME PAID
+                            </button>
                         </form>
                     )}
                     {currentStep === 2 && (
                         <div className={styles.stepTwo}>
-                            <button onClick={handleNextStep}>Option 1</button>
+                            {redirected && redirected === "true" && (
+                                <p style={{ color: "green" }}>You're succeefully logged in</p>
+                            )}
+                            <button onClick={handleNextStep} disabled={status === "authenticated"}>
+                                Connect to Twitter
+                            </button>
                             <input
                                 type="text"
                                 name="input1"
@@ -182,7 +237,7 @@ const Page = () => {
             )}
             {generatedImageSrc && (
                 <div className={styles.generatedImageContainer}>
-                    <img src={generatedImageSrc} alt="Generated" className={styles.generatedImage}/>
+                    <img src={generatedImageSrc} alt="Generated" className={styles.generatedImage} />
                 </div>
             )}
             {/*<div

@@ -1,20 +1,23 @@
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import Providers from "./Providers";
 
 const myFont = localFont({
-  src: "../../public/font/Sansation_Regular.ttf", // Path relative to the public directory
-  display: "swap",
+    src: "../../public/font/Sansation_Regular.ttf", // Path relative to the public directory
+    display: "swap",
 });
 export const metadata = {
-  title: "Get $PAID",
-  description: "1st Sustainable NFT Project 🏦 Powered by Revenue Generating Products",
+    title: "Get $PAID",
+    description: "1st Sustainable NFT Project 🏦 Powered by Revenue Generating Products",
 };
 
 export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={myFont.className}>{children}</body>
-    </html>
-  );
+    return (
+        <Providers>
+            <html lang="en">
+                <body className={myFont.className}>{children}</body>
+            </html>
+        </Providers>
+    );
 }
