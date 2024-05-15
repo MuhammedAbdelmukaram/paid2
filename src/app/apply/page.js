@@ -5,6 +5,7 @@ import styles from "./apply.module.css";
 import useMousePosition from "../hooks/useMousePosition"; // Adjust the import path accordingly
 import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { TwitterShareButton } from "react-share";
 
 const Page = () => {
     const { x, y } = useMousePosition(); // Get mouse position
@@ -12,7 +13,6 @@ const Page = () => {
     const searchParams = useSearchParams(); // Search for the query state
     const { data: session, status } = useSession(); // Get the Auth State
     const step = searchParams.get("step"); // Get step query state
-    const redirected = searchParams.get("redirected");
     const cursorRef = useRef(null); // Ref for the custom cursor
     const [showSteps, setShowSteps] = useState(false); // Controls the visibility of the steps
     const [currentStep, setCurrentStep] = useState(Number(step) ?? 1); // Tracks the current active step
@@ -63,7 +63,7 @@ const Page = () => {
             setFinishedSteps([...finishedSteps, 2]);
             setCurrentStep(3);
         } else {
-            await signIn("twitter", { callbackUrl: "/apply?step=2&redirected=true" });
+            await signIn("twitter", { callbackUrl: "/apply?step=2" });
         }
     };
 
@@ -89,10 +89,11 @@ const Page = () => {
     };
 
     // Handle generate image
-    const handleGenerate = async () => {
+    const handleGenerate = async (imgURL) => {
         try {
             const response = await fetch("/api/generate", {
                 method: "POST",
+                body: JSON.stringify({ profileImg: imgURL }),
             });
             const blob = await response.blob();
             const url = URL.createObjectURL(blob);
@@ -101,6 +102,8 @@ const Page = () => {
             console.error("Error generating image:", error);
         }
     };
+
+    console.log(generatedImageSrc);
 
     return (
         <div className={styles.main}>
@@ -210,11 +213,8 @@ const Page = () => {
                     )}
                     {currentStep === 2 && (
                         <div className={styles.stepTwo}>
-                            {redirected && redirected === "true" && (
-                                <p style={{ color: "green" }}>You're succeefully logged in</p>
-                            )}
                             <button onClick={handleNextStep} disabled={status === "authenticated"}>
-                                Connect to Twitter
+                                {status === "authenticated" ? "Connected to Twitter" : "Connect to Twitter"}
                             </button>
                             <input
                                 type="text"
@@ -230,7 +230,7 @@ const Page = () => {
                     {currentStep === 3 && (
                         <div className={styles.stepThree}>
                             <p>Congratulations! You have completed the steps.</p>
-                            <button onClick={handleGenerate}>Generate</button>
+                            <button onClick={() => handleGenerate(session.user.image)}>Generate</button>
                         </div>
                     )}
                 </>
@@ -238,6 +238,13 @@ const Page = () => {
             {generatedImageSrc && (
                 <div className={styles.generatedImageContainer}>
                     <img src={generatedImageSrc} alt="Generated" className={styles.generatedImage} />
+                    <TwitterShareButton
+                        url={generatedImageSrc}
+                        title="This is a placeholder text which I will change later!"
+                        color="green"
+                    >
+                        <button style={{ padding: "0.5rem" }}>Share on Twitter</button>
+                    </TwitterShareButton>
                 </div>
             )}
             {/*<div
