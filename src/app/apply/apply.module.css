@@ -8,11 +8,13 @@
     cursor: auto;
 }
 
-.intro{
-    margin-top: 30px;
+.intro {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between; /* Ensure elements are spaced out */
+    min-height: 98vh; /* Ensure the intro section takes up most of the viewport height */
+    margin-top: 30px;
 }
 
 .customCursor {
@@ -21,12 +23,11 @@
     left: -15px;
     width: 50px;
     height: 50px;
-
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
-
 }
+
 
 .form {
     display: flex;
@@ -44,6 +45,10 @@
     background-color: #111111;
 }
 
+.curateText{
+    margin-top: 20px;
+    text-align: center;
+}
 .form textarea{
     height: 200px;
     resize: vertical;
@@ -111,6 +116,18 @@
     cursor: pointer;
 }
 
+.imageContainer{
+    display: flex;
+    height: 100%;
+    margin-top: 40px;
+    justify-content: flex-end;
+}
+.responsiveImage{
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+}
+
 .enterButton:hover{
     background-color: #21b721;
 }
@@ -118,6 +135,12 @@
 .rotatingImage {
     display: inline-block;
     animation: rotateImage 3.5s linear infinite;
+}
+
+.introTexts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .stepIndicator div {

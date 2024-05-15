@@ -1,11 +1,11 @@
-"use client"
-import React, { useState, useRef, useEffect } from 'react';
+"use client";
+import React, {useState, useRef, useEffect} from 'react';
 import Image from 'next/image';
 import styles from './apply.module.css';
 import useMousePosition from '../hooks/useMousePosition'; // Adjust the import path accordingly
 
 const Page = () => {
-    const { x, y } = useMousePosition(); // Get mouse position
+    const {x, y} = useMousePosition(); // Get mouse position
     const cursorRef = useRef(null); // Ref for the custom cursor
     const [showSteps, setShowSteps] = useState(false); // Controls the visibility of the steps
     const [currentStep, setCurrentStep] = useState(1); // Tracks the current active step
@@ -17,6 +17,7 @@ const Page = () => {
         input4: '',
         textArea: '',
     });
+    const [generatedImageSrc, setGeneratedImageSrc] = useState(null); // Stores the generated image src
 
     // Effect to update the cursor position directly
     useEffect(() => {
@@ -27,9 +28,9 @@ const Page = () => {
 
     // Handle input change
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const {name, value} = e.target;
         if (name === 'textArea' && value.length > 300) return; // Limit textarea to 300 characters
-        setFormData({ ...formData, [name]: value });
+        setFormData({...formData, [name]: value});
     };
 
     // Handle form submission
@@ -56,6 +57,7 @@ const Page = () => {
             input4: '',
             textArea: '',
         });
+        setGeneratedImageSrc(null); // Hide the generated image on reset
     };
 
     // Handle show steps
@@ -63,25 +65,51 @@ const Page = () => {
         setShowSteps(true);
     };
 
+    // Handle generate image
+    const handleGenerate = async () => {
+        try {
+            const response = await fetch('/api/generate', {
+                method: 'POST',
+            });
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            setGeneratedImageSrc(url);
+        } catch (error) {
+            console.error('Error generating image:', error);
+        }
+    };
+
     return (
         <div className={styles.main}>
             {!showSteps ? (
                 <div className={styles.intro}>
                     <div className={styles.rotatingImage}>
-                        <Image src="/PaidGreenCr.png" alt="Intro Image" width={150} height={150} />
+                        <Image src="/PaidGreenCr.png" alt="Intro Image" width={150} height={150}/>
                     </div>
-                    <p style={{fontSize:24, fontWeight:"bold", marginTop:20}}>Apply to get <span style={{color:"#01fb05"}}>$PAID</span></p>
-                    <p style={{marginTop:20}}>We are curating an Anti Cabal Cabal List</p>
-                    <p>that is Guaranteed a $PAIDay at launch</p>
-                    <button className={styles.enterButton} onClick={handleShowSteps}>Apply in 30 seconds</button>
+                    <div className={styles.introTexts}>
+                        <p style={{fontSize: 24, fontWeight: "bold", marginTop: 20}}>Apply to get <span
+                            style={{color: "#01fb05"}}>$PAID</span></p>
+                        <p className={styles.curateText}>We are curating an Anti Cabal Cabal List <br/>that is
+                            Guaranteed a $PAIDay at launch</p>
+                        <button className={styles.enterButton} onClick={handleShowSteps}>Apply in 30 seconds</button>
+                    </div>
+                    <div className={styles.imageContainer}>
+                        <div className={styles.responsiveImage}>
+                            <Image src="/applyBanner.png" alt="Responsive Image" layout="responsive" width={700}
+                                   height={475}/>
+                        </div>
+                    </div>
                 </div>
             ) : (
                 <>
-                    <Image src="/PaidGreenCr.png" alt="Intro Image" width={150} height={150} style={{marginTop:30}}/>
+                    <Image src="/PaidGreenCr.png" alt="Intro Image" width={150} height={150} style={{marginTop: 30}}/>
                     <div className={styles.stepIndicator}>
-                        <div className={`${styles.step} ${currentStep === 1 || finishedSteps.includes(1) ? styles.activeStep : styles.inactiveStep}`}></div>
-                        <div className={`${styles.step} ${currentStep === 2 || finishedSteps.includes(2) ? styles.activeStep : styles.inactiveStep}`}></div>
-                        <div className={`${styles.step} ${currentStep === 3 || finishedSteps.includes(3) ? styles.activeStep : styles.inactiveStep}`}></div>
+                        <div
+                            className={`${styles.step} ${currentStep === 1 || finishedSteps.includes(1) ? styles.activeStep : styles.inactiveStep}`}></div>
+                        <div
+                            className={`${styles.step} ${currentStep === 2 || finishedSteps.includes(2) ? styles.activeStep : styles.inactiveStep}`}></div>
+                        <div
+                            className={`${styles.step} ${currentStep === 3 || finishedSteps.includes(3) ? styles.activeStep : styles.inactiveStep}`}></div>
                     </div>
                     {currentStep === 1 && (
                         <form className={styles.form} onSubmit={handleSubmit}>
@@ -133,17 +161,29 @@ const Page = () => {
                     {currentStep === 2 && (
                         <div className={styles.stepTwo}>
                             <button onClick={handleNextStep}>Option 1</button>
-                            <button onClick={handleNextStep}>Option 2</button>
+                            <input
+                                type="text"
+                                name="input1"
+                                value={formData.input1}
+                                onChange={handleChange}
+                                placeholder="Name/Acronym"
+                                required
+                            />
                             <button onClick={handleNextStep}>Submit</button>
                         </div>
                     )}
                     {currentStep === 3 && (
                         <div className={styles.stepThree}>
                             <p>Congratulations! You have completed the steps.</p>
-                            <button onClick={handleReset}>Generate</button>
+                            <button onClick={handleGenerate}>Generate</button>
                         </div>
                     )}
                 </>
+            )}
+            {generatedImageSrc && (
+                <div className={styles.generatedImageContainer}>
+                    <img src={generatedImageSrc} alt="Generated" className={styles.generatedImage}/>
+                </div>
             )}
             {/*<div
                 ref={cursorRef}
