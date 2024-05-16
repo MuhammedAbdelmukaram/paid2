@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 export const useDetectDevice = () => {
   const checkForDevice = () => {
     const windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
-    return windowWidth < 769;
+    return windowWidth < 1320;
   };
 
   const [isMobile, setIsMobile] = useState(checkForDevice());

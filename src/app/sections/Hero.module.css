@@ -127,9 +127,75 @@
     object-fit: contain; /* Ensures the video is not stretched */
 }
 
+@media screen and (max-width: 1287px) {
+    .heroContainer {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        margin-left: 0; /* Reset left margin */
+    }
+    .mainTitle {
+        font-size: 100px;
+        line-height: 0.9;
+    }
+    .divider {
+        display: none;
+    }
+    .highlightedTitle {
+        font-size: 100px;
+        color: #2BEA2A;
+        font-weight: bold;
+        line-height: 0.9;
+    }
+    .subTitle {
+        display: flex;
+        align-items: center;
+        align-self: center;
+        font-size: 16px;
+        text-align: center;
+        justify-content: center;
+    }
+    .subTitleContainer {
+        align-self: center;
+        width: 90vw;
+        margin-top: 30px;
+    }
+    .videoContainer {
+        order: 2; /* Move video container below text container */
+        margin-top: 0px; /* Add margin to separate from text */
+    }
+
+    .textContainer {
+        margin-top: 0; /* Remove top margin */
+        text-align: center; /* Center text horizontally */
+    }
+
+    .buttonContainer {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items:center;
+        gap: 15px; /* Add gap between buttons */
+        width:100%;
+
+    }
+
+    .divider {
+        width: 90%; /* Adjust divider width */
+    }
+    .logoContainer {
+        border-top: 0px solid #fff;
+        align-self: center;
+        margin: 10px 30px;
+        padding:0px 10px;
+        justify-content: center;
+        display: flex;
+        gap: 10px;
+        width:100%;
+        height:auto;
+    }
+}
+
 
 /* For screens smaller than 768px (typical mobile screens) */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 867px) {
     .heroContainer {
         flex-direction: column; /* Stack items vertically */
         align-items: center; /* Center items horizontally */
@@ -153,6 +219,8 @@
     align-items: center;
     align-self: center;
     font-size: 16px;
+    text-align: center;
+    justify-content: center;
 }
     .subTitleContainer {
         align-self: center;
