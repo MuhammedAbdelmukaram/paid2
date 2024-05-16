@@ -34,6 +34,8 @@ const Page = () => {
         return params.toString();
     };
 
+    console.log(session);
+
     // Effect to update the cursor position directly
     useEffect(() => {
         if (cursorRef.current) {
@@ -103,7 +105,9 @@ const Page = () => {
         }
     };
 
-    console.log(generatedImageSrc);
+    const fullProfileImageUrl = (url) => {
+        return url.replace(/(.*)(\/.*)(_normal|_bigger|_mini)(\.\w+)/, "$1$2$4");
+    };
 
     return (
         <div className={styles.main}>
@@ -230,7 +234,9 @@ const Page = () => {
                     {currentStep === 3 && (
                         <div className={styles.stepThree}>
                             <p>Congratulations! You have completed the steps.</p>
-                            <button onClick={() => handleGenerate(session.user.image)}>Generate</button>
+                            <button onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))}>
+                                Generate
+                            </button>
                         </div>
                     )}
                 </>

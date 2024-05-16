@@ -10,6 +10,7 @@ export async function POST(request) {
 
         // Read image from the body
         const { profileImg } = await request.json();
+        console.log(profileImg);
 
         // Read the images
         const profilePic = await fs.readFile(profilePicPath);
@@ -19,7 +20,7 @@ export async function POST(request) {
         const cardMetadata = await sharp(callingCard).metadata();
 
         // Resize the profile picture to be larger
-        const resizedProfilePic = await sharp(profilePic)
+        const resizedProfilePic = await sharp(profileImg)
             .resize({ width: cardMetadata.width / 2 }) // Adjust the size as needed
             .toBuffer();
 
