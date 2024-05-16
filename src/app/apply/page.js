@@ -105,6 +105,7 @@ const Page = () => {
         }
     };
 
+    // Helper function to remove unnecessary texts
     const fullProfileImageUrl = (url) => {
         return url.replace(/(.*)(\/.*)(_normal|_bigger|_mini)(\.\w+)/, "$1$2$4");
     };
@@ -247,7 +248,6 @@ const Page = () => {
                     <TwitterShareButton
                         url={generatedImageSrc}
                         title="This is a placeholder text which I will change later!"
-                        color="green"
                     >
                         <button style={{ padding: "0.5rem" }}>Share on Twitter</button>
                     </TwitterShareButton>
