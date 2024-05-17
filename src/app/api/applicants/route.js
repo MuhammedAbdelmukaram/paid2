@@ -1,5 +1,5 @@
 import dbConnect from '../../../lib/dbConnect';
-import Applicant from '../../../models/applicants';
+import Applicant from '../../../models/applicant';
 
 export async function POST(request) {
     await dbConnect();

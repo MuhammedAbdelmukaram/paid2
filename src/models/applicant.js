@@ -24,6 +24,7 @@ const ApplicantSchema = new mongoose.Schema({
     },
     solanaWalletAddress: {
         type: String,
+        required: true,
     },
 }, {
     timestamps: true,
