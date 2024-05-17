@@ -3,25 +3,35 @@ import sharp from "sharp";
 import path from "path";
 import fs from "fs/promises";
 import axios from "axios";
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { v4 as uuidv4 } from "uuid";
+
+// Initialize the S3 client
+const r2 = new S3Client({
+    region: "auto",
+    endpoint: `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+    credentials: {
+        accessKeyId: process.env.R2_ACCESS_KEY_ID || "",
+        secretAccessKey: process.env.R2_SECRET_ACCESS_KEY || "",
+    },
+});
 
 export async function POST(request) {
     try {
-        const profilePicPath = path.resolve("./public/profilePic.jpg");
-        const callingCardPath = path.resolve("./public/CallingCard.jpg");
-
-        // Read image from the body
+        // Read image URL from the request body
         const { profileImg } = await request.json();
 
         // Fetch the profile picture from the URL
         const response = await axios.get(profileImg, { responseType: "arraybuffer" });
         const profilePicBuffer = Buffer.from(response.data);
 
-        // Read the images
-        const profilePic = await fs.readFile(profilePicPath);
-        const callingCard = await fs.readFile(callingCardPath);
+        // Get the calling card image from local file system
+        const callingCardPath = path.resolve("./public/CallingCard.jpg");
+        const callingCardBuffer = await fs.readFile(callingCardPath);
 
         // Get dimensions of the calling card
-        const cardMetadata = await sharp(callingCard).metadata();
+        const cardMetadata = await sharp(callingCardBuffer).metadata();
 
         // Resize the profile picture to be larger
         const resizedProfilePic = await sharp(profilePicBuffer)
@@ -31,9 +41,7 @@ export async function POST(request) {
         // Create a circular mask
         const circleMask = Buffer.from(
             `<svg width="${cardMetadata.width / 2}" height="${cardMetadata.width / 2}">
-                <circle cx="${cardMetadata.width / 4}" cy="${cardMetadata.width / 4}" r="${
-                cardMetadata.width / 4
-            }" fill="white"/>
+                <circle cx="${cardMetadata.width / 4}" cy="${cardMetadata.width / 4}" r="${cardMetadata.width / 4}" fill="white"/>
              </svg>`
         );
 
@@ -53,7 +61,7 @@ export async function POST(request) {
             .toBuffer();
 
         // Create a composite image
-        const compositeImage = await sharp(callingCard)
+        const compositeImage = await sharp(callingCardBuffer)
             .composite([
                 {
                     input: resizedCircularProfilePic,
@@ -61,11 +69,28 @@ export async function POST(request) {
                     left: cardMetadata.width / 2 - cardMetadata.width / 4,
                 },
             ]) // Center the profile picture
+            .png()
             .toBuffer();
 
-        return new Response(compositeImage, {
+        // Generate a unique filename
+        const filename = `${uuidv4()}.png`;
+
+        // Upload the generated image to R2
+        const uploadParams = {
+            Bucket: process.env.R2_BUCKET_NAME,
+            Key: filename,
+            Body: compositeImage,
+            ContentType: "image/png",
+        };
+
+        await r2.send(new PutObjectCommand(uploadParams));
+
+        // Construct the public URL
+        const imageUrl = `${process.env.R2_PUBLIC_URL}/${filename}`;
+
+        return new Response(JSON.stringify({ imageUrl }), {
             headers: {
-                "Content-Type": "image/png",
+                "Content-Type": "application/json",
             },
         });
     } catch (error) {
