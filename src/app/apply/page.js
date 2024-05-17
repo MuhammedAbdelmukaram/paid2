@@ -274,14 +274,7 @@ const PageContent = () => {
             )}
             {generatedImageSrc && (
                 <div className={styles.generatedImageContainer}>
-                    <Image
-                        src={generatedImageSrc}
-                        alt="Generated"
-                        layout="responsive"
-                        width={700} // You can adjust this width and height to suit your design
-                        height={475} // You can adjust this width and height to suit your design
-                        className={styles.generatedImage}
-                    />
+                    <img src={generatedImageSrc} alt="Generated" className={styles.generatedImage} />
                     <TwitterShareButton
                         url={generatedImageSrc}
                         title="This is a placeholder text which I will change later!"
