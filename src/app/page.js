@@ -21,6 +21,7 @@ import Reroll from "@/app/sections/Reroll";
 import SeasonTwo from "@/app/sections/SeasonTwo";
 import RoadmapNew from "@/app/sections/RoadmapNew";
 import FAQ from "@/app/sections/FAQ";
+import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
 {
@@ -88,6 +89,12 @@ export default function Home() {
     return (
         <>
             {!isLoadedImg && <LoadingScreen />}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 2.3 }}
+            >
             <main className={styles.main} style={{ opacity: !isLoadedImg ? 0 : 1 }}>
                 <div style={{ zIndex: 1 }}></div>
                 <div
@@ -214,6 +221,7 @@ export default function Home() {
                     <Footer />
                 </div>
             </main>
+            </motion.div>
         </>
     );
 }
