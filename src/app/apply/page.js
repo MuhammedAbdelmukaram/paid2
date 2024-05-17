@@ -67,7 +67,6 @@ const PageContent = () => {
                 },
                 body: JSON.stringify({
                     ...formData,
-                    solanaWalletAddress: formData.input1, // Assuming input1 is the Solana Wallet Address
                 }),
             });
 
