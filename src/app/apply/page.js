@@ -23,11 +23,10 @@ const PageContent = () => {
         input2: "",
         input3: "",
         input4: "",
+        input5:"",
         textArea: "",
-        solanaWalletAddress: "",
     });
     const [generatedImageSrc, setGeneratedImageSrc] = useState(null); // Stores the generated image src
-    const [applicantId, setApplicantId] = useState(null); // Stores the ID of the created applicant
 
     // Set or Update the Query Parameters
     const createQueryString = (name, value) => {
@@ -36,6 +35,8 @@ const PageContent = () => {
 
         return params.toString();
     };
+
+    console.log(session);
 
     // Effect to update the cursor position directly
     useEffect(() => {
@@ -51,9 +52,16 @@ const PageContent = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    // Handle form submission for step 1
-    const handleSubmitStep1 = async (e) => {
+    // Handle form submission
+    // Handle form submission
+    // Handle form submission
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if (!session || !session.user) {
+            console.error('User is not authenticated');
+            return;
+        }
 
         try {
             const response = await fetch('/api/applicants', {
@@ -61,7 +69,11 @@ const PageContent = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ ...formData, step: 1 }),
+                body: JSON.stringify({
+                    ...formData,
+                    solanaWalletAddress: formData.input1, // Assuming input1 is the Solana Wallet Address
+                    userId: session.user.id, // Add userId from the session
+                }),
             });
 
             if (!response.ok) {
@@ -69,7 +81,8 @@ const PageContent = () => {
             }
 
             const data = await response.json();
-            setApplicantId(data._id); // Save the applicant ID for the next step
+            console.log('Application submitted successfully:', data);
+
             router.push("/apply?" + createQueryString("step", "2"));
             setFinishedSteps([...finishedSteps, 1]);
             setCurrentStep(2);
@@ -78,34 +91,9 @@ const PageContent = () => {
         }
     };
 
-    // Handle form submission for step 2
-    const handleSubmitStep2 = async (e) => {
-        e.preventDefault();
 
-        try {
-            const response = await fetch('/api/applicants', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ solanaWalletAddress: formData.solanaWalletAddress, step: 2, applicantId }),
-            });
 
-            if (!response.ok) {
-                throw new Error('Failed to submit application');
-            }
-
-            const data = await response.json();
-            console.log('Application updated successfully:', data);
-            router.push("/apply?" + createQueryString("step", "3"));
-            setFinishedSteps([...finishedSteps, 2]);
-            setCurrentStep(3);
-        } catch (error) {
-            console.error('Error updating application:', error);
-        }
-    };
-
-    // Handle next step after Twitter authentication
+    // Handle navigation to step 3
     const handleNextStep = async () => {
         if (status === "authenticated") {
             router.push("/apply?" + createQueryString("step", "3"));
@@ -125,11 +113,10 @@ const PageContent = () => {
             input2: "",
             input3: "",
             input4: "",
+            input5:"",
             textArea: "",
-            solanaWalletAddress: "",
         });
         setGeneratedImageSrc(null); // Hide the generated image on reset
-        setApplicantId(null); // Reset the applicant ID
     };
 
     // Handle show steps
@@ -182,6 +169,7 @@ const PageContent = () => {
             console.error('Error:', error);
         }
     };
+
 
     return (
         <div className={styles.main}>
@@ -241,7 +229,7 @@ const PageContent = () => {
                         ></div>
                     </div>
                     {currentStep === 1 && (
-                        <form className={styles.form} onSubmit={handleSubmitStep1}>
+                        <form className={styles.form} onSubmit={handleSubmit}>
                             <input
                                 type="text"
                                 name="input1"
@@ -274,6 +262,14 @@ const PageContent = () => {
                                 placeholder="What did get you PAID most recently?"
                                 required
                             />
+                            <input
+                                type="text"
+                                name="input5"
+                                value={formData.input5}
+                                onChange={handleChange}
+                                placeholder="Solana Walled Address"
+                                required
+                            />
                             <div className={styles.textAreaWrapper}>
                                 <textarea
                                     name="textArea"
@@ -294,34 +290,17 @@ const PageContent = () => {
                             <button onClick={handleNextStep} disabled={status === "authenticated"} className={`${styles.connectButton} ${status === "authenticated" ? styles.linkedButton : ""}`}>
                                 {status === "authenticated" ? "X/ Twitter Linked" : "Link X/ Twitter"}
                             </button>
-                            <form className={styles.form} onSubmit={handleSubmitStep2}>
-                                <input
-                                    type="text"
-                                    name="solanaWalletAddress"
-                                    className={styles.stepTwoInput}
-                                    value={formData.solanaWalletAddress}
-                                    onChange={handleChange}
-                                    placeholder="Solana Wallet Address"
-                                    required
-                                />
-                                <button type="submit" className={styles.button2}>
-                                    Submit Solana Wallet Address
-                                </button>
-                            </form>
+
+                            <button onClick={handleNextStep} className={styles.button2}>Dear Button, WISH ME LUCK</button>
                         </div>
                     )}
                     {currentStep === 3 && (
                         <div className={styles.stepThree}>
-                            <p style={{ textAlign: "center", margin: "20px 30px" }}>
-                                Congratulations! You have completed the steps.
-                            </p>
-                            <button
-                                onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))}
-                                className={styles.button2}
-                                style={{ marginBottom: 8 }}
-                            >
+                            <p style={{textAlign:"center", margin:"20px 30px"}}>Congratulations! You have completed the steps.</p>
+                            <button onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))} className={styles.button2} style={{marginBottom:8}}>
                                 Generate My Card
                             </button>
+
                         </div>
                     )}
                 </>
