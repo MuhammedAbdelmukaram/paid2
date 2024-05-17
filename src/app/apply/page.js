@@ -265,10 +265,7 @@ const PageContent = () => {
                             <button onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))}>
                                 Generate
                             </button>
-                            <button onClick={handleTestGenerate}>
-                                TestGenerate
-                            </button>
-                            <img id="generatedImage" alt="Generated" />
+
                         </div>
                     )}
                 </>
