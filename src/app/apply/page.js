@@ -297,7 +297,7 @@ const PageContent = () => {
                     )}
                 </>
             )}
-
+            {generatedImageSrc && (
                 <div className={styles.generatedImageContainer}>
                     <img src={generatedImageSrc} alt="Generated" className={styles.generatedImage} />
                     <div className={styles.centeredButtonContainer}>
@@ -313,6 +313,7 @@ const PageContent = () => {
                     </TwitterShareButton>
                     </div>
                 </div>
+            )}
 
             {/*<div
                 ref={cursorRef}
