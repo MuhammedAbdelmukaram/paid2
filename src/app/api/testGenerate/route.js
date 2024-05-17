@@ -7,7 +7,7 @@ export async function POST(request) {
     try {
         // Define the paths to the images in the public folder
         const baseImagePath = path.resolve("./public/CallingCard.jpg");
-        const overlayImagePath = path.resolve("./public/profilePic.jpg");
+        const overlayImagePath = path.resolve("./public/Person1.png");
 
         // Read the images from the file system
         const baseImageBuffer = await fs.readFile(baseImagePath);
