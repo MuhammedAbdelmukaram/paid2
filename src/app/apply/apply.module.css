@@ -1,0 +1,218 @@
+.main {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #010102;
+    cursor: auto;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Ensure elements are spaced out */
+    min-height: 98vh; /* Ensure the intro section takes up most of the viewport height */
+    margin-top: 30px;
+}
+
+.customCursor {
+    position: fixed;
+    top: -15px;
+    left: -15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form input,
+.form textarea {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 1px solid #2be82b;
+    border-radius: 8px;
+    background-color: #111111;
+}
+
+.curateText{
+    margin-top: 20px;
+    text-align: center;
+}
+.form textarea{
+    height: 200px;
+    resize: vertical;
+}
+
+.form button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.stepTwo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stepTwo button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.stepThree {
+    text-align: center;
+}
+
+.stepThree button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.stepIndicator {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.button2{
+    background-color: #2be82b;
+    border: none;
+    border-radius: 12px;
+    color: #1c1c1c;
+    font-size: 14px !important;
+    padding: 10px 30px;
+    font-weight: bold;
+}
+
+.button2:hover{
+    background-color: #21b721;
+}
+
+
+.enterButton{
+    background-color: #2be82b;
+    border: none;
+    padding: 10px 36px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.imageContainer{
+    display: flex;
+    height: 100%;
+    margin-top: 40px;
+    justify-content: flex-end;
+}
+.responsiveImage{
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.enterButton:hover{
+    background-color: #21b721;
+}
+
+.rotatingImage {
+    display: inline-block;
+    animation: rotateImage 3.5s linear infinite;
+}
+
+.introTexts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.generatedImageContainer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin: 1rem 0rem;
+}
+
+.stepIndicator div {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}
+
+
+
+.activeStep {
+    background-color: #2be82b;
+    color: white;
+}
+
+.inactiveStep {
+    background-color: #ddd;
+    color: black;
+}
+.charCount {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 12px;
+    color: #666;
+}
+
+.textAreaWrapper {
+    position: relative;
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+
+@keyframes rotateImage {
+    0%, 25% { /* Start and hold the initial position for the pause duration */
+        transform: rotate(0deg);
+    }
+    30% { /* End of first rotation */
+        transform: rotate(120deg);
+    }
+    30.1%, 55% { /* Hold position for the pause */
+        transform: rotate(120deg);
+    }
+    60% { /* End of second rotation */
+        transform: rotate(240deg);
+    }
+    60.1%, 85% { /* Hold position for the pause */
+        transform: rotate(240deg);
+    }
+    90% { /* End of third rotation */
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

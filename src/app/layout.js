@@ -1,9 +1,9 @@
-import { Inter } from "next/font/google";
+import {Inter} from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "./Providers";
 import LoadingScreen from "@/app/components/LoadingScreen";
-import React from "react";
+import React, {Suspense} from "react";
 
 const myFont = localFont({
     src: "../../public/font/Sansation_Regular.ttf", // Path relative to the public directory
@@ -14,14 +14,14 @@ export const metadata = {
     description: "1st Sustainable NFT Project 🏦 Powered by Revenue Generating Products",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({children}) {
     return (
         <Providers>
-
-            <html lang="en">
+            <Suspense fallback={<LoadingScreen/>}>
+                <html lang="en">
                 <body className={myFont.className}>{children}</body>
-            </html>
-
+                </html>
+            </Suspense>
         </Providers>
     );
 }
