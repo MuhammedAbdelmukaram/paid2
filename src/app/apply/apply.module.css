@@ -70,6 +70,14 @@
     border: 1px solid #2be82b;
 }
 
+.linkedButton{
+    color: #b2b2b2;
+    border-radius: 12px;
+    background-color: #313131;
+    border: 1px solid #8bc48b;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 .curateText{
     margin-top: 20px;
     text-align: center;

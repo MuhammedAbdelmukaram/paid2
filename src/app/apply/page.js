@@ -244,7 +244,7 @@ const PageContent = () => {
                     )}
                     {currentStep === 2 && (
                         <div className={styles.stepTwo}>
-                            <button onClick={handleNextStep} disabled={status === "authenticated"} className={styles.connectButton}>
+                            <button onClick={handleNextStep} disabled={status === "authenticated"} className={`${styles.connectButton} ${status === "authenticated" ? styles.linkedButton : ""}`}>
                                 {status === "authenticated" ? "X/ Twitter Linked" : "Link X/ Twitter"}
                             </button>
                             <input
@@ -261,9 +261,9 @@ const PageContent = () => {
                     )}
                     {currentStep === 3 && (
                         <div className={styles.stepThree}>
-                            <p>Congratulations! You have completed the steps.</p>
-                            <button onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))}>
-                                Generate
+                            <p style={{textAlign:"center", margin:"20px 30px"}}>Congratulations! You have completed the steps.</p>
+                            <button onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))} className={styles.button2}>
+                                Generate My Card
                             </button>
 
                         </div>
