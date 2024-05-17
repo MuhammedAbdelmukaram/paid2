@@ -35,8 +35,8 @@ async function uploadToS3({ key, contentType }) {
 
 export async function POST(request) {
     try {
-        // Read image URL from the request body
-        const { profileImg } = await request.json();
+        // Read image URL and text from the request body
+        const { profileImg, overlayText } = await request.json();
 
         // Fetch the profile picture from the URL
         const response = await axios.get(profileImg, { responseType: "arraybuffer" });
@@ -49,15 +49,16 @@ export async function POST(request) {
         // Get dimensions of the calling card
         const cardMetadata = await sharp(callingCardBuffer).metadata();
 
-        // Resize the profile picture to be larger
+        // Resize the profile picture to be 30% of the card width
+        const resizedProfilePicWidth = Math.floor(cardMetadata.width * 0.3);
         const resizedProfilePic = await sharp(profilePicBuffer)
-            .resize({ width: Math.floor(cardMetadata.width / 2) }) // Adjust the size as needed
+            .resize({ width: resizedProfilePicWidth })
             .toBuffer();
 
         // Create a circular mask
         const circleMask = Buffer.from(
-            `<svg width="${cardMetadata.width / 2}" height="${cardMetadata.width / 2}">
-                <circle cx="${cardMetadata.width / 4}" cy="${cardMetadata.width / 4}" r="${cardMetadata.width / 4}" fill="white"/>
+            `<svg width="${resizedProfilePicWidth}" height="${resizedProfilePicWidth}">
+                <circle cx="${resizedProfilePicWidth / 2}" cy="${resizedProfilePicWidth / 2}" r="${resizedProfilePicWidth / 2}" fill="white"/>
              </svg>`
         );
 
@@ -67,24 +68,54 @@ export async function POST(request) {
             .png()
             .toBuffer();
 
-        // Resize circular profile picture to match calling card dimensions
-        const resizedCircularProfilePic = await sharp(circularProfilePic)
-            .resize({
-                width: cardMetadata.width / 2, // The circular profile pic should be half the width of the card
-                height: cardMetadata.width / 2, // The circular profile pic should be a square
-                fit: sharp.fit.cover, // Cover the entire area
-            })
-            .toBuffer();
+        // Calculate positions for the composite
+        const topPosition = Math.floor(cardMetadata.height / 2 - resizedProfilePicWidth / 2);
+        const leftPosition = Math.floor(cardMetadata.width / 2 - resizedProfilePicWidth / 2);
+
+        // Create the overlay text as an SVG
+        const fontSize = Math.floor(cardMetadata.width * 0.05); // Adjust font size as needed
+        const textBackgroundColor = "rgba(0, 0, 0, 0.7)"; // Background color with transparency
+        const textColor = "white"; // Text color
+        const textGlow = "0 0 5px white"; // Glow effect
+
+        const textSvg = `
+            <svg width="${cardMetadata.width}" height="${fontSize * 2}">
+                <style>
+                    .text-style {
+                        font-size: ${fontSize}px;
+                        fill: ${textColor};
+                        font-family: Arial, sans-serif;
+                        filter: drop-shadow(${textGlow});
+                    }
+                    .background-style {
+                        fill: ${textBackgroundColor};
+                    }
+                </style>
+                <rect x="0" y="0" width="100%" height="100%" class="background-style" />
+                <text x="50%" y="50%" class="text-style" text-anchor="middle" dominant-baseline="middle">${overlayText}</text>
+            </svg>
+        `;
+
+        // Create the text image buffer
+        const textImageBuffer = Buffer.from(textSvg);
+
+        // Calculate the position for the text
+        const textTopPosition = topPosition + resizedProfilePicWidth + 10; // Adjust 10px spacing as needed
 
         // Create a composite image
         const compositeImage = await sharp(callingCardBuffer)
             .composite([
                 {
-                    input: resizedCircularProfilePic,
-                    top: cardMetadata.height / 2 - cardMetadata.width / 4,
-                    left: cardMetadata.width / 2 - cardMetadata.width / 4,
+                    input: circularProfilePic,
+                    top: topPosition,
+                    left: leftPosition,
                 },
-            ]) // Center the profile picture
+                {
+                    input: textImageBuffer,
+                    top: textTopPosition,
+                    left: 0, // Center the text
+                },
+            ]) // Center the circular overlay image and add text below
             .png()
             .toBuffer();
 

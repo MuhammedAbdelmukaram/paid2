@@ -109,6 +109,33 @@ const PageContent = () => {
         return url.replace(/(.*)(\/.*)(_normal|_bigger|_mini)(\.\w+)/, "$1$2$4");
     };
 
+    const handleTestGenerate = async () => {
+        try {
+            const response = await fetch('/api/testGenerate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to generate image');
+            }
+
+            const imageBlob = await response.blob();
+            const imageUrl = URL.createObjectURL(imageBlob);
+
+            // Do something with the image URL, e.g., display the image
+            console.log('Generated Image URL:', imageUrl);
+
+            // Optionally, you can update the state to display the image
+            document.getElementById('generatedImage').src = imageUrl;
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+
     return (
         <div className={styles.main}>
             {!step && !showSteps ? (
@@ -237,13 +264,24 @@ const PageContent = () => {
                             <button onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))}>
                                 Generate
                             </button>
+                            <button onClick={handleTestGenerate}>
+                                TestGenerate
+                            </button>
+                            <img id="generatedImage" alt="Generated" />
                         </div>
                     )}
                 </>
             )}
             {generatedImageSrc && (
                 <div className={styles.generatedImageContainer}>
-                    <img src={generatedImageSrc} alt="Generated" className={styles.generatedImage} />
+                    <Image
+                        src={generatedImageSrc}
+                        alt="Generated"
+                        layout="responsive"
+                        width={700} // You can adjust this width and height to suit your design
+                        height={475} // You can adjust this width and height to suit your design
+                        className={styles.generatedImage}
+                    />
                     <TwitterShareButton
                         url={generatedImageSrc}
                         title="This is a placeholder text which I will change later!"
