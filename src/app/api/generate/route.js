@@ -3,9 +3,9 @@ import sharp from "sharp";
 import path from "path";
 import fs from "fs/promises";
 import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { v4 as uuidv4 } from "uuid";
 
 // Initialize the S3 client
 const r2 = new S3Client({
@@ -16,6 +16,22 @@ const r2 = new S3Client({
         secretAccessKey: process.env.R2_SECRET_ACCESS_KEY || "",
     },
 });
+
+// Function to upload to S3
+async function uploadToS3({ key, contentType }) {
+    try {
+        const signedUrl = await getSignedUrl(r2, new PutObjectCommand({
+            Bucket: process.env.R2_BUCKET_NAME,
+            Key: key,
+            ContentType: contentType,
+        }), { expiresIn: 60 * 60 });
+
+        return { imageUrl: `${process.env.R2_PUBLIC_URL}/${key}`, signedUrl };
+    } catch (error) {
+        console.error('S3 Upload Error:', error);
+        throw new Error('Failed to upload to S3');
+    }
+}
 
 export async function POST(request) {
     try {
@@ -75,18 +91,15 @@ export async function POST(request) {
         // Generate a unique filename
         const filename = `${uuidv4()}.png`;
 
-        // Upload the generated image to R2
-        const uploadParams = {
-            Bucket: process.env.R2_BUCKET_NAME,
-            Key: filename,
-            Body: compositeImage,
-            ContentType: "image/png",
-        };
+        // Get signed URL and image URL
+        const { imageUrl, signedUrl } = await uploadToS3({ key: filename, contentType: "image/png" });
 
-        await r2.send(new PutObjectCommand(uploadParams));
-
-        // Construct the public URL
-        const imageUrl = `${process.env.R2_PUBLIC_URL}/${filename}`;
+        // Upload the image using the signed URL
+        await axios.put(signedUrl, compositeImage, {
+            headers: {
+                "Content-Type": "image/png",
+            },
+        });
 
         return new Response(JSON.stringify({ imageUrl }), {
             headers: {
