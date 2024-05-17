@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Providers from "./Providers";
 import LoadingScreen from "@/app/components/LoadingScreen";
-import React, {Suspense} from "react";
+import React from "react";
 
 const myFont = localFont({
     src: "../../public/font/Sansation_Regular.ttf", // Path relative to the public directory
@@ -19,10 +19,9 @@ export default function RootLayout({ children }) {
         <Providers>
 
             <html lang="en">
-            <Suspense fallback={<LoadingScreen/>}>
                 <body className={myFont.className}>{children}</body>
-            </Suspense>
             </html>
+
         </Providers>
     );
 }
