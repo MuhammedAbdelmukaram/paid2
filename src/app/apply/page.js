@@ -1,11 +1,12 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, {useState, useRef, useEffect, Suspense} from "react";
 import Image from "next/image";
 import styles from "./apply.module.css";
 import useMousePosition from "../hooks/useMousePosition"; // Adjust the import path accordingly
 import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { TwitterShareButton } from "react-share";
+import LoadingScreen from "@/app/components/LoadingScreen";
 
 const Page = () => {
     const { x, y } = useMousePosition(); // Get mouse position
@@ -97,9 +98,8 @@ const Page = () => {
                 method: "POST",
                 body: JSON.stringify({ profileImg: imgURL }),
             });
-            const blob = await response.blob();
-            const url = URL.createObjectURL(blob);
-            setGeneratedImageSrc(url);
+            const data = await response.json();
+            setGeneratedImageSrc(data.imageUrl);
         } catch (error) {
             console.error("Error generating image:", error);
         }
@@ -110,6 +110,7 @@ const Page = () => {
     };
 
     return (
+            <Suspense fallback={<LoadingScreen/>}>
         <div className={styles.main}>
             {!step && !showSteps ? (
                 <div className={styles.intro}>
@@ -261,6 +262,7 @@ const Page = () => {
                 <Image src="/cursor1.png" alt="Custom Cursor" width={50} height={50}/>
             </div>*/}
         </div>
+            </Suspense>
     );
 };
 
