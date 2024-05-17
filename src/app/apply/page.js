@@ -97,27 +97,14 @@ const Page = () => {
                 method: "POST",
                 body: JSON.stringify({ profileImg: imgURL }),
             });
-            const data = await response.json();
-            setGeneratedImageSrc(data.imageUrl);
-
-            // Call the new tweet endpoint
-            const tweetResponse = await fetch("/api/tweet", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ imageUrl: data.imageUrl, status: "This is a placeholder text which I will change later!" }),
-            });
-
-            const tweetData = await tweetResponse.json();
-            console.log("Tweeted:", tweetData.tweet);
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            setGeneratedImageSrc(url);
         } catch (error) {
-            console.error("Error generating and tweeting image:", error);
+            console.error("Error generating image:", error);
         }
     };
 
-
-    // Helper function to remove unnecessary texts
     const fullProfileImageUrl = (url) => {
         return url.replace(/(.*)(\/.*)(_normal|_bigger|_mini)(\.\w+)/, "$1$2$4");
     };
@@ -260,6 +247,7 @@ const Page = () => {
                     <TwitterShareButton
                         url={generatedImageSrc}
                         title="This is a placeholder text which I will change later!"
+                        color="green"
                     >
                         <button style={{ padding: "0.5rem" }}>Share on Twitter</button>
                     </TwitterShareButton>
