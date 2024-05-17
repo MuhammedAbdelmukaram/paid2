@@ -206,11 +206,7 @@ const PageContent = () => {
                         style={{ marginTop: 30 }}
                     />
                     <div className={styles.stepIndicator}>
-                        <div
-                            className={`${styles.step} ${
-                                currentStep === 1 || finishedSteps.includes(1) ? styles.activeStep : styles.inactiveStep
-                            }`}
-                        ></div>
+                        <div className={styles.activeStep}></div>
                         <div
                             className={`${styles.step} ${
                                 currentStep === 2 || finishedSteps.includes(2) ? styles.activeStep : styles.inactiveStep
