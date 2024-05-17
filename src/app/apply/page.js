@@ -7,7 +7,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { TwitterShareButton } from "react-share";
 import LoadingScreen from "@/app/components/LoadingScreen"; // Ensure this component exists
-
+import { motion } from "framer-motion";
 const PageContent = () => {
     const { x, y } = useMousePosition(); // Get mouse position
     const router = useRouter(); // Set the query state
@@ -287,26 +287,33 @@ const PageContent = () => {
                     {currentStep === 3 && (
                         <div className={styles.stepThree}>
                             <p style={{textAlign:"center", margin:"20px 30px"}}>Congratulations! You have completed the steps.</p>
-                            <button onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))} className={styles.button2} style={{marginBottom:8}}>
+                            <button onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))}
+                                     className={styles.button2} style={{marginBottom: 8}}>
                                 Generate My Card
                             </button>
+
 
                         </div>
                     )}
                 </>
             )}
-            {generatedImageSrc && (
+
                 <div className={styles.generatedImageContainer}>
                     <img src={generatedImageSrc} alt="Generated" className={styles.generatedImage} />
+                    <div className={styles.centeredButtonContainer}>
                     <TwitterShareButton
                         url={generatedImageSrc}
                         title="This is a placeholder text which I will change later!"
                         color="green"
                     >
-                        <button style={{ padding: "0.5rem" }}>Share on Twitter</button>
+
+                            <button style={{ padding: "0.5rem", backgroundColor:"#2be62c", border:"none", color:"#000", fontWeight:"bold", width:320 }}>Share on Twitter</button>
+
+
                     </TwitterShareButton>
+                    </div>
                 </div>
-            )}
+
             {/*<div
                 ref={cursorRef}
                 className={styles.customCursor}
@@ -321,9 +328,15 @@ const PageContent = () => {
 const Page = () => {
     return (
         <Suspense fallback={<LoadingScreen />}>
-            <PageContent />
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1.8 }}
+            >
+                <PageContent />
+            </motion.div>
         </Suspense>
     );
 };
-
 export default Page;
