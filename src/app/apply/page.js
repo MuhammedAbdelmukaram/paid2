@@ -244,18 +244,19 @@ const PageContent = () => {
                     )}
                     {currentStep === 2 && (
                         <div className={styles.stepTwo}>
-                            <button onClick={handleNextStep} disabled={status === "authenticated"}>
-                                {status === "authenticated" ? "Connected to Twitter" : "Connect to Twitter"}
+                            <button onClick={handleNextStep} disabled={status === "authenticated"} className={styles.connectButton}>
+                                {status === "authenticated" ? "X/ Twitter Linked" : "Link X/ Twitter"}
                             </button>
                             <input
                                 type="text"
                                 name="input1"
+                                className={styles.stepTwoInput}
                                 value={formData.input1}
                                 onChange={handleChange}
-                                placeholder="Name/Acronym"
+                                placeholder="Solana Walled Address"
                                 required
                             />
-                            <button onClick={handleNextStep}>Submit</button>
+                            <button onClick={handleNextStep} className={styles.button2}>Dear Button, WISH ME LUCK</button>
                         </div>
                     )}
                     {currentStep === 3 && (
