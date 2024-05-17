@@ -58,10 +58,6 @@ const PageContent = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!session || !session.user) {
-            console.error('User is not authenticated');
-            return;
-        }
 
         try {
             const response = await fetch('/api/applicants', {
@@ -72,7 +68,6 @@ const PageContent = () => {
                 body: JSON.stringify({
                     ...formData,
                     solanaWalletAddress: formData.input1, // Assuming input1 is the Solana Wallet Address
-                    userId: session.user.id, // Add userId from the session
                 }),
             });
 
