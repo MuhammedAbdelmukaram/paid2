@@ -129,7 +129,6 @@ const Reroll = () => {
                 <div
                     ref={cursorRef}
                     className={styles.customCursor}
-                    style={{ opacity: isCursorOverVideo ? 0 : 1 }}
                 >
                     <Image src="/cursor1.png" alt="Custom Cursor" width={50} height={50} />
                 </div>
