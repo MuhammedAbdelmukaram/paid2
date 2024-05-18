@@ -50,7 +50,7 @@ export async function POST(request) {
         const cardMetadata = await sharp(callingCardBuffer).metadata();
 
         // Resize the profile picture to be 30% of the card width
-        const resizedProfilePicWidth = Math.floor(cardMetadata.width * 0.25);
+        const resizedProfilePicWidth = Math.floor(cardMetadata.width * 0.27);
         const resizedProfilePic = await sharp(profilePicBuffer)
             .resize({ width: resizedProfilePicWidth })
             .toBuffer();
