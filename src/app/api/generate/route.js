@@ -72,6 +72,7 @@ export async function POST(request) {
         const topPosition = Math.floor(cardMetadata.height / 2 - resizedProfilePicWidth / 2);
         const leftPosition = Math.floor(cardMetadata.width / 2 - resizedProfilePicWidth / 2);
 
+        /*
         // Create the overlay text as an SVG
         const fontSize = Math.floor(cardMetadata.width * 0.05); // Adjust font size as needed
         const textBackgroundColor = "rgba(0, 0, 0, 0.7)"; // Background color with transparency
@@ -100,6 +101,7 @@ export async function POST(request) {
 
         // Calculate the position for the text
         const textTopPosition = topPosition + resizedProfilePicWidth + 10; // Adjust 10px spacing as needed
+        */
 
         // Create a composite image
         const compositeImage = await sharp(callingCardBuffer)
@@ -109,11 +111,13 @@ export async function POST(request) {
                     top: topPosition,
                     left: leftPosition,
                 },
+                /*
                 {
                     input: textImageBuffer,
                     top: textTopPosition,
                     left: 0, // Center the text
                 },
+                */
             ]) // Center the circular overlay image and add text below
             .png()
             .toBuffer();
