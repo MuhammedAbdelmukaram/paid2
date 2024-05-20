@@ -108,7 +108,31 @@
 .stepThree {
     text-align: center;
 }
+.instructions{
+    text-align: left;
+}
+.instructions p {
+    font-size: 18px; /* Slightly larger font for the paragraph */
+    font-weight: bold; /* Bold text for emphasis */
+    margin-bottom: 10px; /* Space below the paragraph */
+    text-align: center; /* Center align the text */
+    margin-bottom: 20px;
+}
+.instructions ol {
+    margin-left: 20px; /* Indent the list */
+    padding: 0px 20px;
+    font-size: 16px; /* Font size for the list items */
+    margin-bottom: 40px;
+}
 
+.instructions ol li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.instructions ol li span {
+    color: #04fc08; /* Green color for the highlighted text */
+    font-weight: bold; /* Bold the highlighted text */
+}
 .stepThree button {
     padding: 10px;
     font-size: 16px;
@@ -181,20 +205,30 @@
 .generatedImageContainer {
     max-width: 100%;
     overflow: hidden;
+    padding-bottom: 50px;
     margin: 0 auto; /* Center the container */
 }
 .centeredButtonContainer {
     display: flex;
     justify-content: center;
     text-align: center;
-    width: 100%;
+    min-width: 100%;
     margin-top: 10px; /* Adjust as needed for spacing */
 }
 .generatedImage {
+    max-width: 560px;
     width: 100%;
     height: auto;
     display: block;
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
+
+.generatedImage:hover {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
+}
+
 
 
 .stepIndicator div {
@@ -227,6 +261,21 @@
 
 .textAreaWrapper {
     position: relative;
+}
+
+.shareButton {
+    padding: 0.5rem;
+    background-color: #2be62c;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    min-width: 320px;
+    cursor: pointer; /* Add a cursor pointer to indicate the button is clickable */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.shareButton:hover {
+    background-color: #21b721; /* Slightly darker green on hover */
 }
 
 

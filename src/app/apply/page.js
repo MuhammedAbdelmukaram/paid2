@@ -16,6 +16,7 @@ const PageContent = () => {
     const step = searchParams.get("step"); // Get step query state
     const cursorRef = useRef(null); // Ref for the custom cursor
     const [showSteps, setShowSteps] = useState(false); // Controls the visibility of the steps
+    const [showAdditionalText, setShowAdditionalText] = useState(false);
     const [currentStep, setCurrentStep] = useState(Number(step) || 1); // Tracks the current active step
     const [finishedSteps, setFinishedSteps] = useState([]); // Tracks the finished steps
     const [formData, setFormData] = useState({
@@ -44,6 +45,12 @@ const PageContent = () => {
             cursorRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
         }
     }, [x, y]);
+
+    useEffect(() => {
+        if (status === "authenticated") {
+            console.log("Session Data:", session);
+        }
+    }, [status, session]);
 
     // Handle input change
     const handleChange = (e) => {
@@ -129,6 +136,7 @@ const PageContent = () => {
             });
             const data = await response.json();
             setGeneratedImageSrc(data.imageUrl);
+            setShowAdditionalText(true);
         } catch (error) {
             console.error("Error generating image:", error);
         }
@@ -162,6 +170,22 @@ const PageContent = () => {
         } catch (error) {
             console.error('Error:', error);
         }
+    };
+
+    const downloadImage = () => {
+        fetch(generatedImageSrc)
+            .then(response => response.blob())
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'generated-image.png';
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                window.URL.revokeObjectURL(url);
+            })
+            .catch(error => console.error('Error downloading the image:', error));
     };
 
 
@@ -286,31 +310,45 @@ const PageContent = () => {
                     )}
                     {currentStep === 3 && (
                         <div className={styles.stepThree}>
-                            <p style={{textAlign:"center", margin:"20px 30px"}}>Congratulations! You have completed the steps.</p>
-                            <button onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))}
-                                     className={styles.button2} style={{marginBottom: 8}}>
-                                Generate My Card
-                            </button>
-
-
+                            {showAdditionalText ? (
+                                <div className={styles.instructions}>
+                                    <p>To complete your submission form</p>
+                                    <ol>
+                                        <li> <span style={{color:"#04fc08"}}>Download</span> the image by clicking the Image</li>
+                                        <li><span style={{color:"#04fc08"}}>Click </span> the "Share on Twitter" button to open Twitter box</li>
+                                        <li><span style={{color:"#04fc08"}}>Upload</span> the downloaded image to your tweet</li>
+                                    </ol>
+                                </div>
+                            ) : (
+                                <>
+                                    <p style={{ textAlign: "center", margin: "20px 30px" }}>
+                                        Congratulations! You have completed the steps.
+                                    </p>
+                                    <button
+                                        onClick={() => handleGenerate(fullProfileImageUrl(session.user.image))}
+                                        className={styles.button2}
+                                        style={{ marginBottom: 8 }}
+                                    >
+                                        Generate My Card
+                                    </button>
+                                </>
+                            )}
                         </div>
                     )}
                 </>
             )}
             {generatedImageSrc && (
                 <div className={styles.generatedImageContainer}>
-                    <img src={generatedImageSrc} alt="Generated" className={styles.generatedImage} />
+                    <img  onClick={downloadImage} src={generatedImageSrc} alt="Generated" className={styles.generatedImage} />
                     <div className={styles.centeredButtonContainer}>
-                    <TwitterShareButton
-                        url={generatedImageSrc}
-                        title="This is a placeholder text which I will change later!"
-                        color="green"
-                    >
-
-                            <button style={{ padding: "0.5rem", backgroundColor:"#2be62c", border:"none", color:"#000", fontWeight:"bold", width:320 }}>Share on Twitter</button>
-
-
-                    </TwitterShareButton>
+                        <TwitterShareButton
+                            url="https://twitter.com/intent/tweet"
+                            title="Check out this image I generated!"
+                            via="yourTwitterHandle"
+                            hashtags={["GeneratedImage", "CoolImage"]}
+                        >
+                            <button className={styles.shareButton}>Share on Twitter</button>
+                        </TwitterShareButton>
                     </div>
                 </div>
             )}
