@@ -9,7 +9,7 @@ const myFont = localFont({
 });
 export const metadata = {
     title: "Get $PAID",
-    description: "1st Sustainable NFT Project 🏦 Powered by Revenue Generating Products",
+    description: "Anti Cabal Cabal Onchain 🏦 Powered by $SOL Generating Products 🚀",
 };
 
 export default function RootLayout({ children }) {
