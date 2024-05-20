@@ -315,7 +315,7 @@ const PageContent = () => {
                                     <p>To complete your submission form</p>
                                     <ol>
                                         <li> <span style={{color:"#04fc08"}}>Download</span> the image by clicking the Image</li>
-                                        <li><span style={{color:"#04fc08"}}>Click </span> the "Share on Twitter" button to open Twitter box</li>
+                                        <li><span style={{color:"#04fc08"}}>Click </span> the &quot;Share on Twitter&quot; button to open Twitter box</li>
                                         <li><span style={{color:"#04fc08"}}>Upload</span> the downloaded image to your tweet</li>
                                     </ol>
                                 </div>
