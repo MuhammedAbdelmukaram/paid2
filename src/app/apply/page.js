@@ -261,7 +261,7 @@ const PageContent = () => {
                                 required
                             />
                             <input
-                                type="number"
+                                type="text"
                                 name="input3"
                                 value={formData.input3}
                                 onChange={handleChange}
@@ -269,7 +269,7 @@ const PageContent = () => {
                                 required
                             />
                             <input
-                                type="number"
+                                type="text"
                                 name="input4"
                                 value={formData.input4}
                                 onChange={handleChange}
