@@ -44,15 +44,20 @@ const Footer = () => {
               <p className={styles.footerHeading}>Contact Us</p>
               <p className={styles.footerLink}>contact@paidinc.xyz</p>
               <div className={styles.socialMedia}>
-                <div className={styles.buttonStyleX}>
-                  <Image
-                      src='/discord.png'
-                      alt='Logo'
-                      width={26}
-                      height={26}
-                      priority
-                      style={{ marginRight: 1 }}
-                  />
+                <div className={styles.buttonStyleWP}>
+                  <a
+                      href='https://t.me/thepaidinc'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                  >
+                    <Image
+                        src='/telegramIcon.png'
+                        alt='Telegram Logo'
+                        width={26}
+                        height={26}
+                        priority
+                    />
+                  </a>
                 </div>
                 <div className={styles.buttonStyleWP}>
                   <a

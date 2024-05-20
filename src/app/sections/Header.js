@@ -44,16 +44,20 @@ const Header = ({ handleImageLoad }) => {
             Whitepaper
           </a>
         </div>
-        <div className={styles.buttonStyleX}>
-          <Image
-            src="/discord.png"
-            alt="Logo"
-            width={26}
-            height={26}
-            priority
-            style={{ marginRight: 1 }}
-            handleImageLoad={handleImageLoad}
-          />
+        <div className={styles.buttonStyleWP}>
+          <a
+              href='https://t.me/thepaidinc'
+              target='_blank'
+              rel='noopener noreferrer'
+          >
+            <Image
+                src='/telegramIcon.png'
+                alt='Telegram Logo'
+                width={26}
+                height={26}
+                priority
+            />
+          </a>
         </div>
         <div className={styles.buttonStyleWP}>
           {/* Twitter Icon with external link */}
