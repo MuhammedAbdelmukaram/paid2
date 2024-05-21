@@ -8,6 +8,7 @@ const Reroll = () => {
     const [currentStep, setCurrentStep] = useState(0); // Tracks the current active step
     const [isCursorOverVideo, setIsCursorOverVideo] = useState(false); // Tracks if the cursor is over the video
     const [isPointer, setIsPointer] = useState(false); // Tracks if the cursor is over an element with cursor: pointer
+    const [isSmallViewport, setIsSmallViewport] = useState(false); // Tracks if the viewport is small
     const { x, y } = useMousePosition(); // Get mouse position
     const cursorRef = useRef(null); // Ref for the custom cursor
     const videoRef = useRef(null); // Create a ref for the video element
@@ -54,6 +55,20 @@ const Reroll = () => {
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
+
+    // Effect to check if the viewport is small
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallViewport(window.innerWidth <= 768); // Set your breakpoint for small viewport here
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Check initial viewport size
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
@@ -125,7 +140,7 @@ const Reroll = () => {
                 <p style={{ fontSize: 14 }}>Yes, <span style={{ color: "#2be82b" }}>from Entry to Emerald</span>, or Emerald back to Entry Level Member Card!</p>
             </div>
 
-            {!isPointer && (
+            {!isSmallViewport && !isPointer && (
                 <div
                     ref={cursorRef}
                     className={styles.customCursor}

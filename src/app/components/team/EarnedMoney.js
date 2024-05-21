@@ -6,7 +6,7 @@ const EarnedMoney = () => {
 
         <h1 style={{marginBottom:20}}>OUR TEAM IS OUR STRENGTH</h1>
         <div style={{marginBottom:20}}>
-            <p> Our Impressive Track Record of Scaling Web 2 Brands to 7 Figures is a Testament to our Success, We here to dominate Web 3 Commerce. </p>
+            <p style={{color:"#fff"}}> Our Impressive Track Record of Scaling Web 2 Brands to 7 Figures is a Testament to our Success, We here to dominate Web 3 Commerce. </p>
         </div>
 
         <div style={{padding:"20px 30px", backgroundColor:"#121312",border:"1px solid #3E3E3E", borderRadius:4, display:"flex", justifyContent:"center",alignItems:"center", width:"fit-content"}}>
