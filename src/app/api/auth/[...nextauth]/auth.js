@@ -9,4 +9,21 @@ export const authOptions = {
         }),
     ],
     secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
+    session: {
+        strategy: "jwt",
+    },
+    callbacks: {
+        async jwt({ token, user, profile }) {
+            if (user)
+                token.user = user
+            if(profile?.data)
+                token.user.username = profile.data.username
+            return token
+        },
+        async session({ session, token }) {
+            if (token?.user)
+                session.user = token.user;
+            return session
+        }
+    }
 };

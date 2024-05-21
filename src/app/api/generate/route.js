@@ -6,6 +6,9 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]/auth";
+import { TwitterApi } from "twitter-api-v2";
 
 // Initialize the S3 client
 const r2 = new S3Client({
@@ -33,8 +36,45 @@ async function uploadToS3({ key, contentType }) {
     }
 }
 
+// Initialize Twitter client
+const twitterClient = (new TwitterApi(
+    {
+        appKey: process.env.TWITTER_COMPANY_API_KEY,
+        appSecret: process.env.TWITTER_COMPANY_API_SECRET,
+        accessToken: process.env.TWITTER_COMPANY_ACCESS_TOKEN,
+        accessSecret: process.env.TWITTER_COMPANY_ACCESS_SECRET
+    }
+)).readWrite;
+
+// Function to upload PNG to Twitter as media (returns mediaId)
+async function uploadToTwitter(pngBuffer) {
+    try {
+        const mediaId = await twitterClient.v1.uploadMedia(pngBuffer, { mimeType: 'image/png' })
+        return mediaId;
+    }
+    catch (error) {
+        console.error('Twitter Upload Error:', error);
+    }
+}
+
+// Function to tweet with @username and media
+function tweetWithMedia(username, mediaId) {
+    try {
+        twitterClient.v2.tweet(`This guy @${username} has just signed up`, {
+            media: {
+                media_ids: [mediaId]
+            }
+        });
+    } catch (error) {
+        console.error('Failed to Tweet:', error)
+    }
+}
+
 export async function POST(request) {
     try {
+        // Get user session
+        const session = await getServerSession(authOptions)
+
         // Read image URL and text from the request body
         const { profileImg, overlayText } = await request.json();
 
@@ -121,6 +161,12 @@ export async function POST(request) {
             ]) // Center the circular overlay image and add text below
             .png()
             .toBuffer();
+
+        // Upload image to Twitter as media
+        const mediaId = await uploadToTwitter(compositeImage);
+
+        // Tweet a message with media
+        tweetWithMedia(session.user.username, mediaId)
 
         // Generate a unique filename
         const filename = `${uuidv4()}.png`;
