@@ -60,7 +60,7 @@ async function uploadToTwitter(pngBuffer) {
 // Function to tweet with @username and media
 function tweetWithMedia(username, mediaId) {
     try {
-        twitterClient.v2.tweet(`This guy @${username} has just signed up`, {
+        twitterClient.v2.tweet(` @${username} just applied for a $PAIDay 🫰, get $Paid at paidinc.xyz/apply`, {
             media: {
                 media_ids: [mediaId]
             }

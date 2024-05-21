@@ -312,11 +312,12 @@ const PageContent = () => {
                         <div className={styles.stepThree}>
                             {showAdditionalText ? (
                                 <div className={styles.instructions}>
-                                    <p>To complete your submission form</p>
+                                    <p>To become fully certified $Paid member</p>
                                     <ol>
                                         <li> <span style={{color:"#04fc08"}}>Download</span> the image by clicking the Image</li>
                                         <li><span style={{color:"#04fc08"}}>Click </span> the &quot;Share on Twitter&quot; button to open Twitter box</li>
                                         <li><span style={{color:"#04fc08"}}>Upload</span> the downloaded image to your tweet</li>
+                                        <li><span style={{color:"#04fc08"}}>Join our telegram</span> 👉 https://t.me/thepaidinc 🤑</li>
                                     </ol>
                                 </div>
                             ) : (
@@ -342,10 +343,10 @@ const PageContent = () => {
                     <img  onClick={downloadImage} src={generatedImageSrc} alt="Generated" className={styles.generatedImage} />
                     <div className={styles.centeredButtonContainer}>
                         <TwitterShareButton
-                            url="https://twitter.com/intent/tweet"
-                            title="Check out this image I generated!"
-                            via="yourTwitterHandle"
-                            hashtags={["GeneratedImage", "CoolImage"]}
+                            url=""
+                            title="I just applied for a $PAIDay 🫰"
+                            via=""
+                            hashtags={[""]}
                         >
                             <button className={styles.shareButton}>Share on Twitter</button>
                         </TwitterShareButton>
