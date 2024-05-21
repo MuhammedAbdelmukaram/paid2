@@ -75,7 +75,7 @@
 
 /* Button style three (buttonStyleThree) */
 .buttonStyleThree {
-  font-size: 0.833vw;
+  font-size: 16px;
   padding: 0.5rem 1rem;
   text-decoration: none;
   color: #000;
@@ -87,6 +87,26 @@
   transition: opacity 0.3s; /* Smooth transition for hover effects */
 }
 .buttonStyleThree:hover {
+  opacity: 0.8; /* Slight transparency on hover */
+}
+.buttonsWrapper{
+  display: flex;
+}
+
+
+.buttonStyleFour{
+  font-size: 16px;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  background-color: #2be82b;
+  border: none;
+  border-radius: 0.208vw;
+  cursor: pointer;
+  transition: opacity 0.3s; /* Smooth transition for hover effects */
+}
+.buttonStyleFour:hover {
   opacity: 0.8; /* Slight transparency on hover */
 }
 
@@ -137,6 +157,7 @@
   .nav .links {
     width: 60%;
   }
+
 }
 
 @media screen and (max-width: 1320px) {
@@ -150,6 +171,13 @@
     float: none;
     width: auto;
     justify-content: center;
+  }
+
+  .buttonsWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
   }
 
   .nav .links {
