@@ -44,7 +44,7 @@ const RoadLine = () => {
             weight: "Normal Event",
             location: "Web3",
             highlighted: true,
-            additionalContent: "Establish the legal and corporate framework of PAID Inc. as a foundation for growth and legitimacy."
+            additionalContent: "Establish the legal and corporate framework of PAID as a foundation for growth and legitimacy."
         },
         {
             id: 3,
@@ -55,7 +55,7 @@ const RoadLine = () => {
             additionalContent: "Secure and verify our presence on major platforms to connect with our audience and build community."
         },
         {id: 4, content: "White Paper and Roadmap Reveal", weight: "Minor Event", location: "Web2", additionalContent: "Unveil our strategic plans and operational goals, providing transparency and vision."},
-        {id: 5, content: "Team Introduction", weight: "Minor Event", location: "Web2", additionalContent: "Present our dedicated team, showcasing the expertise behind PAID Inc."},
+        {id: 5, content: "Team Introduction", weight: "Minor Event", location: "Web2", additionalContent: "Present our dedicated team, showcasing the expertise behind PAID"},
         {id: 6, content: "Website Launch", weight: "Minor Event", location: "Web2,", additionalContent: "Celebrate the launch of our central hub for information and interaction with our community."},
         {id: 7, content: "CEX Listings & SHOUT Campaign", weight: "Minor Event", location: "Web2", additionalContent: "Broaden our reach with listings on centralized exchanges and a robust marketing push."},
         {id: 8, content: "Telegram Trading Bots Listings", weight: "Minor Event", location: "Web2",additionalContent: "Announce our listing on premier Telegram trading bots, signaling a bullish endorsement and enhancing our visibility."},

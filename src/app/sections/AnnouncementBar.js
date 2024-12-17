@@ -14,9 +14,7 @@ const AnnouncementBar = () => {
           color: "#fff",
       }}
     >
-      <p style={{ fontSize: 13 }}>Stay in the loop, follow for more  |  X - <a href="https://twitter.com/PaidIncHQ"
-                                                                               target="_blank"
-                                                                               rel="noopener noreferrer" style={{color:"#2be82b"}} >@PaidIncHQ</a></p>
+      <p style={{ fontSize: 13 }}>Stay in the loop</p>
     </div>
   );
 };

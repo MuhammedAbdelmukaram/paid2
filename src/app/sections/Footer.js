@@ -79,7 +79,7 @@ const Footer = () => {
           </div>
         </div>
         <p className={styles.copyRight}>
-          &#xA9; 2024 All Rights Reserved, Paid Inc.
+          &#xA9; 2024 All Rights Reserved, Paid
         </p>
       </div>
   );

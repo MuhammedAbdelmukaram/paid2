@@ -15,7 +15,7 @@ const MemberCards = () => {
                     height={76}
                     priority
                 />
-                <p className={styles.heading}>PAID INC. MEMBER CARDS</p>
+                <p className={styles.heading}>PAID MEMBER CARDS</p>
                 <p className={styles.subHeading}>Members Only Cabal <span className={styles.pressText}>Tap Card For Surprise :)</span></p>
 
             </div>
@@ -23,7 +23,7 @@ const MemberCards = () => {
                 title="Entry Member Card"
                 totalAvailable="?"
                 balance="?"
-                description="Exclusive & Limited Collection of Paid Inc. Cards available through SPL404 Swap.
+                description="Exclusive & Limited Collection of Paid Cards available through SPL404 Swap.
 Swapping into one grants Exclusive access to the PAID Cabal. Making you a $PAID Whale.  "
                 resaleInfo="Higher Tier = Bigger $PAID Token Swap Amount Required"
                 videoSrc="/blackCard.mp4"

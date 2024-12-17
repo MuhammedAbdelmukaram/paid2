@@ -29,23 +29,7 @@ const Header = ({handleImageLoad}) => {
                 <div className={styles.buttonsWrapper} style={{display:"flex"}}>
 
 
-                    <div
-                        style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "1rem", // Adjust the gap between buttons as needed
-                            marginRight: isMobile ? 0 : 20,
-                        }}
-                    >
-                        {/*<Link href="/visit-dapp"><p style={buttonStyleTwo}>Visit dApp</p></Link>*/}
-                        <a
-                            href="https://paidinc.xyz/apply"
-                            rel="noopener noreferrer"
-                            className={styles.buttonStyleFour}
-                        >
-                            Apply
-                        </a>
-                    </div>
+
                     <div
                         style={{
                             display: "flex",
@@ -117,10 +101,7 @@ const Header = ({handleImageLoad}) => {
                         priority
                         handleImageLoad={handleImageLoad}
                     />
-                    <div style={{marginLeft: 8}}>
-                        <p style={{fontSize: 18}}>Paid Inc.</p>
-                        <p style={{fontSize: 10, color: "#2be82b"}}>ON-CHAIN CABAL</p>
-                    </div>
+
                 </div>
                 <ul className={styles.links}>
                     <li className={styles.li}>

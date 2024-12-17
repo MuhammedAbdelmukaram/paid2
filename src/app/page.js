@@ -214,8 +214,8 @@ export default function Home() {
                     <div className={styles.gradientBackground}>
                         {/*<RoadmapNew/>*/}
                         <SeasonTwo />
-                        <Team />
-                        <Advisors />
+                        {/*<Team/>*/}
+                        {/*<Advisors/>*/}
                     </div>
                     <FAQ />
                     <Footer />
