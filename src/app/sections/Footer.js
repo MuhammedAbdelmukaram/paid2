@@ -40,7 +40,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className={styles.linksColumn}>
+            {/*<div className={styles.linksColumn}>
               <p className={styles.footerHeading}>Contact Us</p>
               <p className={styles.footerLink}>contact@paidinc.xyz</p>
               <div className={styles.socialMedia}>
@@ -75,7 +75,7 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </div>*/}
           </div>
         </div>
         <p className={styles.copyRight}>

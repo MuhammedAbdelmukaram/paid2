@@ -26,11 +26,10 @@ const Header = ({handleImageLoad}) => {
     const thirdContent = useMemo(
         () => (
             <>
-                <div className={styles.buttonsWrapper} style={{display:"flex"}}>
+                <div className={styles.buttonsWrapper} style={{display: "flex"}}>
 
 
-
-                    <div
+                    {/*<div
                         style={{
                             display: "flex",
                             alignItems: "center",
@@ -38,7 +37,7 @@ const Header = ({handleImageLoad}) => {
                             marginRight: isMobile ? 0 : 70,
                         }}
                     >
-                        {/*<Link href="/visit-dapp"><p style={buttonStyleTwo}>Visit dApp</p></Link>*/}
+
                         <a
                             href="https://20s-organization-2.gitbook.io/lets-talk-usdpaid-inc./roadmap"
                             target="_blank"
@@ -47,11 +46,11 @@ const Header = ({handleImageLoad}) => {
                         >
                             Whitepaper
                         </a>
-                    </div>
+                    </div>*/}
                 </div>
 
 
-                <div className={styles.buttonStyleWP}>
+                {/*<div className={styles.buttonStyleWP}>
                     <a
                         href='https://t.me/thepaidinc'
                         target='_blank'
@@ -66,23 +65,24 @@ const Header = ({handleImageLoad}) => {
                         />
                     </a>
                 </div>
-                <div className={styles.buttonStyleWP}>
-                    {/* Twitter Icon with external link */}
-                    <a
-                        href="https://twitter.com/PaidIncHQ"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <Image
-                            src="/twitterIcon.png"
-                            alt="Twitter Logo"
-                            width={26}
-                            height={26}
-                            priority
-                            handleImageLoad={handleImageLoad}
-                        />
-                    </a>
-                </div>
+                    <div className={styles.buttonStyleWP}>
+
+            <a
+                href="https://twitter.com/PaidIncHQ"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Image
+                    src="/twitterIcon.png"
+                    alt="Twitter Logo"
+                    width={26}
+                    height={26}
+                    priority
+                    handleImageLoad={handleImageLoad}
+                />
+            </a>
+            </div>
+*/}
             </>
         ),
         [isMobile]
